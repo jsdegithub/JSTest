@@ -185,8 +185,131 @@
             }
         } */
 
-        
 
+        /* var module1 = (function () {
+            var find = function () {
+                console.log(1);
+            }
+            // debugger
+            module2.update();
+            return {
+                find
+            }
+        })()
+
+        var module2 = (function () {
+            var update = function () {
+                console.log(2);
+            }
+            return {
+                update
+            }
+        })() */
+
+
+        /* if(0){
+            var f=function(){
+                console.log(1);
+            }
+        }
+        console.log(f); */
+
+        /* function getCss(element, attr) {
+            if ('getComputedStyle' in window) {
+                getCss = function (element, attr) {
+                    return window.getComputedStyle(element)[attr];
+                }
+            } else {
+                getCss = function (element, attr) {
+                    return element.currentStyle[attr];
+                }
+            }
+            return getCss(element, attr);
+        }
+
+
+        function compose(...funcs) {
+            return function (...args) {
+                if (funcs.length === 0) {
+                    return args;
+                }
+                if (funcs.length === 1) {
+                    return funcs[0](...args);
+                }
+                return funcs.reduce((n, func) => {
+                    return Array.isArray(n) ? func(...n) : func(n);
+                }, args)
+            }
+        } */
+
+
+        /* console.log(a);
+        a = 12; */
+
+        /* var a = 1;
+        var b = 2;
+        console.log('hhh', a + b);
+
+        console.log('hhh'+1+2); */
+
+        // console.log(f);
+        /* (function f() {
+            console.log(1);
+        })(); */
+
+        /*  console.log(f);
+         function f(){
+             console.log(1);
+         }
+  */
+
+
+        /* function f(x) {
+            console.log(x);
+            var x = 20;
+            console.log(x);
+            function x() {
+                console.log(1);
+            }
+            console.log(x);
+        }
+        f(10); */
+
+        /* {
+            console.log(foo);
+            function foo() { };
+            foo = 1;
+            console.log(foo);
+        }
+        console.log(foo);
+ */
+
+        /* {
+            console.log(foo);
+            console.log(window.foo);
+            function foo() {
+                console.log(1);
+            }
+            console.log(window.foo);
+            foo = 1;
+            function foo() {
+                console.log(2);
+            }
+            console.log(foo);
+        }
+        console.log(foo); */
+
+
+        var a = 12;
+        if (true) {
+            console.log(a);
+            a = 13;
+            console.log(a);
+            function a() { };
+            a = 14;
+            console.log(a);
+        }
+        console.log(a);
 
 
     </script>
