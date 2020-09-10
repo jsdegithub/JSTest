@@ -300,7 +300,7 @@
         console.log(foo); */
 
 
-        var a = 12;
+        /* var a = 12;
         if (true) {
             console.log(a);
             a = 13;
@@ -309,7 +309,76 @@
             a = 14;
             console.log(a);
         }
-        console.log(a);
+        console.log(a); */
+
+        /* debugger
+        var x = 1;
+        function f(x, y = function () { x = 2 }) {
+            var x;
+            y();
+            console.log(x);
+        }
+        f(5);
+        console.log(x); */
+
+
+        // debugger
+        /* var x = 1;
+        function f(x, y = 2) {
+            x = 10;
+            console.log(x);
+        }
+        f(5);
+        console.log(x); */
+
+        /* debugger
+        var x = 1;
+        function f(x, y = function () { x = 2 }) {
+            function x() {
+                console.log(1);
+            }
+            y();
+            console.log(x);
+        }
+        f(5);
+        console.log(x); */
+
+
+        /* var z = 2;
+        function f(x, y, z) {
+            z = 3;
+            console.log(arguments[2]);
+        }
+        z = f(1, 2);
+        console.log(z); */
+
+        /* (function f() {
+            console.log(f);  // undefined
+            var f = 1;
+            console.log(f);  // 1
+        })(); */
+
+        /* (function f() {
+            function f(){
+                console.log(1);
+            };
+            console.log(f);  // 1
+        })(); */
+
+        /* function f() {
+            f = 1;
+            console.log(f);
+        }
+        f(); */
+
+
+        var b = 10;
+        (function b() {
+            b = 20;
+            console.log(b);  // f b(){...}
+        })()
+        console.log(b);  // 10
+
 
 
     </script>
