@@ -460,11 +460,95 @@
         obj.__proto__.__proto__.sayName();
         obj.sayHello(); */
 
-        let obj = { a: 1 };
+        /* let obj = { a: 1 };
         obj.__proto__.b = 2;
         for(let key in obj){
             console.log(key);
+        } */
+
+        /* let fn = function () {
+            this.a = 1;
+            let b = 2;
+            c: 3
         }
+        fn();
+        console.log(fn.hasOwnProperty('a'));  // false
+        console.log(fn.hasOwnProperty('b'));  // false
+        console.log(fn.hasOwnProperty('c'));
+        console.log(fn.c);
+        console.log(fn.b); */
+
+
+        /* function Foo(){
+            getName=function(){
+                console.log(1);
+            }
+            return this;
+        }
+        Foo.getName=function(){
+            console.log(2);
+        }
+        Foo.prototype.getName=function(){
+            console.log(3);
+        }
+        var getName=function(){
+            console.log(4);
+        }
+        function getName(){
+            console.log(5);
+        }
+
+        Foo.getName();  // 2
+        getName();  // 4
+        Foo().getName();  // 1
+        getName();  // 1
+        new Foo.getName();  // 2
+        new Foo().getName();  // 3
+        new new Foo().getName();  // 3 */
+
+
+        // call继承
+        /* function Parent() {
+            this.x = 100;
+        }
+        Parent.prototype.getX = function () {
+            return this.x;
+        }
+        function Child() {
+            Parent.call(this);
+            this.y = 200;
+        }
+        Child.prototype.getY = function () {
+            return this.y;
+        } */
+
+
+        /* class Parent {
+            constructor() {
+                this.x = 100;
+            }
+            getX() {
+                return this.x;
+            }
+        }
+        class Child extends Parent {
+            constructor() {
+                super();
+                this.y = 200;
+            }
+            getY() {
+                return this.y;
+            }
+        } */
+
+
+        function Fn() {
+            this.x = 100;
+            var x = 200;
+            console.log(x);
+        }
+        Fn();
+        console.log(x);
 
 
 
