@@ -542,13 +542,116 @@
         } */
 
 
-        function Fn() {
+        /* function Fn() {
             this.x = 100;
             var x = 200;
             console.log(x);
+        } */
+        // Fn();
+        // console.log(x);
+
+        /* var obj = {};
+        Fn.call(obj);
+        console.log(obj); */
+
+        // alert(null == undefined == 0 == '' == false);
+        // alert(null==0)
+        // alert(undefined==0)
+        // alert(null == undefined);  // true
+        // alert(0=='')  // true
+        // alert(0 == false);  // true
+        // alert(1==true);  // true
+
+        /* Fn.call();
+        console.log(window.x); */
+
+
+        /* function Fn() {
+            return 1;
         }
-        Fn();
-        console.log(x);
+        let res = Fn.call();
+        console.log(res);  // 1 */
+
+
+        /* // call源码
+        Function.prototype.call = function (context, ...params) {
+            context == undefined ? context = window : null;
+            let contextType = typeof context;
+            if (!/^(object|function)$/.test(contextType)) {
+                if (/^(symbol|bigint)$/.test(contextType)) {
+                    context = Object(context);
+                }
+                else {
+                    context = new contextType.constructor(context);
+                }
+            }
+            let key = Symbol('key'),
+                result;
+            context[key] = this;
+            result = context[key](...params);
+            delete context[key];
+            return result;
+        }
+        function Fn(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+        let obj = {};
+        Fn.call(obj, 1, 2);
+        console.log(obj); */
+
+
+        /* function slice() {
+            let arr = [];
+            for (let i = 0; i < this.length; i++) {
+                arr.push(this[i]);
+            }
+            return arr;
+        } */
+
+        // let utils = (function () {
+        //     // 方案一
+        //     /* function toArray(...args) {
+        //         return args;
+        //     } */
+        //     // 方案二
+        //     /* function toArray() {
+        //         return [...arguments];
+        //     } */
+        //     // 方案三
+        //     function toArray() {
+        //         return [].slice.call(arguments);
+        //     }
+        //     return {
+        //         toArray
+        //     }
+        // })()
+        // let arr = utils.toArray(1, 2, 3);
+        // console.log(arr);
+
+
+        /* function fn(){
+            [].forEach.call(arguments, item=>{
+                console.log(item);
+            })
+        }
+        fn(1, 2, 3); */
+
+
+        // 深克隆
+        function deepClone(obj) {
+            const constructor = obj.constructor;
+            if (obj === null) return null;
+            if (typeof obj !== 'object') return obj;
+            if (/^(RegExp | Date)$/i.test(constructor.name)) return new constructor(obj);
+            let newObj = new constructor();
+            for (let key in obj) {
+                if (!obj.hasOwnProperty(key)) break;
+                newObj[key] = deepClone(obj[key]);
+            }
+            return newObj;
+        }
+
 
 
 
