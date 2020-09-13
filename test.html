@@ -424,8 +424,48 @@
         } */
 
 
-        console.log(typeof undefined);
-        
+        // console.log(typeof undefined);
+
+
+        /* function Fn() {
+
+        }
+        Fn.prototype.sayName = function () {
+            console.log('name: lmy');
+        }
+        Fn.prototype.sayHello = function () {
+            console.log('Hello');
+        } */
+        /* let newPrototype = Object.create(Fn.prototype);
+        Object.assign(newPrototype, {
+            sayName() {
+                console.log('name: LiMengYing');
+            },
+            sayAge() {
+                console.log('age: 30');
+            }
+        }) */
+        /* let newPrototype = {
+            sayName() {
+                console.log('name: LiMengYing');
+            },
+            sayAge() {
+                console.log('age: 30');
+            }
+        }
+        newPrototype.__proto__ = Fn.prototype;
+        Fn.prototype = newPrototype;
+        let obj = new Fn();
+        obj.sayName();
+        obj.__proto__.__proto__.sayName();
+        obj.sayHello(); */
+
+        let obj = { a: 1 };
+        obj.__proto__.b = 2;
+        for(let key in obj){
+            console.log(key);
+        }
+
 
 
     </script>
