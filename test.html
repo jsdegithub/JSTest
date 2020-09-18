@@ -639,7 +639,7 @@
 
 
         // 深克隆
-        function deepClone(obj) {
+        /* function deepClone(obj) {
             const constructor = obj.constructor;
             if (obj === null) return null;
             if (typeof obj !== 'object') return obj;
@@ -650,7 +650,317 @@
                 newObj[key] = deepClone(obj[key]);
             }
             return newObj;
+        } */
+
+
+        // 数据类型检测
+        /* function toType(obj) {
+            let type = Object.prototype.toString.call(obj);
+            return /^\[object ([a-z]+)\]$/i.exec(type)[1].toLowerCase();
+        } */
+
+        // jQuery的解决方案
+        /* var typeArr = ['Boolean', 'Number', 'String', 'Function', 'Array',
+            'Date', 'RegExp', 'Object', 'Error', 'Symbol'];
+        var class2Type = {};
+        typeArr.forEach(item => {
+            class2Type['[object ' + item + ']'] = item.toLowerCase();
+        })
+        function toType(obj) {
+            if (obj == null) return obj + '';
+            return typeof obj === 'object' || typeof obj === 'function' ?
+                class2Type[Object.prototype.toString.call(obj)] || 'object' :
+                typeof obj;
         }
+
+
+        // 检测是否为类数组
+        function isArrayLike(obj) {
+            var length = !!obj && "length" in obj && obj.length,
+                type = toType(obj);
+
+            if (isFunction(obj) || isWindow(obj)) {
+                return false;
+            }
+
+            return type === "array" || length === 0 ||
+                typeof length === "number" && length > 0 && (length - 1) in obj;
+        }
+
+
+        // 检测是否为空对象
+        function isEmptyObject(obj) {
+            if (!obj || toType(obj) !== 'object')
+                return false;
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key))
+                    return false;
+            }
+            return true;
+        } */
+
+
+
+        /* let obj1 = {
+            x: function () {
+                console.log(1);
+                console.log(2);
+            },
+            y: function () {
+                console.log(1);
+            }
+        }
+
+        let obj2 = {
+            x: function () {
+                console.log(2);
+                console.log(1);
+            },
+            y: function () {
+                console.log(1);
+            }
+
+        }
+        console.log(obj1.x.toString()===obj2.x.toString());  //false
+
+ */
+
+
+
+        /* function isEaqual(val1, val2) {
+            const type1 = val1 === null ? 'null' : typeof val1;
+            const type2 = val2 === null ? 'null' : typeof val2;
+            if (type1 === 'function' && type2 === 'function') {
+                return val1.toString() === val2.toString();
+            }
+            if (type1 === 'object' && type2 === 'object') {
+                const ct1 = val1.constructor;
+                const ct2 = val2.constructor;
+                if (ct1 === RegExp && ct2 === RegExp) {
+                    return ct1.toString() === ct2.toString();
+                }
+                if (ct1 === Date && ct2 === Date) {
+                    return val1.toString() === val2.toString();
+                }
+                const keys1 = Object.keys(val1);
+                const keys2 = Object.keys(val2);
+                if (keys1.length !== keys2.length) return false;
+                for (let i = 0; i < keys1.length; i++) {
+                    let key1 = keys1[i];
+                    let key2 = keys2[i];
+                    if (key1 !== key2) return false;
+                    let flag = isEaqual(val1[key1], val2[key2]);
+                    if (!flag) return false;
+                }
+                return true;
+            }
+            return val1 === val2;
+        } */
+
+
+
+        /*         // instanceof源码
+                function instanceOf(example, Fun) {
+                    let _proto = Object.getPrototypeOf(example);
+                    let _prototype = Fun.prototype;
+                    while (true) {
+                        if (!_proto) return false;
+                        if (_proto === _prototype) return true;
+                        _proto = Object.getPrototypeOf(_proto);
+                    }
+                }
+                // 在浏览器内部调用instanceof时是基于Function.prototype的Symbol.hasinstance实现的
+                Function.prototype[Symbol.hasInstance].call(Array, []);  //true
+                Array[Symbol.hasInstance]([]);  //true
+         */
+
+
+
+        /* function initParams(num) {
+            num = Number(num);
+            return isNaN(num) ? 0 : num;
+        }
+
+        Number.prototype.plus = function (num) {
+            num = initParams(num);
+            return this + num;
+        }
+        Number.prototype.minus = function (num) {
+            num = initParams(num);
+            return this - num;
+        }
+
+        let n = 1;
+        console.log(n.plus(2).minus(1));
+        console.log(n.plus('a'));
+        console.log(n.plus('b').minus(2)); */
+
+
+        /* Number.prototype.plus = function (num) {
+            console.log(this);
+            console.log(typeof this);
+            return this + num;
+        }
+        let n = 1;
+        console.log(n.plus(2));
+        console.log(Number(1).plus(2));
+        // console.log(1.plus(2));
+        console.log('1'.plus(2)); */
+
+
+
+        // 实现queryURLParams
+        // url.queryURLParams('from') => xxx
+        // url.queryURLParams('_HASH') => yyy
+        // 方法一：通过 new URL()
+        /* String.prototype.queryURLParams = function (key) {
+            let obj = {};
+            let {
+                search,
+                hash
+            } = new URL(this);
+            if (hash) {
+                obj['_HASH'] = hash.substring(1);
+            }
+            if (search) {
+                search = search.substring(1).split('&');
+                search.forEach(item => {
+                    let [key, val] = item.split('=');
+                    obj[key] = val;
+                })
+            }
+            return !key ? '' : obj[key];
+        }
+        let url = "http://www.baidu.com?name=js&age=26#alipay";
+        console.log(url.queryURLParams('_HASH'));
+        console.log(url.queryURLParams('name'));
+        console.log(url.queryURLParams('age')); */
+
+        // 方法二：正则表达式
+        /* String.prototype.queryURLParams = function (key) {
+            let obj = {};
+            this.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, val) => {
+                obj[key] = val;
+            });
+            this.replace(/#([^?=&#]+)/g, (_, hash) => {
+                obj['_HASH'] = hash;
+            });
+            return !key ? '' : obj[key];
+        }
+        let url = "http://www.baidu.com?name=js&age=26#alipay";
+        console.log(url.queryURLParams('_HASH'));
+        console.log(url.queryURLParams('name'));
+        console.log(url.queryURLParams('age')); */
+
+
+
+        /* class A {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            z = 1  //给实例设置的私有属性
+            static n = 2;  //类静态属性
+            static setX(n) {  //类静态方法
+                this.n = n;
+            }
+        }
+        let a = new A(1, 2);
+        console.log(a.__proto__.z);  //undefined
+        console.log(A.z);  //undefined
+        console.log(a.z);  //1
+        A.prototype._z = 3;  //类的原型上的属性只能在外部设置
+        console.log(a._z);  //3
+        console.log(a.__proto__._z);  //3
+        A.setX(10);
+        console.log(A.n);  //10 */
+
+
+
+        /* let obj = {
+            2: 3,
+            3: 4,
+            length: 2,
+            push: Array.prototype.push
+        }
+        obj.push(1);
+        obj.push(2);
+        console.log(obj);  //{2:1, 3:2, length:4, push:f} */
+
+
+        // a为何值时以下 if 语句的条件为真？
+        // 注：==比较的时候，如果两边数据类型不一致，默认会进行数据类型转换
+        // 方案一：
+        // 对象转换为数字，会调取valueOf（获取原始值）/toString(如果对象私有属性中有toString，
+        // 则不会再向原型上去查找)
+        /* var a = {
+            i: 0,
+            toString() {
+                return ++this.i;
+            }
+        } */
+        // 方案二：
+        /* var a = [1, 2, 3];
+        a.toString = a.shift;
+        if (a == 1 && a == 2 && a == 3) {
+            console.log('ok');    //ok
+        } */
+        /* // 方案三：数据劫持
+        var i = 0;
+        Object.defineProperty(window, 'a', {
+            get() {
+                return ++i;
+            }
+        })
+        if (a == 1 && a == 2 && a == 3) {
+            console.log('ok');    //ok
+        } */
+
+
+
+        // 实现 toArray方法
+        // 方案一：
+        function toArray(...args) {
+            return args;
+        }
+        // 方案二：
+        function toArray() {
+            return [...arguments]
+        }
+        // 方案三：
+        function toArray() {
+            return Array.from(arguments);
+        }
+        // 方案四：
+        function toArray() {
+            var arr = [];
+            for (var i = 0; i < arguments.length; i++) {
+                arr.push(arguments[i]);
+            }
+            return arr;
+        }
+        // 方案五：
+        // slice方法源码模拟
+        Array.prototype.slice = function () {
+            var arr = [];
+            for (let i = 0; i < this.length; i++) {
+                arr.push(this[i]);
+            }
+            return arr;
+        }
+        function toArray() {
+            return Array.prototype.slice.call(arguments);
+        }
+        // 方案六：
+        function toArray() {
+            var arr = [];
+            [].forEach.call(arguments, item => {
+                arr.push(item);
+            })
+            return arr;
+        }
+
+
 
 
 
