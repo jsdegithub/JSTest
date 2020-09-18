@@ -918,7 +918,7 @@
 
 
 
-        // 实现 toArray方法
+        /* // 实现 toArray方法
         // 方案一：
         function toArray(...args) {
             return args;
@@ -958,10 +958,156 @@
                 arr.push(item);
             })
             return arr;
+        } */
+
+
+        // 内置call方法的实现原理
+        // 'use strict'
+        /*         Function.prototype.call = function (obj, ...args) {
+                    obj = obj == undefined ? window : obj;
+                    let objType = typeof obj;
+                    if (!/^(object|function)$/i.test(objType)) {
+                        obj = Object(obj);
+                    }
+                    let key = Symbol('key');
+                    obj[key] = this;
+                    let res = obj[key](...args);
+                    delete obj[key];
+                    return res;
+                }
+                function fn(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    return this.x + this.y;
+                }
+                let obj = {
+                    x: 1,
+                    y: 2
+                }
+                let res = fn.call(obj, 3, 4);
+                console.log(obj);
+                console.log(res); */
+
+        /* function fn(...args) {
+            console.log(...args);  //1 2 3
+            console.log(args);  //[1, 2, 3]
+        }
+        fn(1, 2, 3);
+ */
+
+
+
+        /* function fn(...params) {
+            console.log(...params);
+        }
+        let obj = {};
+        fn.apply(obj, [1, 2, 3]);  //1 2 3
+
+        function fn(...params) {
+            console.log(params);
+        }
+        let obj = {};
+        fn.apply(obj, [1, 2, 3]);  //[1, 2, 3] */
+
+
+
+        /* var name = 'js';
+        function A(x, y) {
+            var res = x + y;
+            console.log(res, this.name);
+        }
+        function B(x, y) {
+            var res = x - y;
+            console.log(res, this.name);
+        }
+        B.call(A, 40, 30);
+        B.call.call.call(A, 20, 10);
+        Function.prototype.call(A, 60, 50);
+        Function.prototype.call.call.call(A, 80, 70); */
+
+
+
+        /* // bind源码
+        Function.prototype.bind = function (context, ...params) {
+            let _this = this;
+            //返回的内层函数也可能需要接收参数，例如：事件绑定函数需要接收事件e
+            // =>
+            // document.body.onclick=function(e){
+            //     fn.call(obj, 1, 2, e);
+            // }
+            // =>
+            // document.body.onclick = fn.bind(obj, 1, 2);
+            // =>
+            // 所以，返回的函数需要加上 ...args
+            // =>
+            return function (...args) {
+                _this.call(context, ...params.concat(args));
+            }
         }
 
+        let obj = {};
+        function fn(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+        let f = fn.bind(obj, 1, 2);
+        f();
+        console.log(obj);  //{x: 1, y: 2} */
 
 
+
+        // 函数的防抖
+        /* function debounce(func, wait = 500, immediate = false) {
+            let timer,
+                now;
+            return function (...args) {
+                clearTimeout(timer);
+                now = immediate && !timer;
+                now ? func.call(this, ...args) : null;
+                timer = setTimeout(_ => {
+                    timer = null;
+                    !immediate ? func.call(this, ...args) : null;
+                }, wait);
+            }
+        }
+        function func(ev) {
+            console.log(ev);
+            console.log('ok');
+        }
+        let btn = document.getElementsByTagName('button')[0];
+        // btn.onclick = debounce(func);
+        btn.onclick = debounce(func, 500, true); */
+
+
+        // 函数的节流
+        function throttle(func, delay = 1000) {
+            // let timer = null;
+            let previous = 0;
+            return function (...params) {
+                let now = new Date(),
+                    remainingTime = delay - (now - previous);
+                if (remainingTime <= 0) {
+                    // clearTimeout(timer);
+                    // timer = null;
+                    previous = now;
+                    func.call(this, ...params);
+                }
+                /* else if (!timer) {
+                    timer = setTimeout(_ => {
+                        clearTimeout(timer);
+                        timer = null;
+                        previous = new Date();
+                        func.call(this, ...params);
+                    }, remainingTime);
+                } */
+            };
+        }
+        function func(ev) {
+            console.log(ev);
+            console.log('ok');
+        }
+        let btn = document.getElementsByTagName('button')[0];
+        btn.onclick = throttle(func);
 
 
 
