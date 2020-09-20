@@ -1088,7 +1088,7 @@
 
 
         // 函数的节流
-        function throttle(func, delay = 1000) {
+        /* function throttle(func, delay = 1000) {
             // let timer = null;
             let previous = 0;
             return function (...params) {
@@ -1100,14 +1100,14 @@
                     previous = now;
                     func.call(this, ...params);
                 }
-                /* else if (!timer) {
-                    timer = setTimeout(_ => {
-                        clearTimeout(timer);
-                        timer = null;
-                        previous = new Date();
-                        func.call(this, ...params);
-                    }, remainingTime);
-                } */
+                // else if (!timer) {
+                //     timer = setTimeout(_ => {
+                //         clearTimeout(timer);
+                //         timer = null;
+                //         previous = new Date();
+                //         func.call(this, ...params);
+                //     }, remainingTime);
+                // }
             };
         }
         function func(ev) {
@@ -1115,7 +1115,17 @@
             console.log('ok');
         }
         let btn = document.getElementsByTagName('button')[0];
-        btn.onclick = throttle(func);
+        btn.onclick = throttle(func); */
+
+
+
+        new Promise((resolve, reject) => {
+            reject(1);
+        }).then(result => {
+            return Promise.reject(1);
+        }).catch(_ => {
+            console.log(1);
+        })
 
 
 

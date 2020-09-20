@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Promise实现原理</title>
+    </head>
+    <body>
+        <script>
+            class MyPromise {
+                constructor(executor) {
+                    this.status = 'pending';
+                    this.value = undefined;
+                    this.resolveArr = [];
+                    this.rejectArr = [];
+                    let change = (status, value) => {
+                        if (this.status !== 'pending') {
+                            return;
+                        }
+                        this.status = status;
+                        this.value = value;
+                        let fnArr = this.status === 'resolved'
+                            ? this.resolveArr
+                            : this.rejectArr;
+                        fnArr.forEach(item => {
+                            if (typeof item !== 'function') 
+                                return;
+                            item(this.value);
+                        });
+                    };
+                    let resolve = result => {
+                        if (this.resolveArr.length > 0) {
+                            change('resolved', result);
+                            return;
+                        }
+                        let delayTimer = setTimeout(_ => {
+                            change('resolved', result);
+                            clearTimeout(delayTimer);
+                        }, 0);
+                    };
+                    let reject = reason => {
+                        if (this.rejectArr.length > 0) {
+                            change('rejected', result);
+                            return;
+                        }
+                        let delayTimer = setTimeout(_ => {
+                            change('rejected', result);
+                            clearTimeout(delayTimer);
+                        }, 0);
+                    };
+                    try {
+                        executor(resolve, reject);
+                    } catch (error) {
+                        reject(error.message);
+                    }
+
+                }
+                then(resolveFn, rejectFn) {
+                    
+                    if (typeof resolveFn !== 'function') {
+                        resolveFn = result => {
+                            return result;
+                        };
+                    }
+
+                    if (typeof rejectFn !== 'function') {
+                        rejectFn = reason => {
+                            return MyPromise.reject(reason);
+                        };
+                    }
+
+                    return new MyPromise((resolve, reject) => {
+                        this
+                            .resolveArr
+                            .push(result => {
+                                try {
+                                    let x = resolveFn(result);
+                                    if (x instanceof MyPromise) {
+                                        x.then(resolve, reject);
+                                        return;
+                                    }
+                                    resolve(x);
+                                } catch (error) {
+                                    reject(error.message);
+                                }
+                            });
+                        this
+                            .rejectArr
+                            .push(reason => {
+                                try {
+                                    let x = rejectFn(reason);
+                                    if (x instanceof MyPromise) {
+                                        x.then(resolve, reject);
+                                        return;
+                                    }
+                                    resolve(x);
+                                } catch (error) {
+                                    reject(error.message);
+                                }
+                            });
+                    });
+                } 
+
+                catch (rejectFn) {
+                    return this.then(null, rejectFn);
+                }
+
+                static resolve(result) {
+                    return new MyPromise(resolve => {
+                        resolve(result);
+                    });
+                }
+
+                static reject(reason) {
+                    return new MyPromise((_, reject) => {
+                        reject(reason);
+                    });
+                }
+
+                static all(arr) {
+                    return new MyPromise((resolve, reject) => {
+                        let index = 0,
+                            results = [];
+                        for (let i = 0; i < arr.length; i++) {
+                            let item = arr[i];
+                            if (!(item instanceof MyPromise)) 
+                                continue;
+                            item
+                                .then(result => {
+                                    index++;
+                                    results[i] = result;
+                                    if (index === arr.length) {
+                                        resolve(results);
+                                    }
+                                })
+                                .catch(reason => {
+                                    // 只要有一个失败，整体就是失败
+                                    reject(reason);
+                                });
+                        }
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>

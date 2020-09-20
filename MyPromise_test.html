@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        (function () {
+            function MyPromise(executor) {
+                if (typeof executor !== 'function') {
+                    throw new TypeError('MyPromise resolver' + executor + 'is not a function');
+                }
+                this.status = 'pending';
+                this.value = null;
+                this.resolveFn = function () { };
+                this.rejectFn = function () { };
+                var _this = this;
+
+                function resolve(result) {
+                    change('fullfilled', result);
+                }
+                function reject(reason) {
+                    change('rejected', reason);
+                }
+                function change(status, value) {
+                    if (_this.status !== 'pending') return;
+                    _this.status = status;
+                    _this.value = value;
+                    var delayTimer = setTimeout(function () {
+                        clearTimeout(delayTimer);
+                        delayTimer = null;
+                        status === 'fullfilled' ?
+                            _this.resolveFn(value) :
+                            _this.rejectFn(value);
+                    }, 0);
+                }
+                try {
+                    executor(resolve, reject);
+                } catch (error) {
+                    change('rejected', error.message);
+                }
+            }
+
+            MyPromise.prototype.then = function (resolveFn, rejectFn) {
+                if (typeof resolveFn !== 'function') {
+                    resolveFn = function (result) {
+                        return MyPromise.resolve(result);
+                    }
+                }
+                if (typeof rejectFn !== 'function') {
+                    resolveFn = function (reason) {
+                        return MyPromise.reject(reason);
+                    }
+                }
+                var _this = this;
+                return new MyPromise(function (resolve, reject) {
+                    _this.resolveFn = function (result) {
+                        try {
+                            var x = resolveFn(result);
+                            x instanceof MyPromise ?
+                                x.then(resolve, reject) :
+                                //若 x状态为成功就调用 新 MyPromise 实例的 resolve方法
+                                // 将新 Promise实例的状态改为成功；
+                                //若 x状态为失败就调用 新 MyPromise 实例的 reject方法
+                                // 将新 Promise实例的状态改为失败；
+                                resolve(x);
+                        } catch (error) {
+                            reject(error.message);
+                        }
+                    }
+                    _this.rejectFn = function (reason) {
+                        try {
+                            var x = rejectFn(reason);
+                            x instanceof MyPromise ?
+                                x.then(resolve, reject) :
+                                resolve(x);
+                        } catch (error) {
+                            reject(error.message);
+                        }
+                    }
+                })
+            }
+
+            MyPromise.prototype.catch = function (rejectFn) {
+                return this.then(_, rejectFn);
+            }
+
+            MyPromise.resolve = function (result) {
+                return new MyPromise(function (resolve) {
+                    resolve(result);
+                })
+            }
+
+            MyPromise.reject = function (reason) {
+                return new MyPromise(function (_, reject) {
+                    reject(reason);
+                })
+            }
+
+            MyPromise.all = function (arr) {
+                return new MyPromise(function (resolve, reject) {
+                    var count = 0,
+                        values = [];
+                    for (var i = 0; i < arr.length; i++) {
+                        (function (i) {
+                            var item = arr[i];
+                            !(item instanceof MyPromise) ? item = new MyPromise.resolve(item) : null;
+                            item.then(function (result) {
+                                count++;
+                                values[i] = result;
+                                if (count >= arr.length) {
+                                    resolve(values);
+                                }
+                            }).catch(function (reason) {
+                                reject(reason);
+                            })
+                        })(i);
+                    }
+                })
+            }
+            window.MyPromise = MyPromise;
+        })()
+
+    </script>
+
+
+</body>
+
+</html>

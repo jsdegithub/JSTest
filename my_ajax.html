@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            (function () {
+
+                class MyAjax {
+                    constructor(options) {
+                        this.options = options;
+                        return this.init();
+                    }
+
+                    init() {
+
+                        let {
+                            url,
+                            baseURL,
+                            method,
+                            headers,
+                            cache,
+                            params,
+                            data,
+                            timeout,
+                            withCredentials,
+                            responseType,
+                            transformRequest,
+                            transformResponse
+                        } = this.options;
+
+                        let GET_REG = /^(get|delete|head|options)$/;
+
+                        url = url + baseURL;
+
+                        if (GET_REG.test(method)) {
+                            if (params !== null) {
+                                url += `${_ajax.ask(url)}${_ajax.paramsSerializer(url)}`;
+                            }
+                            if (!cache) {
+                                url += `${_ajax.ask(url)}_=${Math.random()}`;
+                            }
+                        }
+
+                        if (!GET_REG.test(method)) {
+                            if (typeof transformRequest === 'function') {
+                                data = transformRequest(data);
+                            }
+                        }
+
+                        return new Promise((resolve, reject) => {
+                            let xhr = new XMLHttpRequest();
+                            xhr.open(method, url);
+                            xhr.timeout = timeout;
+                            xhr.withCredentials = withCredentials;
+                            if (headers !== null && typeof headers === 'object') {
+                                for (let key in headers) {
+                                    if (!headers.hasOwnProperty(key)) 
+                                        break;
+                                    xhr.setRequestHeader(key, headers[key]);
+                                }
+                            }
+                            xhr.onreadystatechange = () => {
+                                let status = xhr.status,
+                                    statusText = xhr.statusText,
+                                    state = xhr.readyState,
+                                    result = null;
+                                if (/^2\d{2}$/.test(status)) {
+                                    if (state === 4) {
+                                        result = xhr.response;
+                                        responseType === 'json'
+                                            ? result = JSON.parse(result)
+                                            : null;
+                                        let responseHeaders = {},
+                                            responseHeadersText = xhr.getAllResponseHeaders();
+                                        responseHeadersText = responseHeadersText.split(/\n+/g);
+                                        responseHeadersText.forEach(item => {
+                                            let [key, value] = item.split(': ');
+                                            if (key.length === 0) 
+                                                return;
+                                            responseHeaders[key] = value;
+                                        });
+                                        resolve({
+                                            config: this.options,
+                                            request: xhr,
+                                            status,
+                                            statusText,
+                                            data: result,
+                                            headers: responseHeaders
+                                        });
+                                    }
+                                    return;
+                                }
+
+                                reject({config: this.options, request: xhr, status, statusText});
+
+                            };
+                            xhr.send(data);
+                        }).then(result => {
+                            if (typeof transformResponse === 'function') {
+                                result = transformResponse(result);
+                            }
+                            return result;
+                        });
+                    }
+                }
+
+                let _ajax = {};
+                _ajax.defaults = {
+                    url: '',
+                    baseURL: '',
+                    method: 'get',
+                    headers: {},
+                    cache: true,
+                    params: null,
+                    data: null,
+                    timeout: 10000,
+                    withCredentials: false,
+                    responseType: 'json',
+                    transformRequest: null,
+                    transformResponse: null
+                };
+
+                let init = function (options = {}) {
+                    _ajax.defaults.headers = Object.assign(_ajax.defaults.headers, options.headers);
+                    delete options.headers;
+                    return Object.assign(_ajax.defaults, options);
+                }
+
+                _ajax.all = function (requestArr) {
+                    return Promise.all(requestArr);
+                };
+
+                ['get', 'delete', 'head', 'options'].forEach(item => {
+                    _ajax[item] = function (url, options = {}) {
+                        options.url = url;
+                        options.method = item;
+                        return new MyAjax(init(options));
+                    }
+                });
+
+                ['post', 'put'].forEach(item => {
+                    _ajax[item] = function (url, data, options = {}) {
+                        options.url = url;
+                        options.data = data;
+                        options.method = item;
+                        return new MyAjax(init(options));
+                    };
+                });
+
+                _ajax.paramsSerializer = function (obj) {
+                    let str = ``;
+                    for (let key in obj) {
+                        if (!obj.hasOwnProperty(key)) 
+                            break;
+                        str += `&${key}=${obj[key]}`;
+                    }
+                    str = str.substring(1);
+                    return str;
+                };
+
+                _ajax.ask = function (url) {
+                    return url.indexOf("?") < 0
+                        ? "?"
+                        : "&";
+                };
+
+                window._ajax = _ajax;
+            })()
+        </script>
+
+        <script>
+
+            _ajax.defaults.baseURL = '';
+            _ajax.defaults.headers = {
+                'Content-Type': 'application/x-www-form-urlencode'
+            };
+            _ajax.defaults.transformResponse = function (result) {
+                return result.data;
+            };
+            _ajax
+                .get('./data_ajax.json', {
+                    cache: false,
+                    params: {
+                        lx: 0,
+                        name: "jinshuo"
+                    },
+                    headers: {
+                        xxx: "xxx"
+                    }
+                })
+                .then(result => {
+                    console.log(result);
+                });
+        </script>
+    </body>
+</html>
