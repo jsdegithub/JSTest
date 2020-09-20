@@ -1062,6 +1062,14 @@
                 now;
             return function (...args) {
                 clearTimeout(timer);
+                // 此句对于 immediate的两种情况都必不可少
+                // 当 immediate为 true时，若不设置 clearTimeout(timer)，
+                // 若连续点击按钮，那么 500ms后的点击动作每次点击都会触发
+                // func.call(this, ...args)执行
+                // 这是因为，在 500ms前设置的定时器生效，使得 timer=null,
+                // 此时再点击 => 触发点击事件的绑定函数 =>
+                // => 执行 now = immediate && !timer;语句 => now就会变为真
+                // func.call(this, ...args)就会执行
                 now = immediate && !timer;
                 now ? func.call(this, ...args) : null;
                 timer = setTimeout(_ => {
