@@ -1119,13 +1119,32 @@
 
 
 
-        new Promise((resolve, reject) => {
+        /* new Promise((resolve, reject) => {
             reject(1);
         }).then(result => {
             return Promise.reject(1);
         }).catch(_ => {
             console.log(1);
-        })
+        }) */
+
+
+        /* let validator = {
+            set: function (obj, prop, value) {
+                obj[prop] = value;
+                // 表示成功
+                return true;
+            }
+        };
+
+        let js = { name: 'jinshuo', age: 26 };
+        let person = new Proxy(js, validator);
+        js.age = 25;
+        console.log(person.age);
+        person.age = 0;
+        console.log(js.age); */
+
+
+        
 
 
 
