@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyAxios</title>
+</head>
+
+<body>
+
+    <script>
+
+        (function () {
+
+            function axios(config = {}) {
+                return new init(config);
+            }
+
+            axios.prototype = {
+                version: '0.1.1',
+                constructor: axios,
+                send() {
+                    var {
+                        method,
+                        timeout,
+                        withCredentials,
+                        headers,
+                        validateStatus,
+                        resInterceptor
+                    } = this.config;
+                    return new Promise((resolve, reject) => {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open(method, this.initURL());
+                        xhr.timeout = timeout;
+                        xhr.withCredentials = withCredentials;
+                        Object.keys(headers).forEach(key => {
+                            xhr.setRequestHeader(key, headers[key]);
+                        });
+                        xhr.onreadystatechange = () => {
+                            var status = xhr.status;
+                            var state = xhr.readyState;
+                            if (!validateStatus(status)) {
+                                reject(this.initResult(false, xhr));
+                                return;
+                            }
+                            if (state === 4) {
+                                resolve(this.initResult(true, xhr));
+                            }
+                        };
+                        xhr.onerror = err => {
+                            reject({
+                                message: err.message
+                            })
+                        };
+                        xhr.send(this.initData());
+                    }).then(...resInterceptor);
+                },
+
+                initURL() {
+                    var {
+                        url,
+                        baseURL,
+                        params,
+                        cache
+                    } = this.config;
+                    url = baseURL + url;
+                    params = axios.paramsSerializer(params);
+                    if (params) {
+                        url += `${url.include('?') ? '&' : '?'}${params}`;
+                    }
+                    if (!cache) {
+                        url += `${url.include('?') ? '&' : '?'}_=${+new Date()}`;
+                    }
+                    return url;
+                },
+
+                initData() {
+                    var {
+                        method,
+                        data,
+                        transformRequest
+                    } = this.config;
+                    if (this.GET_REG.test(method)) return null;
+                    return transformRequest(data);
+                },
+
+                getHeaders(xhr) {
+                    var headersText = xhr.getAllResponseHeaders();
+                    var obj = {};
+                    headersText = headersText.split(/\n+/g);
+                    headersText.forEach(item => {
+                        if (!item) return;
+                        var [key, value] = item.split(': ');
+                        obj[key] = value;
+                    });
+                    return obj;
+                },
+
+                initResult(flag, xhr) {
+                    var { responseType } = this.config;
+                    var response = {
+                        data: {},
+                        request: xhr,
+                        status: xhr.status,
+                        statusText: xhr.statusText,
+                        headers: this.getHeaders(xhr)
+                    };
+                    if (flag) {
+                        var res = xhr.responseText;
+                        switch (responseType.toLowerCase()) {
+                            case 'json':
+                                res = JSON.parse(res);
+                                break;
+                            case 'document':
+                                res = xhr.responseXML;
+                                break;
+                            case 'stream':
+                                res = xhr.response;
+                                break;
+                        }
+                        response.data = res;
+                        return response;
+                    }
+                    return {
+                        response,
+                        message: xhr.statusText
+                    };
+                }
+            };
+
+            function init(config) {
+                defaults = defaults.reqInterceptor[0](defaults);
+                Object.keys(config).forEach(key => {
+                    axios.defaults[key] = config[key];
+                });
+                this.config = axios.defaults;
+                this.GET_REG = /^(GET|HEAD|DELETE|OPTIONS)$/i;
+                return this.send();
+            };
+
+            init.prototype = axios.prototype;
+
+            var defaults = {
+                url: '',
+                baseURL: '',
+                method: 'get',
+                params: {},
+                data: {},
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                responseType: 'json',
+                withCredentials: false,
+                cache: true,
+                timeout: 0,
+                transformRequest: data => JSON.stringify(data),
+                validateStatus: status => status >= 200 && status < 300,
+                reqInterceptor: [function (config) {
+                    return config;
+                }],
+                resInterceptor: [
+                    function (res) {
+                        return Promise.resolve(res);
+                    },
+                    function (res) {
+                        return Promise.reject(res);    //???????为什么要将res封装进promise?
+                    }
+                ]
+            };
+
+            var defaultsType = {
+                url: 'string',
+                baseURL: 'string',
+                method: 'string',
+                params: 'object',
+                data: 'object',
+                headers: 'object',
+                responseType: 'string',
+                withCredentials: 'boolean',
+                cache: 'boolean',
+                timeout: 'number',
+                transformRequest: 'function',
+                validateStatus: 'function'
+            };
+
+            axios.defaults = new Proxy(defaults, {
+                set(obj, prop, value) {
+                    if (prop === 'reqInterceptor' || prop === 'resInterceptor') {
+                        return;
+                    }
+                    var defaultType = defaultsType[prop];
+                    var valueType = value === null ? null : typeof value;
+                    if (defaultType !== valueType) {
+                        throw new TypeError(`param TypeError, ${prop} must be a ${defaultType}`);
+                    }
+                    if (prop = 'headers') {
+                        value = Object.assign(defaults.headers, value);
+                    }
+                    obj[prop] = value;
+                }
+            });
+
+            axios.interceptors = {
+                setReqInterceptor(reqInterceptor) {
+                    if (!reqInterceptor) return;
+                    if (typeof reqInterceptor !== 'function') {
+                        throw new TypeError(`function setReqInterceptor's param must be a function`);
+                    }
+                    defaults.reqInterceptor = [reqInterceptor];
+                },
+                setResInterceptor(resolvedInterceptor, rejectedInterceptor) {
+                    if (resolvedInterceptor) {
+                        if (typeof resolvedInterceptor !== 'function') {
+                            throw new TypeError(`function setResInterceptor's param must be a function`);
+                        }
+                        defaults.resInterceptor[0] = [resolvedInterceptor];
+                    }
+                    if (rejectedInterceptor) {
+                        if (typeof rejectedInterceptor !== 'function') {
+                            throw new TypeError(`function setResInterceptor's param must be a function`);
+                        }
+                        defaults.resInterceptor[1] = [rejectedInterceptor];
+                    }
+                }
+            };
+
+            // []前的语句要加分号
+            ['get', 'head', 'delete', 'options'].forEach(item => {
+                axios[item] = function (url, config = {}) {
+                    config = {
+                        url,
+                        method: item,
+                        ...config
+                    };
+                    return axios(config);
+                };
+            });
+
+            ['post', 'put'].forEach(item => {
+                axios[item] = function (url, data = {}, config = {}) {
+                    config = {
+                        url,
+                        data,
+                        method: item,
+                        ...config
+                    };
+                    return axios(config);
+                };
+            });
+
+            axios['all'] = function (arr = []) {
+                return Promise.all(arr);          //????????????
+            };
+
+            axios['paramsSerializer'] = function (obj) {
+                if (Object.keys(obj).length === 0) {
+                    return '';
+                }
+                var str = '';
+                Object.keys(obj).forEach(key => {
+                    str += `&${key}=${obj[key]}`;
+                });
+                return str.substring(1);
+            };
+
+            typeof window !== 'undefined' ? window.axios = axios : null;
+            typeof module !== 'undefined' && module.exports !== 'undefined' ?
+                module.exports = axios :
+                null;
+
+        })();
+
+    </script>
+
+
+    <script>
+
+        axios
+            .get('./data_ajax.json')
+            .then(result => {
+                console.log(result);
+            });
+
+    </script>
+
+</body>
+
+</html>

@@ -15,7 +15,7 @@
         (function () {
             function MyPromise(executor) {
                 if (typeof executor !== 'function') {
-                    throw new TypeError('MyPromise resolver' + executor + 'is not a function');
+                    throw new TypeError('MyPromise executor ' + executor + ' is not a function');
                 }
                 this.status = 'pending';
                 this.value = null;
@@ -55,7 +55,7 @@
                     }
                 }
                 if (typeof rejectFn !== 'function') {
-                    resolveFn = function (reason) {
+                    rejectFn = function (reason) {
                         return MyPromise.reject(reason);
                     }
                 }
@@ -70,7 +70,9 @@
                                 // 将新 Promise实例的状态改为成功；
                                 //若 x状态为失败就调用 新 MyPromise 实例的 reject方法
                                 // 将新 Promise实例的状态改为失败；
-                                resolve(x);
+                                resolve(x);  //返回的x是值时，promise的value才有值
+                            //返回的x是promise实例时，63行返回的 MyPromisevalue
+                            //就不会再有value值，因为return的是promise实例，不是一个值
                         } catch (error) {
                             reject(error.message);
                         }
@@ -89,7 +91,7 @@
             }
 
             MyPromise.prototype.catch = function (rejectFn) {
-                return this.then(_, rejectFn);
+                return this.then(null, rejectFn);
             }
 
             MyPromise.resolve = function (result) {
@@ -127,6 +129,19 @@
             }
             window.MyPromise = MyPromise;
         })()
+
+    </script>
+
+
+    <script>
+
+        new MyPromise((resolve, reject) => {
+            reject(1);
+        }).then(result => {
+            console.log(result);
+        }).catch(reason => {
+            console.log(reason);
+        })
 
     </script>
 

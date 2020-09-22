@@ -90,7 +90,7 @@
                     return transformRequest(data);
                 },
 
-                getHeaders() {
+                getHeaders(xhr) {
                     var headersText = xhr.getAllResponseHeaders();
                     var obj = {};
                     headersText = headersText.split(/\n+/g);
@@ -223,36 +223,36 @@
                         defaults.resInterceptor[1] = [error];
                     }
                 },
-            }
+            };
 
-            ['get', 'head', 'delete', 'options'].forEach(item => {
-                axios[item] = function (url, config = {}) {
+            ['get', 'head', 'delete', 'options'].forEach(name => {
+                axios[name] = function (url, config = {}) {
                     config = {
                         url,
-                        method: item,
+                        method: name,
                         ...config
                     };
                     return axios(config);
-                }
+                };
             });
 
-            ['post', 'put'].forEach(item => {
-                axios[item] = function (url, data = {}, config = {}) {
+            ['post', 'put'].forEach(name => {
+                axios[name] = function (url, data = {}, config = {}) {
                     config = {
                         url,
-                        method: item,
+                        method: name,
                         data,
                         ...config
                     };
                     return axios(config);
-                }
+                };
             });
 
-            axios.all = function (arr = []) {
+            axios['all'] = function (arr = []) {
                 return Promise.all(arr);
             };
 
-            axios.paramsSerializer = function (obj) {
+            axios['paramsSerializer'] = function (obj) {
                 var str = '';
                 Object.keys(obj).forEach(key => {
                     str += `&${key}=${obj[key]}`;
@@ -264,7 +264,18 @@
             typeof module !== 'undefined' && typeof module.exports !== 'undefined' ?
                 module.exports = axios :
                 null;
-        })()
+        })();
+
+    </script>
+
+
+    <script>
+
+        axios
+            .get('./data_ajax.json')
+            .then(result => {
+                console.log(result);
+            });
 
     </script>
 

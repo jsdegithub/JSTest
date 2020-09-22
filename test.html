@@ -1144,7 +1144,46 @@
         console.log(js.age); */
 
 
-        
+        /* new Promise((resolve, reject) => {
+            reject(1);
+        }).then(result => {
+            console.log(result);
+        }).catch(reason => {
+            console.log(reason);  //1
+        }) */
+
+
+        /* function A(f) {
+            return function () {
+                window.a = function () {
+                    window.b = f();
+                }
+            }
+        }
+        f = function () {
+            return 1;
+        }
+        var res = A(f);
+        res();
+        a();
+        console.log(b); */
+
+        /* var name = 'jinshuo';
+        var str = name.slice(1);
+        console.log(str);
+        console.log(name);
+
+        var arr = [1, 2, 3];
+        console.log(arr.splice(1));  //splice不能对字符串使用 */
+
+
+        /* var { name, age } = { name: 'jinshuo', age: 25 };
+        console.log(name, age); */
+
+
+        console.log(
+            Object.keys({}).length
+        );
 
 
 
