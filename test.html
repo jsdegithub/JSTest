@@ -1181,9 +1181,31 @@
         console.log(name, age); */
 
 
-        console.log(
+        /* console.log(
             Object.keys({}).length
-        );
+        ); */
+
+
+        // var { name: n } = { name: 'jinshuo' };
+        // var { name } = { name: 'jinshuo' };
+        // console.log(name);
+        // console.log(n);
+
+
+        /* var str1 = new String('jinshuo');
+        var str2 = 'jinshuo'; */
+
+        var a = {
+            val: 0,
+            toString() {
+                return ++this.val;
+            }
+        }
+        if (a == 1 && a == 2 & a == 3) {
+            console.log('ok');
+        }
+
+
 
 
 
