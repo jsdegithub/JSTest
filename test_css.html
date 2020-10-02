@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import './reset.css';
+        .outer{
+            box-sizing: border-box;
+        }
+        .container{
+            width: 200px;
+            height: 100px;
+            border: 1px blueviolet dotted;
+        }
+        .container::before{
+            content: ' ';
+            display: inline-block;
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+        }
+        .container::after{
+            content: ' ';
+            display: inline-block;
+            border: 1px solid #FF6600;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="container"></div>
+    </div>
+
+</body>
+</html>
