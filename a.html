@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="banner" id="banner">
+            <a href="">
+                <div class="banner-slide slide1">111</div>
+            </a>
+            <a href="">
+                <div class="banner-slide slide2">222</div>
+            </a>
+            <a href="">
+                <div class="banner-slide slide3">333</div>
+            </a>
+            <a href="">
+                <div class="banner-slide slide4">444</div>
+            </a>
+        </div>
+    </body>
+</html>
+<script>
+    var divs = document.getElementsByClassName("banner-slide");
+    function addHandler(element, type, handler) {
+        //非IE浏览器
+        if (element.addEventListener) {
+            element.addEventListener(type, handler, true);
+            //IE浏览器支持DOM2级
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + type, handler);
+            //IE浏览器不支持DOM2级
+        } else {
+            element["on" + type] = handler;
+        }
+    }
+    addHandler(divs[0], "click", function () {
+        alert("ok");
+    });
+</script>

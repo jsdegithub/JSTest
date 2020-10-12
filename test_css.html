@@ -1,39 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        @import './reset.css';
-        .outer{
-            box-sizing: border-box;
-        }
-        .container{
-            width: 200px;
-            height: 100px;
-            border: 1px blueviolet dotted;
-        }
-        .container::before{
-            content: ' ';
-            display: inline-block;
-            border: 1px solid red;
-            width: 100px;
-            height: 100px;
-        }
-        .container::after{
-            content: ' ';
-            display: inline-block;
-            border: 1px solid #FF6600;
-            width: 100px;
-            height: 100px;
-        }
-    </style>
-</head>
-<body>
-    <div class="outer">
-        <div class="container"></div>
-    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            @import "./reset.css";
+            /* .outer {
+                box-sizing: border-box;
+            }
+            .container {
+                width: 200px;
+                height: 100px;
+                border: 1px blueviolet dotted;
+            }
+            .container::before {
+                content: " ";
+                display: inline-block;
+                border: 1px solid red;
+                width: 100px;
+                height: 100px;
+            }
+            .container::after {
+                content: " ";
+                display: inline-block;
+                border: 1px solid #ff6600;
+                width: 100px;
+                height: 100px;
+            }
+            .test {
+                background-color: cadetblue;
+                padding: 20px;
+                width: 200px;
+                height: 200px;
+                border: 10px solid rgb(216, 177, 126);
+            }
+            .me {
+                background: url("./imgs/timg.jpg") no-repeat;
+                background-size: contain;
+                padding: 20px;
+                width: 720px;
+                height: 1079px;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                font-size: 100px;
+                font-weight: bolder;
+                text-align: center;
+                font-family: 神韵苏行体, 圆润露锋芒, 瘦默陌硬笔手写体, 飘逸体,
+                    山魂田格, serif;
+            } */
+            /* .wrapper p:nth-child(2n) {
+                background-color: green;
+            } */
+            /* .wrapper p:only-of-type {
+                background-color: green;
+            }
+            p:only-of-type {
+                background-color: red;
+            } */
+            /* .wrapper:nth-child(2n) p {
+                background-color: green;
+            } */
+            /* .wrapper p:nth-of-type(2n) {
+                background-color: green;
+            } */
+            /*  p::selection {
+                color: cornflowerblue;
+            }
+            p{
+                height: 50px;
+                line-height: 50px;
+            }
+            .outer {
+                width: 300px;
+                height: 300px;
+                border: 1px solid red;
+                text-align: center;
+                
+            }
+            .inner {
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+                line-height: 100px;
+                border: 1px solid blue;
+            } */
 
-</body>
+            /* img {
+                width: 168px;
+                height: 100px;
+                vertical-align: middle;
+            }
+            .outer {
+                height: 500px;
+                line-height: 500px;
+                width: 800px;
+                border: 1px solid cornflowerblue;
+                text-align: center;
+            }
+
+            #parent {
+                position: relative;
+                border: 1px solid cornflowerblue;
+                width: 300px;
+                height: 300px;
+            }
+            #child {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                border: 1px solid red;
+                width: 168px;
+                height: 100px;
+            }
+            .outer-container {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+            .inner-container {
+                display: inline-block;
+                margin: 180px auto;
+                margin-left: 300px;
+            } */
+
+            /* .right-fix {
+                margin-left: -200px;
+                width: 100%;
+                float: right;
+            }
+            .right {
+                background-color: rgb(151, 142, 206);
+                height: 400px;
+                margin-left: 220px;
+            }
+            .inright {
+                clear: both;
+                height: 200px;
+                background-color: rgb(131, 216, 168);
+            } */
+            .parent {
+                display: grid;
+                grid-template-columns: 300px auto;
+                width: 100%;
+            }
+            .left {
+                height: 300px;
+                background-color: skyblue;
+            }
+            .right {
+                height: 500px;
+                background-color: rgb(131, 216, 168);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <!-- <div class="outer">
+        <div class="container"></div>
+    </div> -->
+
+            <!-- <div class="test"></div> -->
+
+            <!-- <div class="me"><h1>我们</h1></div> -->
+
+            <!-- <input type="checkbox" name="" id="" /><span>?</span> -->
+
+            <!-- <div class="wrapper">
+            <div></div>
+            <p>jinshuo is cool.</p>
+            <p>jinshuo is cool.</p>
+            <div></div>
+            <p>jinshuo is cool.</p>
+            <div></div>
+            <p>jinshuo is cool.</p>
+            <div></div>
+            <p>jinshuo is cool.</p>
+            <div></div>
+            <p>jinshuo is cool.</p>
+        </div>
+        <div class="wrapper">
+            <div>hhh</div>
+            <p>jinshuo is cool</p>
+        </div>
+        <p>jinshuo is cool</p> -->
+
+            <!-- <p>jinshuo is cool</p> -->
+        </div>
+
+        <!-- <div class="outer">
+            光谱分析
+            <img src="./imgs/hezhao.png" alt="" />
+        </div> -->
+
+        <!-- <div class="outer-container">
+            <div class="inner-container"> -->
+        <!-- <div id="parent">
+                    <div id="child"></div>
+                </div> -->
+        <!-- </div>
+        </div> -->
+        <div class="parent">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+    </body>
 </html>
