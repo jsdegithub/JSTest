@@ -143,70 +143,132 @@
                 height: 200px;
                 background-color: rgb(131, 216, 168);
             } */
-            .parent {
+            /* .parent {
                 display: grid;
                 grid-template-columns: 300px auto;
                 width: 100%;
             }
             .left {
+                float: left;
+                width: 200px;
                 height: 300px;
                 background-color: skyblue;
             }
+            .center {
+                float: left;
+                width: 200px;
+                height: 300px;
+                background-color: rgb(28, 120, 211);
+            }
             .right {
-                height: 500px;
+                margin-left: 400px;
+                height: 400px;
                 background-color: rgb(131, 216, 168);
+            }
+            .right-fix {
+                width: 100%;
+                margin-left: -400px;
+                float: right;
+            }
+            .inright {
+                height: 200px;
+                clear: both;
+                background-color: pink;
+            } */
+            /* .parent {
+                height: 300px;
+            }
+            .left {
+                float: left;
+                width: 200px;
+                height: 300px;
+                background-color: skyblue;
+                margin-left: -100%;
+            }
+            .center {
+                float: left;
+                height: 300px;
+                width: 100%;
+            }
+            .inner{
+                margin-left: 200px;
+                margin-right: 200px;
+                height: 300px;
+                background-color: rgb(28, 120, 211);
+            }
+            .right {
+                float: left;
+                width: 200px;
+                height: 300px;
+                background-color: rgb(131, 216, 168);
+                margin-left: -200px;
+            } */
+            /* .clear-fix::after {
+                content: "";
+                display: block;
+                clear: both;
+            } */
+            .parent {
+                display: table;
+                width: 100%;
+            }
+            .left {
+                display: table-cell;
+                padding-left: 10px;
+                height: 200px;
+            }
+            .left .inner {
+                height: 200px;
+                background-color: rgba(59, 181, 34, 0.184);
+            }
+            .center {
+                display: table-cell;
+                padding-left: 10px;
+                height: 200px;
+            }
+            .center .inner {
+                height: 200px;
+                background-color: paleturquoise;
+            }
+            .right {
+                display: table-cell;
+                padding-left: 10px;
+                height: 200px;
+            }
+            .right .inner {
+                height: 200px;
+                background-color: pink;
+            }
+            .right-right {
+                display: table-cell;
+                padding-left: 10px;
+                height: 200px;
+            }
+            .right-right .inner {
+                height: 200px;
+                background-color: rgb(111, 176, 126);
+            }
+            .wrapper {
+                margin-left: -10px;
             }
         </style>
     </head>
     <body>
-        <div>
-            <!-- <div class="outer">
-        <div class="container"></div>
-    </div> -->
-
-            <!-- <div class="test"></div> -->
-
-            <!-- <div class="me"><h1>我们</h1></div> -->
-
-            <!-- <input type="checkbox" name="" id="" /><span>?</span> -->
-
-            <!-- <div class="wrapper">
-            <div></div>
-            <p>jinshuo is cool.</p>
-            <p>jinshuo is cool.</p>
-            <div></div>
-            <p>jinshuo is cool.</p>
-            <div></div>
-            <p>jinshuo is cool.</p>
-            <div></div>
-            <p>jinshuo is cool.</p>
-            <div></div>
-            <p>jinshuo is cool.</p>
-        </div>
         <div class="wrapper">
-            <div>hhh</div>
-            <p>jinshuo is cool</p>
-        </div>
-        <p>jinshuo is cool</p> -->
-
-            <!-- <p>jinshuo is cool</p> -->
-        </div>
-
-        <!-- <div class="outer">
-            光谱分析
-            <img src="./imgs/hezhao.png" alt="" />
-        </div> -->
-
-        <!-- <div class="outer-container">
-            <div class="inner-container"> -->
-        <!-- <div id="parent">
-                    <div id="child"></div>
-                </div> -->
-        <!-- </div>
-        </div> -->
-        <div class="parent">
-            <div class="left"></div>
-            <div class="right"></div>
+            <div class="parent">
+                <div class="left">
+                    <div class="inner"></div>
+                </div>
+                <div class="center">
+                    <div class="inner"></div>
+                </div>
+                <div class="right">
+                    <div class="inner"></div>
+                </div>
+                <div class="right-right">
+                    <div class="inner"></div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
