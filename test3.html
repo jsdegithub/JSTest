@@ -4,18 +4,32 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <link rel="stylesheet" href="./reset.css">
         <style>
-            .box {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 200px;
-                background-color: rgb(79, 187, 223);
+            .parent {
+                column-count: 3;
+                column-gap: 10px;
+                column-rule: 10px dashed rgb(207, 223, 64);
+            }
+            .left{
+                height: 300px;
+                background-color: rgb(123, 174, 220);
+            }
+            .center{
+                height: 300px;
+                background-color: rgb(147, 226, 178);
+            }
+            .right{
+                height: 300px;
+                background-color: rgb(226, 152, 186);
             }
         </style>
     </head>
     <body>
-        <div class="box"></div>
+        <div class="parent">
+            <div class="left"></div>
+            <div class="center"></div>
+            <div class="right"></div>
+        </div>
     </body>
 </html>
