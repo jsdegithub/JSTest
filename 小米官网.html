@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>小米商城</title>
+        <link rel="stylesheet" href="./reset.css" />
+        <style>
+            .top-banner {
+                height: 120px;
+                background: url("./imgs/a2a9e6db5e3c5374301827435d8595c6.jpg")
+                    no-repeat center;
+                /* 设置背景图片的高为120，宽度自适应 */
+                background-size: auto 120px;
+            }
+            .header-wrapper {
+                height: 40px;
+                line-height: 40px;
+                background-color: #333333;
+            }
+            .container {
+                width: 1226px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: #b0b0b0;
+            }
+            .header .header-left {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .header .header-right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .header span {
+                margin-right: 10px;
+            }
+            .my-cart {
+                display: inline-block;
+                width: 110px;
+                height: 100%;
+                background-color: #ff6600;
+                text-align: center;
+                color: #ffffff;
+                margin-left: 10px;
+            }
+            .my-cart .icon-cart {
+                display: inline-block;
+                width: 16px;
+                height: 12px;
+                background: url("./imgs/icon-cart-checked.png") no-repeat center;
+                background-size: contain;
+                margin-right: 4px;
+            }
+            .logo-container {
+                height: 112px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-logo {
+                display: inline-block;
+                width: 55px;
+                height: 55px;
+                background-color: #ff6600;
+            }
+            .header-logo a {
+                display: inline-block;
+                width: 110px;
+                height: 55px;
+            }
+            .header-logo a::before {
+                content: "";
+                display: inline-block;
+                width: 55px;
+                height: 55px;
+                background: url("./imgs/mi-logo.png") no-repeat center;
+                background-size: contain;
+                transition: margin 0.2s;
+            }
+
+            .header-logo a::after {
+                content: "";
+                display: inline-block;
+                width: 55px;
+                height: 55px;
+                background: url("./imgs/mi-home.png") no-repeat center;
+                background-size: contain;
+            }
+
+            .header-logo a:hover:before {
+                margin-left: -55px;
+                transition: margin 0.2s;
+            }
+            .logo-right-right {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 300px;
+                height: 50px;
+                line-height: 50px;
+                padding-left: 10px;
+                border: 1px solid #999999;
+            }
+            .logo-right-right input {
+                border: none;
+                height: 50px;
+                line-height: 50px;
+                width: 250px;
+                border-right: 1px solid #999999;
+            }
+            .logo-right-right a {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 17px;
+                background: url("/imgs/icon-search.png") no-repeat center;
+                background-size: contain;
+            }
+            .logo-right {
+                flex: 1;
+                width: 850px;
+                padding-left: 180px;
+            }
+            .logo-right span {
+                font-size: 16px;
+                color: #333333;
+                margin-right: 10px;
+            }
+            .logo-right span:hover {
+                cursor: pointer;
+                color: #ff6600;
+            }
+            .home-hero {
+                position: relative;
+                width: 100%;
+                height: 360px;
+                background-color: aliceblue;
+                margin-bottom: 26px;
+            }
+            .banner {
+                position: relative;
+                width: 100%;
+                height: 180px;
+                /* background-color: seashell; */
+                margin-bottom: 26px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .banner .banner-item {
+                width: 295px;
+                height: 100%;
+                background-color: rgb(248, 234, 207);
+            }
+            .page-main {
+                background: #f5f5f5;
+                width: 100%;
+            }
+            .box-h {
+                height: 58px;
+                line-height: 58px;
+            }
+            .box-h h2 {
+                color: #333333;
+                font-size: 22px;
+                font-weight: 200;
+            }
+            .box-list {
+                display: flex;
+                justify-content: space-between;
+            }
+            .box-list .item {
+                width: 234px;
+                height: 339px;
+                background-color: lightblue;
+            }
+            .home-banner-box {
+                height: 120px;
+                margin: 22px 0;
+                background-color: rgb(173, 230, 228);
+            }
+            .phone-list {
+                height: 614px;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 22px;
+            }
+            .phone-list-left {
+                width: 234px;
+                background-color: lightcyan;
+            }
+            .phone-list-right {
+                width: 978px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                transition: all 0.5s;
+            }
+            .phone-list-right-b1,
+            .phone-list-right-b2 {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                /* align-items: center; */
+            }
+            .phone-list-right .phone {
+                width: 234px;
+                height: 300px;
+                background-color: rgb(186, 221, 243);
+                transition: all 0.5s;
+            }
+            .phone-list-right .phone:hover {
+                z-index: 2;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.5s;
+            }
+            .phone-list-left:hover {
+                z-index: 2;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.5s;
+            }
+            constructed stylesheet .brick-item-m-2 {
+                height: 260px;
+                padding: 20px 0;
+            }
+            .tv {
+                height: 614px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .tv .tv-1 {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .tv .tv-2 {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .tv .tv-item {
+                width: 234px;
+                height: 300px;
+                background-color: rgba(191, 217, 252, 0.51);
+                transition: all 0.5s;
+            }
+            .tv .tv-item:hover {
+                z-index: 2;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.5s;
+            }
+            .video {
+                display: flex;
+                justify-content: space-between;
+            }
+            .video .video-item {
+                width: 296px;
+                height: 285px;
+                background-color: #ffffff;
+            }
+            .video .video-item .video-item-img {
+                height: 180px;
+                background-color: rgb(221, 238, 211);
+                margin-bottom: 28px;
+            }
+            .video .video-item .content .title {
+                font-size: 14px;
+                margin: 0 14px 6px;
+                font-weight: 400;
+                text-align: center;
+                color: #333;
+                height: 20.8px;
+                line-height: 20.8px;
+            }
+            .video .video-item .content .desc {
+                height: 18px;
+                line-height: 18px;
+                margin: 0 14px;
+                font-size: 12px;
+                color: #b0b0b0;
+                text-align: center;
+            }
+            .video-add-margin-bottom {
+                height: 26px;
+            }
+            .footer-service {
+                height: 80px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #e0e0e0;
+                color: #616161;
+            }
+            .footer-service span {
+                flex: 1;
+                height: 25px;
+                line-height: 25px;
+                display: inline-block;
+                font-size: 16px;
+                text-align: center;
+                border-right: #e0e0e0 1px solid;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            .footer-service span:hover {
+                color: #ff6600;
+            }
+            /* 这一段代码必须放在下一段代码的前面，不然 background属性会重置之前对 background-size的设置 */
+            .footer-service span .icon-setting {
+                background: url("./imgs/icon-setting.png") no-repeat center;
+            }
+            .footer-service span .icon-circle-7 {
+                background: url("./imgs/icon-7day.png") no-repeat center;
+            }
+            .footer-service span .icon-circle-15 {
+                background: url("./imgs/icon-15day.png") no-repeat center;
+            }
+            .footer-service span .icon-post {
+                background: url("./imgs/icon-post.png") no-repeat center;
+            }
+            .footer-service span .icon-location {
+                background: url("./imgs/icon-loc.png") no-repeat center;
+            }
+            .footer-service span .icon-setting,
+            .footer-service span .icon-circle-7,
+            .footer-service span .icon-circle-15,
+            .footer-service span .icon-post,
+            .footer-service span .icon-location {
+                width: 24px;
+                height: 24px;
+                vertical-align: middle;
+                background-size: contain;
+                margin-right: 5px;
+            }
+            .footer-service span:last-child {
+                border-right: none;
+            }
+            .footer-links {
+                height: 170px;
+                padding: 40px 0;
+                display: flex;
+            }
+            .footer-links .col-links {
+                flex: 1;
+            }
+            .footer-links .col-links .col-links-title {
+                height: 16.8px;
+                line-height: 16.8px;
+                margin-bottom: 26px;
+                font-size: 14px;
+                color: #424242;
+            }
+            .footer-links
+                .col-links
+                .col-links-content
+                .col-links-content-item {
+                height: 17.6px;
+                line-height: 17.6px;
+                margin-top: 10px;
+                font-size: 12px;
+                color: #757575;
+                cursor: pointer;
+            }
+            .footer-links
+                .col-links
+                .col-links-content
+                .col-links-content-item:hover {
+                color: #ff6600;
+            }
+            .footer-links .tel {
+                text-align: center;
+                width: 243px;
+                height: 110.2px;
+                border-left: 1px solid #e0e0e0;
+                margin-bottom: 5px;
+            }
+            .footer-links .tel .tel-num {
+                height: 21.6px;
+                line-height: 21.6px;
+                margin-bottom: 5px;
+                color: #ff6600;
+                font-size: 22px;
+            }
+            .footer-links .tel .time {
+                font-size: 12px;
+                height: 17.6px;
+                line-height: 17.6px;
+                color: #616161;
+                margin-bottom: 5px;
+            }
+            .footer-links .tel a {
+                display: inline-block;
+                width: 118px;
+                height: 28px;
+                font-size: 12px;
+                line-height: 28px;
+                border: 1px solid #ff6600;
+                background: #fff;
+                color: #ff6600;
+                cursor: pointer;
+                transition: all 0.4s;
+                margin: 0;
+            }
+            .footer-links .tel a:hover {
+                background-color: #ff6600;
+                color: #ffffff;
+            }
+            .mi-icon {
+                height: 21px;
+                line-height: 21px;
+                margin-top: 10px;
+                color: #616161;
+            }
+            .footer-links .tel .mi-icon .weibo {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                margin-left: 6px;
+                background: url("./imgs/wb.png") no-repeat center;
+                background-size: contain;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+            .footer-links .tel .mi-icon .weibo:hover {
+                background: url("./imgs/wb@2x.png") no-repeat center;
+                background-size: contain;
+            }
+            .footer-links .tel .mi-icon .weixin {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                margin-left: 6px;
+                background: url("./imgs/wx.png") no-repeat center;
+                background-size: contain;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+            .footer-links .tel .mi-icon .weixin:hover {
+                background: url("./imgs/wx@2x.png") no-repeat center;
+                background-size: contain;
+            }
+            .site-info {
+                padding-top: 30px;
+            }
+            .site-info .container{
+                display: flex;
+            }
+            .site-info .container::before {
+                content: "";
+                display: inline-block;
+                width: 57px;
+                height: 57px;
+                margin-right: 10px;
+                background: url("./imgs/logo-footer.png") no-repeat center;
+                background-size: contain;
+            }
+            .site-info .info-text .sites{
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                color: #b0b0b0;
+            }
+            .site-info .info-text .sites a{
+                color: #757575;
+            }
+            .site-info .info-text .sites span{
+                margin-left: 5px;
+            }
+            .site-info .info-text #content p{
+                height: 14px;
+                line-height: 14px;
+                color: #b0b0b0;
+            }
+            .info-links{
+                padding-left: 67px;
+                margin: 4px auto 15px;
+            }
+            .info-links a{
+                display: inline-block;
+                width: 85px;
+                height: 28px;
+                background: no-repeat center;
+                background-size: contain;
+            }
+            .info-links a:last-child{
+                width: 105.6px;
+                height: 40px;
+            }
+            .info-links a:first-of-type{
+                background-image: url('./imgs/truste.png');
+            }
+            .info-links a:nth-child(2){
+                background-image: url('./imgs/v-logo-2.png');
+            }
+            .info-links a:nth-child(3){
+                background-image: url('./imgs/v-logo-1.png');
+            }
+            .info-links a:nth-child(4){
+                background-image: url('./imgs/ba10428a4f9495ac310fd0b5e0cf8370.png');
+            }
+            .info-links a:nth-child(5){
+                background-image: url('./imgs/f1ee261b96ae71e845efba398efeca02.png');
+            }
+            .last-sentence{
+                margin-top: 30px;
+                height: 19px;
+                background: url('./imgs/slogan2020.png') no-repeat center;
+                background-size: contain;
+            }
+            .last-block-clear-q{
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-banner"></div>
+        <div class="header-wrapper">
+            <div class="container">
+                <div class="header">
+                    <div class="header-left">
+                        <span>小米商城</span>
+                        <span>MIUI</span>
+                        <span>loT</span>
+                        <span>云服务</span>
+                        <span>金融</span>
+                        <span>有品</span>
+                        <span>小爱开放平台</span>
+                        <span>企业团购</span>
+                        <span>资质证照</span>
+                        <span>协议规则</span>
+                        <span>下载APP</span>
+                        <span>智能生活</span>
+                        <span>SelectLocation</span>
+                    </div>
+                    <div class="header-right">
+                        <span>JinShuo</span>
+                        <span>退出</span>
+                        <span>我的订单</span>
+                        <a href="javascript:;" class="my-cart">
+                            <span class="icon-cart"></span>
+                            购物车(0)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="logo-container">
+                <div class="header-logo">
+                    <a href=""></a>
+                </div>
+                <div class="logo-right">
+                    <span>小米手机</span>
+                    <span>RedMi 红米</span>
+                    <span>电视</span>
+                    <span>笔记本</span>
+                    <span>家电</span>
+                    <span>路由器</span>
+                    <span>智能硬件</span>
+                    <span>服务</span>
+                    <span>社区</span>
+                </div>
+                <div class="logo-right-right">
+                    <input type="text" placeholder="搜索..." />
+                    <a href="javascript:;"></a>
+                </div>
+            </div>
+            <div class="home-hero"></div>
+            <div class="banner">
+                <div class="banner-item"></div>
+                <div class="banner-item"></div>
+                <div class="banner-item"></div>
+                <div class="banner-item"></div>
+            </div>
+        </div>
+        <div class="page-main">
+            <div class="container">
+                <div class="box-h">
+                    <h2>小米闪购</h2>
+                </div>
+                <div class="box-list">
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
+                <div class="home-banner-box"></div>
+                <div class="box-h">
+                    <h2>手机</h2>
+                </div>
+                <div class="phone-list">
+                    <div class="phone-list-left"></div>
+                    <div class="phone-list-right">
+                        <div class="phone-list-right-b1">
+                            <div class="phone"></div>
+                            <div class="phone"></div>
+                            <div class="phone"></div>
+                            <div class="phone"></div>
+                        </div>
+                        <div class="phone-list-right-b2">
+                            <div class="phone"></div>
+                            <div class="phone"></div>
+                            <div class="phone"></div>
+                            <div class="phone"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-banner-box"></div>
+                <div class="box-h">
+                    <h2>家电</h2>
+                </div>
+                <div class="tv">
+                    <div class="tv-1">
+                        <div class="tv-item"></div>
+                        <div class="tv-item"></div>
+                        <div class="tv-item"></div>
+                        <div class="tv-item"></div>
+                        <div class="tv-item"></div>
+                    </div>
+                    <div class="tv-2">
+                        <div class="tv-item"></div>
+                        <div class="tv-item"></div>
+                        <div class="tv-item"></div>
+                        <div class="tv-item"></div>
+                        <div class="tv-item"></div>
+                    </div>
+                </div>
+                <div class="home-banner-box"></div>
+                <div class="box-h">
+                    <h2>视频</h2>
+                </div>
+                <div class="video">
+                    <div class="video-item">
+                        <div class="video-item-img"></div>
+                        <div class="content">
+                            <h3 class="title">Redmi 10X系列发布会</h3>
+                            <p class="desc">Redmi 10X系列发布会</p>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-item-img"></div>
+                        <div class="content">
+                            <h3 class="title">小米10 青春版 发布会</h3>
+                            <p class="desc"></p>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-item-img"></div>
+                        <div class="content">
+                            <h3 class="title">小米10 8K手机拍大片</h3>
+                            <p class="desc"></p>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-item-img"></div>
+                        <div class="content">
+                            <h3 class="title">小米10发布会</h3>
+                            <p class="desc"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-add-margin-bottom"></div>
+        </div>
+        <div class="container">
+            <div class="footer-service">
+                <span><span class="icon-setting"></span>预约维修服务</span>
+                <span
+                    ><span class="icon-circle-7"></span>7天无理由退货</span
+                >
+                <span
+                    ><span class="icon-circle-15"></span>15天免费换货</span
+                >
+                <span><span class="icon-post"></span>满99元包邮</span>
+                <span
+                    ><span class="icon-location"></span
+                    >520余家售后网点</span
+                >
+            </div>
+            <div class="footer-links">
+                <div class="col-links">
+                    <div class="col-links-title">帮助中心</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">账户管理</div>
+                        <div class="col-links-content-item">购物指南</div>
+                        <div class="col-links-content-item">订单操作</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">服务支持</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">售后政策</div>
+                        <div class="col-links-content-item">自助服务</div>
+                        <div class="col-links-content-item">相关下载</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">线下门店</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">小米之家</div>
+                        <div class="col-links-content-item">服务网点</div>
+                        <div class="col-links-content-item">授权体验店</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">关于小米</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">了解小米</div>
+                        <div class="col-links-content-item">加入小米</div>
+                        <div class="col-links-content-item">投资者关系</div>
+                        <div class="col-links-content-item">企业社会责任</div>
+                        <div class="col-links-content-item">廉洁举报</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">关注我们</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">新浪微博</div>
+                        <div class="col-links-content-item">官方微信</div>
+                        <div class="col-links-content-item">联系我们</div>
+                        <div class="col-links-content-item">公益基金会</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">特色服务</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">F码通道</div>
+                        <div class="col-links-content-item">礼物码</div>
+                        <div class="col-links-content-item">防伪查询</div>
+                    </div>
+                </div>
+                <div class="tel">
+                    <p class="tel-num">400-100-5678</p>
+                    <p class="time">8:00-18:00（仅收市话费）</p>
+                    <a href="javascript:;">人工客服</a>
+                    <p class="mi-icon">
+                        关注小米：
+                        <span class="weibo"></span>
+                        <span class="weixin"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="page-main">
+                <div class="site-info">
+                    <div class="container">
+                        <div class="info-text">
+                            <p class="sites">
+                                <a href="javascript:;">小米商城</a
+                                ><span>|</span> <a href="javascript:;">MIUI</a
+                                ><span>|</span> <a href="javascript:;">米家</a
+                                ><span>|</span> <a href="javascript:;">米聊</a
+                                ><span>|</span> <a href="javascript:;">多看</a
+                                ><span>|</span> <a href="javascript:;">游戏</a
+                                ><span>|</span>
+                                <a href="javascript:;">政企服务</a
+                                ><span>|</span>
+                                <a href="javascript:;">小米天猫店</a
+                                ><span>|</span>
+                                <a href="javascript:;">小米集团隐私政策</a
+                                ><span>|</span>
+                                <a href="javascript:;"
+                                    >小米公司儿童信息保护规则</a
+                                ><span>|</span>
+                                <a href="javascript:;">小米商城隐私政策</a
+                                ><span>|</span>
+                                <a href="javascript:;">小米商城用户协议</a
+                                ><span>|</span>
+                                <a href="javascript:;">问题反馈</a
+                                ><span>|</span>
+                                <a href="javascript:;">Select Location</a
+                                >
+                            </p>
+                            <p id="content">
+                                <p>
+                                    &copy;mi.com 京ICP证110507号 京ICP备10046444号
+                                    京公网安备11010802020134号
+                                    京网文[2020]0276-042号
+                                </p>
+                                <p>
+                                    （京）网械平台备字（2018）第00005号 互联网药品信息服务资格证 
+                                    （京）-非经营性-2014-0090 营业执照 医疗器械质量公告
+                                </p>
+                                <p>
+                                    增值电信业务许可证 网络食品经营备案 京食药网食备202010048   
+                                    食品经营许可证
+                                </p>
+                                <p>
+                                    违法和不良信息举报电话：171-5104-4404 知识产权侵权投诉 
+                                    本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+                                </p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="info-links">
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;" id="changing-picture"></a>
+                    </div>
+                    <div class="last-sentence"></div>
+                    <div class="last-block-clear-q"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    window.onload=function(){
+        var el=document.getElementById("changing-picture");
+        var img=window.getComputedStyle(el).backgroundImage;
+        var changeFn=function(){
+            if(img=='url("http://127.0.0.1:5500/imgs/f1ee261b96ae71e845efba398efeca02.png")'){
+                el.style.backgroundImage='url(http://127.0.0.1:5500/imgs/70432ddbf147b4de533777da61688c12.png)';
+            }
+            else{
+                el.style.backgroundImage='url(http://127.0.0.1:5500/imgs/f1ee261b96ae71e845efba398efeca02.png)';
+            }
+            img=el.style.backgroundImage;
+        }
+        var timer=setInterval(changeFn,3000);
+    };
+</script>
