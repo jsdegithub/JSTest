@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>vue-component</title>
+    </head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+        <!-- 在初始时，template元素不会被渲染，它会在被引用的时候渲染 -->
+        <template id="temp">
+            <div>
+                <h1>这是全局组件，在所有的Vue实例控制的区域内都可以使用</h1>
+            </div>
+        </template>
+        <template id="temp2">
+            <div>
+                <h1>这是私有组件，只能在挂载它的Vue实例控制的区域中使用</h1>
+            </div>
+        </template>
+        <template id="temp3">
+            <div>
+                <h1>这是私有组件，只能在挂载它的Vue实例控制的区域中使用</h1>
+            </div>
+        </template>
+
+        <div id="app">
+            <my-com></my-com>
+            <com2></com2>
+            <com3></com3>
+        </div>
+
+        <script>
+            Vue.component("myCom", {
+                template: "#temp",
+            });
+            var com3 = {
+                template: "#temp3",
+            };
+            var vm = new Vue({
+                el: "#app",
+                data: {},
+                methods: {},
+                components: {
+                    com2: {
+                        // template: "<h1>这是私有组件</h1>",
+                        template: "#temp2",
+                    },
+                    com3,
+                },
+            });
+        </script>
+    </body>
+</html>
