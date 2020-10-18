@@ -208,7 +208,7 @@
                 display: block;
                 clear: both;
             } */
-            .parent {
+            /* .parent {
                 display: table;
                 width: 100%;
             }
@@ -250,11 +250,34 @@
             }
             .wrapper {
                 margin-left: -10px;
+            } */
+            .outer{
+                width: 480px;
+                height: 300px;
+                border: 20px solid lightblue;
+                padding: 50px;
+                position: relative;
+            }
+            .inner1{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                left: 0;
+                top: 0;
+                border: 10px solid rgba(255, 0, 0, 0.503);
+            }
+            .inner2{
+                width: 100px;
+                height: 100px;
+                border: 2px solid red;
+            }
+            .inner1:hover~.inner2{
+                display: none;
             }
         </style>
     </head>
     <body>
-        <div class="wrapper">
+        <!-- <div class="wrapper">
             <div class="parent">
                 <div class="left">
                     <div class="inner"></div>
@@ -269,6 +292,10 @@
                     <div class="inner"></div>
                 </div>
             </div>
+        </div> -->
+        <div class="outer">
+            <div class="inner1"></div>
+            <div class="inner2"></div>
         </div>
     </body>
 </html>

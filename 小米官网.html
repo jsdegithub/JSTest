@@ -150,16 +150,92 @@
             .banner {
                 position: relative;
                 width: 100%;
-                height: 180px;
-                /* background-color: seashell; */
+                height: 170px;
                 margin-bottom: 26px;
                 display: flex;
                 justify-content: space-between;
             }
             .banner .banner-item {
-                width: 295px;
+                width: 316px;
                 height: 100%;
                 background-color: rgb(248, 234, 207);
+                transition: all 0.3s;
+            }
+            .banner .banner-item:not(:first-child):hover {
+                z-index: 2;
+                -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s;
+            }
+            .banner .banner-item:first-child {
+                width: 234px;
+                background: #5f5750;
+            }
+            .banner .banner-item:not(:first-child) img {
+                width: 100%;
+                /* height: 100%; */
+                /* 宽高只设置一个，让另一边自适应，这样可以防止图片失真 */
+            }
+            .banner .banner-item:first-child .home-channel-list {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 3px;
+            }
+            .banner .banner-item:first-child .home-channel-list li {
+                position: relative;
+                width: 70px;
+                height: 82px;
+                padding-left: 3px;
+                padding-right: 3px;
+                text-align: center;
+            }
+            .banner
+                .banner-item:first-child
+                .home-channel-list
+                li:not(:first-child):not(:nth-child(4))::after {
+                content: "";
+                position: absolute;
+                top: 6px;
+                left: 0;
+                width: 1px;
+                height: 70px;
+                background: #665e57;
+            }
+            .banner
+                .banner-item:first-child
+                .home-channel-list
+                li:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before {
+                content: "";
+                position: absolute;
+                top: -1px;
+                left: 6px;
+                width: 64px;
+                height: 1px;
+                background: #665e57;
+            }
+            .banner .banner-item:first-child .home-channel-list li a {
+                display: inline-block;
+                color: #ffffff;
+                cursor: pointer;
+                padding-top: 18px;
+                opacity: 0.7;
+                transition: opacity 0.3s;
+                /* 在原标签上加 transition的作用是让鼠标离开时也有动画 */
+            }
+            .banner .banner-item:first-child .home-channel-list li a:hover {
+                opacity: 1;
+                transition: opacity 0.3s;
+            }
+            .banner .banner-item:first-child .home-channel-list li a:hover p {
+                color: #ffffff;
+                transition: color 0.3s;
+            }
+            .banner .banner-item:first-child .home-channel-list li a p {
+                transition: color 0.3s;
+            }
+            .banner .banner-item:first-child .home-channel-list li img {
+                width: 24px;
+                height: 24px;
             }
             .page-main {
                 background: #f5f5f5;
@@ -175,28 +251,167 @@
                 font-weight: 200;
             }
             .box-list {
-                display: flex;
-                justify-content: space-between;
             }
-            .box-list .item {
+            .box-list .swiper-container .goods {
+                position: relative;
                 width: 234px;
                 height: 339px;
-                background-color: lightblue;
+                text-align: center;
+                background-color: #ffffff;
+                border-top: 1px solid;
+            }
+            .box-list .item:first-child {
+                border-top: 1px solid #e53935;
+            }
+            .box-list .swiper-container .goods:first-child {
+                border-color: #f0f0f0;
+            }
+            .box-list .swiper-container .goods:nth-child(2) {
+                border-color: #f0f0f0;
+            }
+            .box-list
+                .swiper-container
+                .swiper-wrapper
+                .swiper-slide
+                .goods-container
+                .goods:nth-child(3) {
+                border-color: #f0f0f0;
+                width: 248px;
+            }
+            .box-list .swiper-container .goods:nth-child(4) {
+                border-color: #f0f0f0;
+                background: rgba(255, 255, 255, 0.7);
+            }
+            .box-list .swiper-container .goods::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 2;
+                background: rgba(0, 0, 0, 0.02);
+            }
+            .box-list .swiper-container .goods a {
+                display: inline-block;
+                margin-top: 39px;
+                color: #757575;
+                cursor: pointer;
+                text-align: center;
+            }
+            .box-list .swiper-container .goods .thumb {
+                width: 160px;
+                height: 165.6px;
+                margin-left: 37px;
+                margin-right: 37px;
+                margin-bottom: 22px;
+            }
+            .box-list .swiper-container .goods .content {
+                width: 234px;
+                height: 262.2px;
+            }
+            .box-list .swiper-container .goods .content h3 {
+                display: block;
+                font-size: 1.17em;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                font-weight: 400;
+                color: #333333;
+                margin: 0;
+                margin-bottom: 3px;
+            }
+            .box-list .swiper-container .goods .content .desc {
+                height: 18px;
+                margin: 0 20px 12px;
+                font-size: 12px;
+                text-overflow: ellipsis;
+                color: #b0b0b0;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .box-list .swiper-container .goods .content .price {
+                margin: 0;
+            }
+            .box-list .swiper-container .goods .content .price span {
+                font-size: 14px;
+                color: #ff6709;
+            }
+            .box-list .swiper-container .goods .content .price del {
+                font-size: 14px;
+                color: #b0b0b0;
+            }
+            .box-list .item:first-child {
+                position: relative;
+                width: 234px;
+                height: 340px;
+                background: #f1eded;
+            }
+            .box-list .item:not(:first-child) {
+                margin-left: 14px;
+            }
+            .box-list-wrapper {
+                width: 1240px;
+                margin-left: -14px;
+            }
+            .box-list {
+                display: flex;
+                margin-left: 14px;
+            }
+            .box-list .swiper-container {
+                display: flex;
+                width: 978px;
+                height: 340px;
+                margin-left: 14px;
+            }
+            .box-list
+                .swiper-container
+                .swiper-slide
+                .goods-container
+                .goods:last-child::after {
+                position: absolute;
+                left: -14px;
+                content: "";
+                display: block;
+                height: 340px;
+                width: 14px;
+                background: #f5f5f5;
+            }
+            .box-list .swiper-container .swiper-wrapper .goods-container {
+                display: flex;
+                position: relative;
+            }
+            .box-list
+                .swiper-container
+                .swiper-wrapper
+                .goods-container
+                .goods:not(:nth-last-child(2)) {
+                margin-right: 14px;
+            }
+            .box-list .swiper-container img {
+                width: 160px;
             }
             .home-banner-box {
                 height: 120px;
                 margin: 22px 0;
-                background-color: rgb(173, 230, 228);
+                background-color: lightblue;
+            }
+            .home-banner-box img {
+                width: 100%;
             }
             .phone-list {
                 height: 614px;
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: 22px;
+                margin-bottom: 36px;
             }
             .phone-list-left {
                 width: 234px;
                 background-color: lightcyan;
+            }
+            .phone-list-left img {
+                width: 100%;
             }
             .phone-list-right {
                 width: 978px;
@@ -204,6 +419,9 @@
                 flex-direction: column;
                 justify-content: space-between;
                 transition: all 0.5s;
+            }
+            .phone-list-right img {
+                width: 160px;
             }
             .phone-list-right-b1,
             .phone-list-right-b2 {
@@ -215,8 +433,43 @@
             .phone-list-right .phone {
                 width: 234px;
                 height: 300px;
-                background-color: rgb(186, 221, 243);
+                background: #ffffff;
                 transition: all 0.5s;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .phone-list-right .phone .title {
+                margin: 15px 10px 5px;
+                text-align: center;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 14px;
+                font-weight: 400;
+                color: #333;
+                display: block;
+                cursor: pointer;
+            }
+            .phone-list-right .phone .desc {
+                margin: 0 10px 10px;
+                height: 18px;
+                font-size: 12px;
+                color: #b0b0b0;
+                /* 以下三句显示效果是：当字数过长时，超出容器宽度的部分用省略号代替 */
+                /* 这三句缺一不可，需捆绑使用 */
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .phone-list-right .phone .price {
+                margin: 0 10px 14px;
+                text-align: center;
+                color: #ff6700;
+                cursor: pointer;
+                display: block;
+                font-size: 14px;
             }
             .phone-list-right .phone:hover {
                 z-index: 2;
@@ -239,12 +492,9 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                margin-bottom: 36px;
             }
-            .tv .tv-1 {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-            }
+            .tv .tv-1,
             .tv .tv-2 {
                 display: flex;
                 flex-direction: row;
@@ -253,8 +503,132 @@
             .tv .tv-item {
                 width: 234px;
                 height: 300px;
-                background-color: rgba(191, 217, 252, 0.51);
+                background: #ffffff;
                 transition: all 0.5s;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .tv .tv-item:first-child,
+            .tv .tv-item:nth-child(6) {
+                padding: 0;
+            }
+            .tv #last-tv {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                background: #f5f5f5;
+            }
+            .tv #last-tv .b1,
+            .tv #last-tv .b2 {
+                width: 234px;
+                height: 143px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #ffffff;
+                z-index: 2;
+                transition: all 0.3s;
+            }
+            .tv #last-tv .b1:hover,
+            .tv #last-tv .b2:hover {
+                z-index: 2;
+                -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                -webkit-transform: translate3d(0, -2px, 0);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.3s;
+            }
+            .tv #last-tv .b1 .left {
+                width: 94px;
+                margin-right: 10px;
+            }
+            .tv #last-tv .b1 .left .title {
+                color: #333;
+                font-size: 14px;
+                font-weight: 400;
+                cursor: pointer;
+                margin-bottom: 5px;
+            }
+            .tv #last-tv .b1 .left .price {
+                font-size: 14px;
+                color: #ff6600;
+                cursor: pointer;
+            }
+            .tv #last-tv .b1 .right img {
+                width: 80px;
+                height: 80px;
+            }
+            .tv #last-tv .b2 {
+                display: flex;
+                align-items: center;
+                position: relative;
+            }
+            .tv #last-tv .b2 .left {
+                position: absolute;
+                left: 30px;
+                cursor: pointer;
+            }
+            .tv #last-tv .b2 .left .more {
+                font-size: 18px;
+                color: #333;
+            }
+            .tv #last-tv .b2 .left .hot {
+                color: #757575;
+            }
+            .tv #last-tv .b2 .right {
+                color: #ff6600;
+                position: absolute;
+                right: 50px;
+                transform: scale(4);
+                cursor: pointer;
+            }
+            .tv #last-tv .b2 .right::before {
+                content: "\E615";
+                font-family: iconfont !important;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -webkit-text-stroke-width: 0.2px;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            .tv .tv-item:first-child img {
+                width: 234px;
+            }
+            .tv .tv-item:nth-child(6) img {
+                width: 234px;
+            }
+            .tv .tv-item:not(:first-child):not(:nth-child(6)) img {
+                width: 160px;
+            }
+            .tv .tv-item .title {
+                margin: 15px 10px 5px;
+                text-align: center;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 14px;
+                font-weight: 400;
+                color: #333;
+                display: block;
+                cursor: pointer;
+            }
+            .tv .tv-item .desc {
+                margin: 0 10px 10px;
+                height: 18px;
+                font-size: 12px;
+                color: #b0b0b0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .tv .tv-item .price {
+                margin: 0 10px 14px;
+                text-align: center;
+                color: #ff6700;
+                cursor: pointer;
+                display: block;
+                font-size: 14px;
             }
             .tv .tv-item:hover {
                 z-index: 2;
@@ -270,10 +644,52 @@
                 width: 296px;
                 height: 285px;
                 background-color: #ffffff;
+                transition: all 0.3s;
             }
             .video .video-item .video-item-img {
-                height: 180px;
-                background-color: rgb(221, 238, 211);
+                position: relative;
+            }
+            .video .video-item .video-item-img:hover .play {
+                background-color: #ff6700;
+                border-color: #ff6700;
+            }
+            .video .video-item .play {
+                position: absolute;
+                left: 20px;
+                bottom: 38px;
+                width: 32px;
+                height: 20px;
+                border: 2px solid #fff;
+                border-radius: 12px;
+                background-color: #424242;
+                background-color: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                -webkit-transition: all 0.2s;
+                transition: all 0.2s;
+                overflow: hidden;
+            }
+            .video .video-item .play i {
+                font-size: 30px;
+                line-height: 20px;
+            }
+            .video .video-item .play i::before {
+                content: "\E601";
+                font-family: iconfont !important;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -webkit-text-stroke-width: 0.2px;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            .video .video-item:hover {
+                z-index: 2;
+                -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                -webkit-transform: translate3d(0, -2px, 0);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.3s;
+            }
+            .video .video-item .video-item-img img {
+                width: 100%;
                 margin-bottom: 28px;
             }
             .video .video-item .content .title {
@@ -385,6 +801,7 @@
                 height: 110.2px;
                 border-left: 1px solid #e0e0e0;
                 margin-bottom: 5px;
+                position: relative;
             }
             .footer-links .tel a span {
                 margin-left: 3px;
@@ -467,6 +884,19 @@
             .footer-links .tel .mi-icon .weixin:hover {
                 background: url("./imgs/wx@2x.png") no-repeat center;
                 background-size: contain;
+            }
+            .footer-links .tel .mi-icon .weixin:hover~#wx-qrcode {
+                display: block;
+            }
+            .footer-links #wx-qrcode{
+                display: block;
+                width: 126px;
+                height: 126px;
+                position: absolute;
+                z-index: 2;
+                top: 115px;
+                left: 95px;
+                display: none;
             }
             .footer .page-main {
                 background: #fafafa;
@@ -650,11 +1080,12 @@
             }
             .swiper-box {
                 margin-bottom: 14px;
+                position: relative;
             }
-            .swiper-container {
+            .swiper-box .swiper-container {
                 height: 460px;
             }
-            .swiper-container img {
+            .swiper-box .swiper-container img {
                 width: 100%;
                 height: 100%;
             }
@@ -669,19 +1100,17 @@
                 border-radius: 2px;
             }
             .swiper-box .swiper-container .swiper-button-prev {
-                left: 0;
+                left: 234px;
             }
             .swiper-box .swiper-container .swiper-button-next {
                 right: 0;
-            }
-            .swiper-box .swiper-container .swiper-button-prev::after,
-            .swiper-box .swiper-container .swiper-button-next::after{
-                
             }
             .swiper-box .swiper-container .swiper-button-prev:hover,
             .swiper-box .swiper-container .swiper-button-next:hover {
                 background: #666666a1;
                 color: #e0e0e0;
+            }
+            .swiper-box .swiper-pagination {
             }
             .swiper-box
                 .swiper-container
@@ -692,6 +1121,42 @@
             .swiper-box .swiper-container {
                 --swiper-theme-color: #d6d3d3b5;
                 --swiper-navigation-size: 28px;
+            }
+            .swiper-box .nav-menu {
+                position: absolute;
+                left: 0;
+                z-index: 9;
+                width: 234px;
+                height: 460px;
+                padding: 26px 0;
+                background-color: #55585a78;
+                box-sizing: border-box;
+            }
+            .swiper-box .nav-menu .menu-wrap .menu-item {
+                height: 50px;
+                line-height: 50px;
+            }
+            .swiper-box .nav-menu .menu-wrap .menu-item:hover {
+                background-color: #ff6600;
+            }
+            .swiper-box .nav-menu .menu-wrap .menu-item a {
+                position: relative;
+                display: block;
+                font-size: 16px;
+                color: #ffffff;
+                padding-left: 30px;
+            }
+            .swiper-box .nav-menu .menu-wrap .menu-item a::after {
+                position: absolute;
+                right: 30px;
+                top: 17.5px;
+                vertical-align: center;
+                content: "";
+                display: inline-block;
+                width: 10px;
+                height: 15px;
+                background: url("./imgs/icon-arrow.png") no-repeat center;
+                background-size: contain;
             }
         </style>
     </head>
@@ -749,7 +1214,35 @@
                 </div>
             </div>
             <div class="swiper-box">
-                <div class="swiper-container">
+                <div class="nav-menu">
+                    <ul class="menu-wrap">
+                        <li class="menu-item">
+                            <a href="javascript:;">手机 电话卡</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">电视 盒子</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">笔记本 平板</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">家电 插线板</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">出行 穿戴</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">智能 路由器</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">电源 配件</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">生活 箱包</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="swiper-container" id="swiper1">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img src="./imgs/mi-bracelet.webp" />
@@ -780,16 +1273,64 @@
                             />
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
+                    <div
+                        class="swiper-pagination"
+                        id="swiper1-pagination"
+                    ></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
             <div class="banner">
-                <div class="banner-item"></div>
-                <div class="banner-item"></div>
-                <div class="banner-item"></div>
-                <div class="banner-item"></div>
+                <div class="banner-item">
+                    <ul class="home-channel-list">
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-1.png" />
+                                <p>小米秒杀</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-2.png" />
+                                <p>企业团购</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-3.png" />
+                                <p>F码通道</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-4.png" />
+                                <p>米粉卡</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-5.png" />
+                                <p>以旧换新</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-6.png" />
+                                <p>话费充值</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="banner-item">
+                    <img src="./imgs/banner-2.jpg" />
+                </div>
+                <div class="banner-item">
+                    <img src="./imgs/banner-3.jpg" />
+                </div>
+                <div class="banner-item">
+                    <img src="./imgs/banner-4.jpg" />
+                </div>
             </div>
         </div>
         <div class="page-main">
@@ -797,82 +1338,393 @@
                 <div class="box-h">
                     <h2>小米闪购</h2>
                 </div>
-                <div class="box-list">
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
+                <div class="box-list-wrapper">
+                    <div class="box-list">
+                        <div class="item"></div>
+                        <div class="swiper-container" id="swiper2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="goods-container">
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/kongtiao.png"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        变频 | 米家互联网空调
+                                                        1.5匹
+                                                    </h3>
+                                                    <p class="desc">
+                                                        变频，快速制冷热
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>1899元</span>
+                                                        <del>2299元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/shoubiao.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        米兔儿童学习手表4 蓝色
+                                                    </h3>
+                                                    <p class="desc">
+                                                        8天超长待机，AI双摄高清视频通话
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>799元</span>
+                                                        <del>899元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/saodi.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        米家扫拖机器人G1 白色
+                                                    </h3>
+                                                    <p class="desc">
+                                                        能扫会拖，整屋清洁一步到位
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>899元</span>
+                                                        <del>999元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/shukongtiao.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        定频 |
+                                                        米家互联网立式空调 2匹
+                                                    </h3>
+                                                    <p class="desc">
+                                                        高效制冷热，出众静音
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>2999元</span>
+                                                        <del>3499元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="goods-container">
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/bx.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        米家两门冰箱 160L 银色
+                                                    </h3>
+                                                    <p class="desc">
+                                                        小巧能装，速冻养鲜
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>899元</span>
+                                                        <del>1099元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/kongtiao.png"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        小米手表 尊享版 曜石黑
+                                                    </h3>
+                                                    <p class="desc">
+                                                        能打电话、能下载APP，才是真正的智能手表
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>1799元</span>
+                                                        <del>1999元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/yinxiang.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        小米无线充蓝牙音箱 白色
+                                                    </h3>
+                                                    <p class="desc">
+                                                        内置30W
+                                                        MAX无线充电，边听歌、边充电
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>199元</span>
+                                                        <del>249元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/jinghua.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        米家空气净化器 2S
+                                                    </h3>
+                                                    <p class="desc">
+                                                        好空气看得见
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>749元</span>
+                                                        <del>899元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="home-banner-box"></div>
+                <div class="home-banner-box">
+                    <img src="./imgs/47addc32aff1d2a84fc4535707190881.webp" />
+                </div>
                 <div class="box-h">
                     <h2>手机</h2>
                 </div>
                 <div class="phone-list">
-                    <div class="phone-list-left"></div>
+                    <div class="phone-list-left">
+                        <img
+                            src="./imgs/574c6643ab91c6618bfb2d0e2c761d0b.webp"
+                        />
+                    </div>
                     <div class="phone-list-right">
                         <div class="phone-list-right-b1">
-                            <div class="phone"></div>
-                            <div class="phone"></div>
-                            <div class="phone"></div>
-                            <div class="phone"></div>
+                            <div class="phone">
+                                <img src="./imgs/phone1.webp" />
+                                <h3 class="title">小米10 至尊版</h3>
+                                <p class="desc">120X 变焦/120W秒充/120Hz屏幕</p>
+                                <p class="price">5299元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone2.webp" />
+                                <h3 class="title">Redmi K30 至尊版</h3>
+                                <p class="desc">
+                                    120Hz弹出全面屏，天玑1000+旗舰处理器
+                                </p>
+                                <p class="price">1999元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone3.webp" />
+                                <h3 class="title">腾讯黑鲨3S</h3>
+                                <p class="desc">骁龙865处理器，120Hz刷新率</p>
+                                <p class="price">3999元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone4.webp" />
+                                <h3 class="title">Redmi 9A</h3>
+                                <p class="desc">
+                                    5000mAh长循环大电量，6.53"超大护眼屏幕
+                                </p>
+                                <p class="price">599元起</p>
+                            </div>
                         </div>
                         <div class="phone-list-right-b2">
-                            <div class="phone"></div>
-                            <div class="phone"></div>
-                            <div class="phone"></div>
-                            <div class="phone"></div>
+                            <div class="phone">
+                                <img src="./imgs/phone5.webp" />
+                                <h3 class="title">小米10 青春版 5G</h3>
+                                <p class="desc">50倍潜望式变焦 / 轻薄5G手机</p>
+                                <p class="price">1899元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone6.webp" />
+                                <h3 class="title">小米10</h3>
+                                <p class="desc">骁龙865/1亿像素相机</p>
+                                <p class="price">3799元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone7.webp" />
+                                <h3 class="title">Redmi K30 Pro</h3>
+                                <p class="desc">双模5G，骁龙865，弹出全面屏</p>
+                                <p class="price">2999元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone8.webp" />
+                                <h3 class="title">Redmi K30 Pro 变焦版</h3>
+                                <p class="desc">双模5G，骁龙865，弹出全面屏</p>
+                                <p class="price">3399元起</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="home-banner-box"></div>
+                <div class="home-banner-box">
+                    <img src="./imgs/c3b86ede4dd31d7c126d56fbdde4f855.webp" />
+                </div>
                 <div class="box-h">
                     <h2>家电</h2>
                 </div>
                 <div class="tv">
                     <div class="tv-1">
-                        <div class="tv-item"></div>
-                        <div class="tv-item"></div>
-                        <div class="tv-item"></div>
-                        <div class="tv-item"></div>
-                        <div class="tv-item"></div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv1.webp" />
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv2.webp" />
+                            <h3 class="title">Redmi 红米电视 70英寸</h3>
+                            <p class="desc">70英寸震撼巨屏，4K画质，细腻如真</p>
+                            <p class="price">5299元起</p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv3.webp" />
+                            <h3 class="title">小米10 至尊版</h3>
+                            <p class="desc">120X 变焦/120W秒充/120Hz屏幕</p>
+                            <p class="price">3199元</p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv4.webp" />
+                            <h3 class="title">小米全面屏电视E32C</h3>
+                            <p class="desc">全面屏设计，人工智能系统</p>
+                            <p class="price">899元</p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv5.jpg" />
+                            <h3 class="title">米家空调</h3>
+                            <p class="desc">出众静音，快速制冷热</p>
+                            <p class="price">1499元</p>
+                        </div>
                     </div>
                     <div class="tv-2">
-                        <div class="tv-item"></div>
-                        <div class="tv-item"></div>
-                        <div class="tv-item"></div>
-                        <div class="tv-item"></div>
-                        <div class="tv-item"></div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv6.webp" />
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv7.webp" />
+                            <h3 class="title">米家互联网洗烘一体机 Pro 10kg</h3>
+                            <p class="desc">智能洗烘，省心省力</p>
+                            <p class="price">2999元</p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv8.webp" />
+                            <h3 class="title">Redmi全自动波轮洗衣机1A 8kg</h3>
+                            <p class="desc">一键操作，父母都爱用</p>
+                            <p class="price">799元</p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv9.webp" />
+                            <h3 class="title">15.6" 四核i7 16G 独显 512G</h3>
+                            <p class="desc">全面均衡的国民轻薄本</p>
+                            <p class="price">4699元</p>
+                        </div>
+                        <div id="last-tv">
+                            <div class="b1">
+                                <div class="left">
+                                    <h3 class="title">Air 13.3" 2019款</h3>
+                                    <p class="price">5499元起</p>
+                                </div>
+                                <div class="right">
+                                    <img src="./imgs/tv10.webp" />
+                                </div>
+                            </div>
+                            <div class="b2">
+                                <div class="left">
+                                    <p class="more">浏览更多</p>
+                                    <p class="hot">热门</p>
+                                </div>
+                                <div class="right"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="home-banner-box"></div>
+                <div class="home-banner-box">
+                    <img src="./imgs/59e8fc8ba9718c266882719fb4bbcedd.webp" />
+                </div>
                 <div class="box-h">
                     <h2>视频</h2>
                 </div>
                 <div class="video">
                     <div class="video-item">
-                        <div class="video-item-img"></div>
+                        <div class="video-item-img">
+                            <img src="./imgs/video-1.webp" />
+                            <span class="play">
+                                <i class="iconfont-play"></i>
+                            </span>
+                        </div>
                         <div class="content">
                             <h3 class="title">Redmi 10X系列发布会</h3>
                             <p class="desc">Redmi 10X系列发布会</p>
                         </div>
                     </div>
                     <div class="video-item">
-                        <div class="video-item-img"></div>
+                        <div class="video-item-img">
+                            <img src="./imgs/video-2.webp" />
+                            <span class="play">
+                                <i class="iconfont-play"></i>
+                            </span>
+                        </div>
                         <div class="content">
                             <h3 class="title">小米10 青春版 发布会</h3>
                             <p class="desc"></p>
                         </div>
                     </div>
                     <div class="video-item">
-                        <div class="video-item-img"></div>
+                        <div class="video-item-img">
+                            <img src="./imgs/video-3.webp" />
+                            <span class="play">
+                                <i class="iconfont-play"></i>
+                            </span>
+                        </div>
                         <div class="content">
                             <h3 class="title">小米10 8K手机拍大片</h3>
                             <p class="desc"></p>
                         </div>
                     </div>
                     <div class="video-item">
-                        <div class="video-item-img"></div>
+                        <div class="video-item-img">
+                            <img src="./imgs/video-4.webp" />
+                            <span class="play">
+                                <i class="iconfont-play"></i>
+                            </span>
+                        </div>
                         <div class="content">
                             <h3 class="title">小米10发布会</h3>
                             <p class="desc"></p>
@@ -950,6 +1802,7 @@
                         关注小米：
                         <span class="weibo"></span>
                         <span class="weixin"></span>
+                        <img src="./imgs/wx-img.png" id="wx-qrcode">
                     </p>
                 </div>
             </div>
@@ -1074,6 +1927,7 @@
         </div>
     </body>
 </html>
+<script src="./swiper-6.1.2/swiper-bundle.min.js"></script>
 <script>
     window.onload = function () {
         var el = document.getElementById("changing-picture");
@@ -1114,19 +1968,27 @@
         goToTop.onclick = function () {
             document.documentElement.scrollTop = 0;
         };
+
+        //初始化swiper组件
+        var swiper1 = new Swiper("#swiper1", {
+            autoplay: true,
+            autoplay: {
+                disableOnInteraction: false,
+            },
+            loop: true,
+            pagination: {
+                el: "#swiper1-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+        var swiper2 = new Swiper("#swiper2", {
+            autoplay: true,
+            loop: true,
+            speed: 2500,
+        });
     };
-</script>
-<script src="./swiper-6.1.2/swiper-bundle.min.js"></script>
-<script>
-    var mySwiper = new Swiper(".swiper-container", {
-        autoplay: true,
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
 </script>
