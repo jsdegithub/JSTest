@@ -548,7 +548,7 @@
                 flex-direction: row;
                 justify-content: space-between;
             }
-            .zhoubian .tv .tv-item del{
+            .zhoubian .tv .tv-item del {
                 color: #b0b0b0;
                 text-align: center;
                 cursor: pointer;
@@ -572,7 +572,7 @@
                 box-sizing: border-box;
                 text-align: center;
             }
-            .tv .tv-item del{
+            .tv .tv-item del {
                 color: #b0b0b0;
                 text-align: center;
                 cursor: pointer;
@@ -1800,35 +1800,25 @@
                             </div>
                             <div class="tv-item">
                                 <img src="./imgs/zhoubian-2.webp" />
-                                <h3 class="title">
-                                    米家飞行员太阳镜 Pro
-                                </h3>
-                                <p class="desc">
-                                    尼龙偏光，轻巧佩戴
-                                </p>
+                                <h3 class="title">米家飞行员太阳镜 Pro</h3>
+                                <p class="desc">尼龙偏光，轻巧佩戴</p>
                                 <p class="price">199元起</p>
                             </div>
                             <div class="tv-item">
                                 <img src="./imgs/zhoubian-3.webp" />
-                                <h3 class="title">
-                                    小米巨能写中性笔10支装
-                                </h3>
+                                <h3 class="title">小米巨能写中性笔10支装</h3>
                                 <p class="desc">一支顶4支，超长顺滑书写</p>
                                 <p class="price">9.99元</p>
                             </div>
                             <div class="tv-item">
                                 <img src="./imgs/zhoubian-4.webp" />
-                                <h3 class="title">
-                                    米家迷你保温杯
-                                </h3>
+                                <h3 class="title">米家迷你保温杯</h3>
                                 <p class="desc">可以随身携带的温度</p>
                                 <p class="price">49元</p>
                             </div>
                             <div class="tv-item">
                                 <img src="./imgs/zhoubian-5.jpg" />
-                                <h3 class="title">
-                                    贝医生巴氏牙刷 四色装
-                                </h3>
+                                <h3 class="title">贝医生巴氏牙刷 四色装</h3>
                                 <p class="desc">进口刷毛，好品质</p>
                                 <p class="price">39.9元</p>
                             </div>
@@ -1839,17 +1829,13 @@
                             </div>
                             <div class="tv-item">
                                 <img src="./imgs/zhoubian-7.webp" />
-                                <h3 class="title">
-                                    米家负离子速干吹风机 H300
-                                </h3>
+                                <h3 class="title">米家负离子速干吹风机 H300</h3>
                                 <p class="desc">小巧精悍，速干小超人</p>
                                 <p class="price">149元</p>
                             </div>
                             <div class="tv-item">
                                 <img src="./imgs/zhoubian-8.webp" />
-                                <h3 class="title">
-                                    米家运动鞋4
-                                </h3>
+                                <h3 class="title">米家运动鞋4</h3>
                                 <p class="desc">轻盈若絮,弹若脱兔</p>
                                 <p class="price">179元&nbsp;<del>199元</del></p>
                             </div>
@@ -2198,6 +2184,14 @@
                 leftHour = Math.floor((leftTime / (1000 * 60 * 60)) % 24), //计算小时数
                 leftMinute = Math.floor((leftTime / (1000 * 60)) % 60), //计算分钟数
                 leftSecond = Math.floor((leftTime / 1000) % 60); //计算秒数
+            if (leftTime === 0) {
+                clearInterval(timer);
+                timer = null;
+                hourDom.innerText = "00";
+                minuteDom.innerText = "00";
+                secondDom.innerText = "00";
+                return;
+            }
             if (leftHour < 10) {
                 leftHour = "0" + leftHour;
             }
@@ -2210,13 +2204,6 @@
             hourDom.innerText = leftHour;
             minuteDom.innerText = leftMinute;
             secondDom.innerText = leftSecond;
-            if (leftTime === 0) {
-                clearInterval(timer);
-                timer = null;
-                hourDom.innerText = "00";
-                minuteDom.innerText = "00";
-                secondDom.innerText = "00";
-            }
         };
         var timer = setInterval(countdownFn, 1000);
     };
