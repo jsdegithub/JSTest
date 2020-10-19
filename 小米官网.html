@@ -2094,6 +2094,15 @@
                 leftHour = Math.floor((leftTime / (1000 * 60 * 60)) % 24), //计算小时数
                 leftMinute = Math.floor((leftTime / (1000 * 60)) % 60), //计算分钟数
                 leftSecond = Math.floor((leftTime / 1000) % 60); //计算秒数
+            if (leftHour < 10) {
+                leftHour = "0" + leftHour;
+            }
+            if (leftMinute < 10) {
+                leftMinute = "0" + leftMinute;
+            }
+            if (leftSecond < 10) {
+                leftSecond = "0" + leftSecond;
+            }
             hourDom.innerText = leftHour;
             minuteDom.innerText = leftMinute;
             secondDom.innerText = leftSecond;
@@ -2105,6 +2114,6 @@
                 secondDom.innerText = "00";
             }
         };
-        var timer = setInterval(countdownFn, 900);
+        var timer = setInterval(countdownFn, 1000);
     };
 </script>
