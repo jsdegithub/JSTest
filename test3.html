@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var dateStr = "2020/10/21";
+            var endTime = new Date(dateStr);
+
+            dateStr = dateStr.replace(/^(\d{4}\/\d{2}\/)(\d{2})$/, (_, g1, g2) => {
+                g2=Number(g2) + 1 < 10
+                    ? 0 + String(Number(g2) + 1)
+                    : String(Number(g2) + 1)
+                return g1 + g2;
+            });
+
+            console.log(dateStr);
+        </script>
+    </body>
+</html>
