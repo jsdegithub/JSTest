@@ -275,57 +275,63 @@
                 display: none;
             } */
 
-            .parent1 {
+            .box{
+                display: inline;
+                line-height: 50px;
+                height: 200px;
+                font-size: 20px;
+                margin-bottom: 200px;
+                margin-left: 200px;
+            }
+
+            .box1{
                 width: 200px;
                 height: 200px;
                 background-color: lightblue;
-                position: relative;
-                z-index: 1;
+                /* margin-bottom: 50px; */
             }
-            .parent2 {
+            .box2{
                 width: 200px;
                 height: 200px;
-                background-color: rgba(255, 0, 0, 0.319);
-                /* position: relative;
-                z-index: 2;
-                top: -100px;
-                left: 100px; */
+                background-color: lightpink;
+                margin-top: 50px;
             }
-            .child1 {
-                width: 180px;
-                height: 180px;
-                z-index: 999;
-                background-color: rgb(127, 201, 130);
-            }
-            .child2 {
-                width: 180px;
-                height: 180px;
-                position: relative;
-                z-index: -999;
-                background-color: rgba(168, 128, 208, 0.707);
-            }
-
-            .parent {
+            .parent{
+                position: absolute;
                 width: 200px;
-                height: 200px;
-                background-color: rgba(255, 0, 0, 0.319);
-                /* position: relative;
-                z-index: 999; */
+                background-color: lightpink;
             }
-            .child {
-                width: 180px;
-                height: 180px;
-                position: relative;
-                z-index: -1;
-                background-color: rgba(168, 128, 208, 0.707);
+            .child{
+                float: left;
+                width: 100px;
+                height: 100px;
+                background-color: rgb(135, 195, 211);
             }
+            /* .box2-parent{
+                overflow: hidden;
+            } */
         </style>
     </head>
     <body>
 
-        <div class="parent">
+        <!-- <div class="parent">
             <div class="child"></div>
+        </div> -->
+
+        <div class="box1"></div>
+        <div class="box2-parent">
+            <div class="box2"></div>
         </div>
+
+        <!-- <div class="box">hahaha</div>
+        <div class="box">hahaha</div>
+        <div>
+            <div class="box">hahaha</div>
+        <div class="box">hahaha</div>
+        </div> -->
+        <!-- <div class="parent">
+            <div class="child"></div>
+        </div> -->
 
         <!-- <div class="wrapper">
             <div class="parent">
