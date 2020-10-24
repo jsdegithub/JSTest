@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bootstrap响应式原理</title>
+        <link rel="stylesheet" href="./reset-real.css">
+        <style>
+            .container {
+                margin: auto;
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .content {
+                width: 100%;
+                padding: 0 15px;
+                box-sizing: border-box;
+            }
+            .content > div {
+                height: 100px;
+                line-height: 100px;
+                color: #333333;
+                background: #cccccc;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="content"><div></div></div>
+                <div class="content"><div></div></div>
+                <div class="content"><div></div></div>
+                <div class="content"><div></div></div>
+                <div class="content"><div></div></div>
+                <div class="content"><div></div></div>
+                <div class="content"><div></div></div>
+                <div class="content"><div></div></div>
+            </div>
+        </div>
+        <!-- 响应式css文件必须放在style标签里自定义的样式后面，不然会被覆盖 -->
+        <link rel="stylesheet" href="./Bootstrap响应式原理.css" />
+    </body>
+</html>

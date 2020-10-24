@@ -1,0 +1,42 @@
+.container{
+    width: 100%;
+    padding-left:15px;
+    padding-right:15px;
+    box-sizing: border-box;
+}
+/* 原理:利用媒体查询 - 条件 - 封装成对应的class  >= 576px*/
+@media screen and (min-width:576px){
+    .container{
+        max-width: 540px;
+    }
+    .content{
+        width: 50%;
+    }
+}
+/*  >= 768px */
+@media screen and (min-width:768px){
+    .container{
+        max-width: 720px;
+    }
+    .content{
+        width: 33.33%;
+    }
+}
+/*  >= 992px */
+@media screen and (min-width:992px){
+    .container{
+        max-width: 960px;
+    }
+    .content{
+        width: 25%;
+    }
+}
+/*  >= 1200px */
+@media screen and (min-width:1140px){
+    .container{
+        max-width: 1140px;
+    }
+    .content{
+        width: 16.667%;
+    }
+}
