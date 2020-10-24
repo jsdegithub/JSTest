@@ -1,0 +1,11 @@
+.parent {
+  width: 100px;
+}
+
+.parent .child {
+  width: 50px;
+}
+
+.parent:hover {
+  color: yellowgreen;
+}
