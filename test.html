@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <body>
+        <button index="0">点击</button>
+        <button index="1">点击</button>
+        <button index="2">点击</button>
 
-<body>
+        <script>
+            // alert(Boolean([]&&0));
+            // console.log(((typeof [...[1, 2, 3]])));
+            // console.log([...[1, 2, 3]]);
 
-
-    <button index='0'>点击</button>
-    <button index='1'>点击</button>
-    <button index='2'>点击</button>
-
-    <script>
-        // alert(Boolean([]&&0));
-        // console.log(((typeof [...[1, 2, 3]])));
-        // console.log([...[1, 2, 3]]);
-
-
-        /* let reg = /\{\{(.+?)\}\}/g;
+            /* let reg = /\{\{(.+?)\}\}/g;
 
         let str = '{{jin}}--{{shuo}}';
 
@@ -30,12 +26,11 @@
 
         console.log(str); */
 
-        /* if(1){
+            /* if(1){
             console.log('jinshuo');
         } */
 
-
-        /* function a() {
+            /* function a() {
             return function () {
                 console.log(1);
             }
@@ -46,8 +41,7 @@
         a = null;
         fn(); */
 
-
-        /* function a() {
+            /* function a() {
             return 1;
         }
         debugger
@@ -55,9 +49,7 @@
         console.log(res);
         console.log(res); */
 
-
-
-        /* function a() {
+            /* function a() {
             var x = 1;
             return function () {
                 console.log(x);
@@ -69,8 +61,7 @@
         a = null;
         fn(); */
 
-
-        /* var a = 0;
+            /* var a = 0;
         if (true) {
             a = 1;
             function a() { };
@@ -79,7 +70,7 @@
         }
         console.log(a);  //1 */
 
-        /* var a = 0;
+            /* var a = 0;
         if (true) {
             a = 1;
             var a;
@@ -88,7 +79,7 @@
         }
         console.log(a);  //2 */
 
-        /* var a = 0;
+            /* var a = 0;
         if (true) {
             a = 1;
             let a;
@@ -96,9 +87,9 @@
             console.log(a);
         }
         console.log(a); */
-        //Uncaught ReferenceError: Cannot access 'a' before initialization
+            //Uncaught ReferenceError: Cannot access 'a' before initialization
 
-        /* var a = 0;
+            /* var a = 0;
         if (true) {
             a = 1;
             var a = 0;
@@ -107,7 +98,7 @@
         }
         console.log(a);  //2 */
 
-        /* var f = 1;
+            /* var f = 1;
         if (1) {
             function f() {
                 console.log(1);
@@ -115,7 +106,7 @@
         }
         console.log(f); */
 
-        /* function A(){
+            /* function A(){
             var x=1;
             console.log(x);
             return function(){
@@ -124,7 +115,7 @@
         }
         var f=A(); */
 
-        /* var arr[...];
+            /* var arr[...];
         for (var i = 0; i < 5; i++) {
             (function (i) {
                 buttonList[i].onclick = function () {
@@ -141,9 +132,8 @@
             })(i);
         } */
 
-
-        // debugger
-        /* var buttonList = document.getElementsByTagName('button');
+            // debugger
+            /* var buttonList = document.getElementsByTagName('button');
         var arr = ['red', 'blue', 'black'];
         for (var i = 0; i < buttonList.length; i++) {
             (function (i) {
@@ -154,7 +144,7 @@
             })(i)
         } */
 
-        /* var buttonList = document.getElementsByTagName('button');
+            /* var buttonList = document.getElementsByTagName('button');
         var arr = ['red', 'blue', 'black'];
         for (var i = 0; i < buttonList.length; i++) {
             (function (i) {
@@ -165,7 +155,7 @@
             })(i)
         } */
 
-        /* var buttonList = document.getElementsByTagName('button');
+            /* var buttonList = document.getElementsByTagName('button');
         var arr = ['red', 'blue', 'black'];
         for (var i = 0; i < buttonList.length; i++) {
             buttonList[i].index = i;
@@ -175,7 +165,7 @@
             }
         } */
 
-        /* var arr = ['red', 'blue', 'black'];
+            /* var arr = ['red', 'blue', 'black'];
         document.body.onclick = function (e) {
             let target = e.target;
             targetTag = target.tagName;
@@ -185,8 +175,7 @@
             }
         } */
 
-
-        /* var module1 = (function () {
+            /* var module1 = (function () {
             var find = function () {
                 console.log(1);
             }
@@ -206,15 +195,14 @@
             }
         })() */
 
-
-        /* if(0){
+            /* if(0){
             var f=function(){
                 console.log(1);
             }
         }
         console.log(f); */
 
-        /* function getCss(element, attr) {
+            /* function getCss(element, attr) {
             if ('getComputedStyle' in window) {
                 getCss = function (element, attr) {
                     return window.getComputedStyle(element)[attr];
@@ -242,29 +230,27 @@
             }
         } */
 
-
-        /* console.log(a);
+            /* console.log(a);
         a = 12; */
 
-        /* var a = 1;
+            /* var a = 1;
         var b = 2;
         console.log('hhh', a + b);
 
         console.log('hhh'+1+2); */
 
-        // console.log(f);
-        /* (function f() {
+            // console.log(f);
+            /* (function f() {
             console.log(1);
         })(); */
 
-        /*  console.log(f);
+            /*  console.log(f);
          function f(){
              console.log(1);
          }
   */
 
-
-        /* function f(x) {
+            /* function f(x) {
             console.log(x);
             var x = 20;
             console.log(x);
@@ -275,7 +261,7 @@
         }
         f(10); */
 
-        /* {
+            /* {
             console.log(foo);
             function foo() { };
             foo = 1;
@@ -284,7 +270,7 @@
         console.log(foo);
  */
 
-        /* {
+            /* {
             console.log(foo);
             console.log(window.foo);
             function foo() {
@@ -299,8 +285,7 @@
         }
         console.log(foo); */
 
-
-        /* var a = 12;
+            /* var a = 12;
         if (true) {
             console.log(a);
             a = 13;
@@ -311,7 +296,7 @@
         }
         console.log(a); */
 
-        /* debugger
+            /* debugger
         var x = 1;
         function f(x, y = function () { x = 2 }) {
             var x;
@@ -321,9 +306,8 @@
         f(5);
         console.log(x); */
 
-
-        // debugger
-        /* var x = 1;
+            // debugger
+            /* var x = 1;
         function f(x, y = 2) {
             x = 10;
             console.log(x);
@@ -331,7 +315,7 @@
         f(5);
         console.log(x); */
 
-        /* debugger
+            /* debugger
         var x = 1;
         function f(x, y = function () { x = 2 }) {
             function x() {
@@ -343,8 +327,7 @@
         f(5);
         console.log(x); */
 
-
-        /* var z = 2;
+            /* var z = 2;
         function f(x, y, z) {
             z = 3;
             console.log(arguments[2]);
@@ -352,46 +335,40 @@
         z = f(1, 2);
         console.log(z); */
 
-        /* (function f() {
+            /* (function f() {
             console.log(f);  // undefined
             var f = 1;
             console.log(f);  // 1
         })(); */
 
-        /* (function f() {
+            /* (function f() {
             function f(){
                 console.log(1);
             };
             console.log(f);  // 1
         })(); */
 
-        /* function f() {
+            /* function f() {
             f = 1;
             console.log(f);
         }
         f(); */
 
-
-        /* var b = 10;
+            /* var b = 10;
         (function b() {
             b = 20;
             console.log(b);  // f b(){...}
         })()
         console.log(b);  // 10 */
+        </script>
 
-
-
-    </script>
-
-    <script>
-
-        /* function a() {
+        <script>
+            /* function a() {
             console.log(1);
         }
         let a = 2; */
 
-
-        /* var a = 1;
+            /* var a = 1;
         var b = 2;
         if (1) {
             var a = 3;
@@ -400,16 +377,14 @@
         }
         console.log(a, b); */
 
-
-        /* for(let i=0; i<6; i++){
+            /* for(let i=0; i<6; i++){
             console.log(1);
         }
         console.log(i); */
 
+            // alert(typeof Array);
 
-        // alert(typeof Array);
-
-        /* function f(x, y, z){
+            /* function f(x, y, z){
             x=1;
             y=2;
         }
@@ -417,17 +392,15 @@
         console.log(f.name);  // f
         console.log(f.prototype.constructor);  // f f(x, y, z){x=1; y=2;} */
 
-        /* Object.create = function (prototype) {
+            /* Object.create = function (prototype) {
             function Temp() { };
             Temp.prototype = prototype;
             return new Temp();
         } */
 
+            // console.log(typeof undefined);
 
-        // console.log(typeof undefined);
-
-
-        /* function Fn() {
+            /* function Fn() {
 
         }
         Fn.prototype.sayName = function () {
@@ -436,7 +409,7 @@
         Fn.prototype.sayHello = function () {
             console.log('Hello');
         } */
-        /* let newPrototype = Object.create(Fn.prototype);
+            /* let newPrototype = Object.create(Fn.prototype);
         Object.assign(newPrototype, {
             sayName() {
                 console.log('name: LiMengYing');
@@ -445,7 +418,7 @@
                 console.log('age: 30');
             }
         }) */
-        /* let newPrototype = {
+            /* let newPrototype = {
             sayName() {
                 console.log('name: LiMengYing');
             },
@@ -460,13 +433,13 @@
         obj.__proto__.__proto__.sayName();
         obj.sayHello(); */
 
-        /* let obj = { a: 1 };
+            /* let obj = { a: 1 };
         obj.__proto__.b = 2;
         for(let key in obj){
             console.log(key);
         } */
 
-        /* let fn = function () {
+            /* let fn = function () {
             this.a = 1;
             let b = 2;
             c: 3
@@ -478,8 +451,7 @@
         console.log(fn.c);
         console.log(fn.b); */
 
-
-        /* function Foo(){
+            /* function Foo(){
             getName=function(){
                 console.log(1);
             }
@@ -506,9 +478,8 @@
         new Foo().getName();  // 3
         new new Foo().getName();  // 3 */
 
-
-        // call继承
-        /* function Parent() {
+            // call继承
+            /* function Parent() {
             this.x = 100;
         }
         Parent.prototype.getX = function () {
@@ -522,8 +493,7 @@
             return this.y;
         } */
 
-
-        /* class Parent {
+            /* class Parent {
             constructor() {
                 this.x = 100;
             }
@@ -541,39 +511,36 @@
             }
         } */
 
-
-        /* function Fn() {
+            /* function Fn() {
             this.x = 100;
             var x = 200;
             console.log(x);
         } */
-        // Fn();
-        // console.log(x);
+            // Fn();
+            // console.log(x);
 
-        /* var obj = {};
+            /* var obj = {};
         Fn.call(obj);
         console.log(obj); */
 
-        // alert(null == undefined == 0 == '' == false);
-        // alert(null==0)
-        // alert(undefined==0)
-        // alert(null == undefined);  // true
-        // alert(0=='')  // true
-        // alert(0 == false);  // true
-        // alert(1==true);  // true
+            // alert(null == undefined == 0 == '' == false);
+            // alert(null==0)
+            // alert(undefined==0)
+            // alert(null == undefined);  // true
+            // alert(0=='')  // true
+            // alert(0 == false);  // true
+            // alert(1==true);  // true
 
-        /* Fn.call();
+            /* Fn.call();
         console.log(window.x); */
 
-
-        /* function Fn() {
+            /* function Fn() {
             return 1;
         }
         let res = Fn.call();
         console.log(res);  // 1 */
 
-
-        /* // call源码
+            /* // call源码
         Function.prototype.call = function (context, ...params) {
             context == undefined ? context = window : null;
             let contextType = typeof context;
@@ -600,8 +567,7 @@
         Fn.call(obj, 1, 2);
         console.log(obj); */
 
-
-        /* function slice() {
+            /* function slice() {
             let arr = [];
             for (let i = 0; i < this.length; i++) {
                 arr.push(this[i]);
@@ -609,37 +575,35 @@
             return arr;
         } */
 
-        // let utils = (function () {
-        //     // 方案一
-        //     /* function toArray(...args) {
-        //         return args;
-        //     } */
-        //     // 方案二
-        //     /* function toArray() {
-        //         return [...arguments];
-        //     } */
-        //     // 方案三
-        //     function toArray() {
-        //         return [].slice.call(arguments);
-        //     }
-        //     return {
-        //         toArray
-        //     }
-        // })()
-        // let arr = utils.toArray(1, 2, 3);
-        // console.log(arr);
+            // let utils = (function () {
+            //     // 方案一
+            //     /* function toArray(...args) {
+            //         return args;
+            //     } */
+            //     // 方案二
+            //     /* function toArray() {
+            //         return [...arguments];
+            //     } */
+            //     // 方案三
+            //     function toArray() {
+            //         return [].slice.call(arguments);
+            //     }
+            //     return {
+            //         toArray
+            //     }
+            // })()
+            // let arr = utils.toArray(1, 2, 3);
+            // console.log(arr);
 
-
-        /* function fn(){
+            /* function fn(){
             [].forEach.call(arguments, item=>{
                 console.log(item);
             })
         }
         fn(1, 2, 3); */
 
-
-        // 深克隆
-        /* function deepClone(obj) {
+            // 深克隆
+            /* function deepClone(obj) {
             const constructor = obj.constructor;
             if (obj === null) return null;
             if (typeof obj !== 'object') return obj;
@@ -652,15 +616,14 @@
             return newObj;
         } */
 
-
-        // 数据类型检测
-        /* function toType(obj) {
+            // 数据类型检测
+            /* function toType(obj) {
             let type = Object.prototype.toString.call(obj);
             return /^\[object ([a-z]+)\]$/i.exec(type)[1].toLowerCase();
         } */
 
-        // jQuery的解决方案
-        /* var typeArr = ['Boolean', 'Number', 'String', 'Function', 'Array',
+            // jQuery的解决方案
+            /* var typeArr = ['Boolean', 'Number', 'String', 'Function', 'Array',
             'Date', 'RegExp', 'Object', 'Error', 'Symbol'];
         var class2Type = {};
         typeArr.forEach(item => {
@@ -699,9 +662,7 @@
             return true;
         } */
 
-
-
-        /* let obj1 = {
+            /* let obj1 = {
             x: function () {
                 console.log(1);
                 console.log(2);
@@ -725,9 +686,7 @@
 
  */
 
-
-
-        /* function isEaqual(val1, val2) {
+            /* function isEaqual(val1, val2) {
             const type1 = val1 === null ? 'null' : typeof val1;
             const type2 = val2 === null ? 'null' : typeof val2;
             if (type1 === 'function' && type2 === 'function') {
@@ -757,9 +716,7 @@
             return val1 === val2;
         } */
 
-
-
-        /*         // instanceof源码
+            /*         // instanceof源码
                 function instanceOf(example, Fun) {
                     let _proto = Object.getPrototypeOf(example);
                     let _prototype = Fun.prototype;
@@ -774,9 +731,7 @@
                 Array[Symbol.hasInstance]([]);  //true
          */
 
-
-
-        /* function initParams(num) {
+            /* function initParams(num) {
             num = Number(num);
             return isNaN(num) ? 0 : num;
         }
@@ -795,8 +750,7 @@
         console.log(n.plus('a'));
         console.log(n.plus('b').minus(2)); */
 
-
-        /* Number.prototype.plus = function (num) {
+            /* Number.prototype.plus = function (num) {
             console.log(this);
             console.log(typeof this);
             return this + num;
@@ -807,13 +761,11 @@
         // console.log(1.plus(2));
         console.log('1'.plus(2)); */
 
-
-
-        // 实现queryURLParams
-        // url.queryURLParams('from') => xxx
-        // url.queryURLParams('_HASH') => yyy
-        // 方法一：通过 new URL()
-        /* String.prototype.queryURLParams = function (key) {
+            // 实现queryURLParams
+            // url.queryURLParams('from') => xxx
+            // url.queryURLParams('_HASH') => yyy
+            // 方法一：通过 new URL()
+            /* String.prototype.queryURLParams = function (key) {
             let obj = {};
             let {
                 search,
@@ -836,8 +788,8 @@
         console.log(url.queryURLParams('name'));
         console.log(url.queryURLParams('age')); */
 
-        // 方法二：正则表达式
-        /* String.prototype.queryURLParams = function (key) {
+            // 方法二：正则表达式
+            /* String.prototype.queryURLParams = function (key) {
             let obj = {};
             this.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, val) => {
                 obj[key] = val;
@@ -852,9 +804,7 @@
         console.log(url.queryURLParams('name'));
         console.log(url.queryURLParams('age')); */
 
-
-
-        /* class A {
+            /* class A {
             constructor(x, y) {
                 this.x = x;
                 this.y = y;
@@ -875,9 +825,7 @@
         A.setX(10);
         console.log(A.n);  //10 */
 
-
-
-        /* let obj = {
+            /* let obj = {
             2: 3,
             3: 4,
             length: 2,
@@ -887,25 +835,24 @@
         obj.push(2);
         console.log(obj);  //{2:1, 3:2, length:4, push:f} */
 
-
-        // a为何值时以下 if 语句的条件为真？
-        // 注：==比较的时候，如果两边数据类型不一致，默认会进行数据类型转换
-        // 方案一：
-        // 对象转换为数字，会调取valueOf（获取原始值）/toString(如果对象私有属性中有toString，
-        // 则不会再向原型上去查找)
-        /* var a = {
+            // a为何值时以下 if 语句的条件为真？
+            // 注：==比较的时候，如果两边数据类型不一致，默认会进行数据类型转换
+            // 方案一：
+            // 对象转换为数字，会调取valueOf（获取原始值）/toString(如果对象私有属性中有toString，
+            // 则不会再向原型上去查找)
+            /* var a = {
             i: 0,
             toString() {
                 return ++this.i;
             }
         } */
-        // 方案二：
-        /* var a = [1, 2, 3];
+            // 方案二：
+            /* var a = [1, 2, 3];
         a.toString = a.shift;
         if (a == 1 && a == 2 && a == 3) {
             console.log('ok');    //ok
         } */
-        /* // 方案三：数据劫持
+            /* // 方案三：数据劫持
         var i = 0;
         Object.defineProperty(window, 'a', {
             get() {
@@ -916,9 +863,7 @@
             console.log('ok');    //ok
         } */
 
-
-
-        /* // 实现 toArray方法
+            /* // 实现 toArray方法
         // 方案一：
         function toArray(...args) {
             return args;
@@ -960,10 +905,9 @@
             return arr;
         } */
 
-
-        // 内置call方法的实现原理
-        // 'use strict'
-        /*         Function.prototype.call = function (obj, ...args) {
+            // 内置call方法的实现原理
+            // 'use strict'
+            /*         Function.prototype.call = function (obj, ...args) {
                     obj = obj == undefined ? window : obj;
                     let objType = typeof obj;
                     if (!/^(object|function)$/i.test(objType)) {
@@ -988,16 +932,14 @@
                 console.log(obj);
                 console.log(res); */
 
-        /* function fn(...args) {
+            /* function fn(...args) {
             console.log(...args);  //1 2 3
             console.log(args);  //[1, 2, 3]
         }
         fn(1, 2, 3);
  */
 
-
-
-        /* function fn(...params) {
+            /* function fn(...params) {
             console.log(...params);
         }
         let obj = {};
@@ -1009,9 +951,7 @@
         let obj = {};
         fn.apply(obj, [1, 2, 3]);  //[1, 2, 3] */
 
-
-
-        /* var name = 'js';
+            /* var name = 'js';
         function A(x, y) {
             var res = x + y;
             console.log(res, this.name);
@@ -1025,9 +965,7 @@
         Function.prototype.call(A, 60, 50);
         Function.prototype.call.call.call(A, 80, 70); */
 
-
-
-        /* // bind源码
+            /* // bind源码
         Function.prototype.bind = function (context, ...params) {
             let _this = this;
             //返回的内层函数也可能需要接收参数，例如：事件绑定函数需要接收事件e
@@ -1054,10 +992,8 @@
         f();
         console.log(obj);  //{x: 1, y: 2} */
 
-
-
-        // 函数的防抖
-        /* function debounce(func, wait = 500, immediate = false) {
+            // 函数的防抖
+            /* function debounce(func, wait = 500, immediate = false) {
             let timer,
                 now;
             return function (...args) {
@@ -1086,9 +1022,8 @@
         // btn.onclick = debounce(func);
         btn.onclick = debounce(func, 500, true); */
 
-
-        // 函数的节流
-        /* function throttle(func, delay = 1000) {
+            // 函数的节流
+            /* function throttle(func, delay = 1000) {
             // let timer = null;
             let previous = 0;
             return function (...params) {
@@ -1117,9 +1052,7 @@
         let btn = document.getElementsByTagName('button')[0];
         btn.onclick = throttle(func); */
 
-
-
-        /* new Promise((resolve, reject) => {
+            /* new Promise((resolve, reject) => {
             reject(1);
         }).then(result => {
             return Promise.reject(1);
@@ -1127,8 +1060,7 @@
             console.log(1);
         }) */
 
-
-        /* let validator = {
+            /* let validator = {
             set: function (obj, prop, value) {
                 obj[prop] = value;
                 // 表示成功
@@ -1143,8 +1075,7 @@
         person.age = 0;
         console.log(js.age); */
 
-
-        /* new Promise((resolve, reject) => {
+            /* new Promise((resolve, reject) => {
             reject(1);
         }).then(result => {
             console.log(result);
@@ -1152,8 +1083,7 @@
             console.log(reason);  //1
         }) */
 
-
-        /* function A(f) {
+            /* function A(f) {
             return function () {
                 window.a = function () {
                     window.b = f();
@@ -1168,7 +1098,7 @@
         a();
         console.log(b); */
 
-        /* var name = 'jinshuo';
+            /* var name = 'jinshuo';
         var str = name.slice(1);
         console.log(str);
         console.log(name);
@@ -1176,26 +1106,22 @@
         var arr = [1, 2, 3];
         console.log(arr.splice(1));  //splice不能对字符串使用 */
 
-
-        /* var { name, age } = { name: 'jinshuo', age: 25 };
+            /* var { name, age } = { name: 'jinshuo', age: 25 };
         console.log(name, age); */
 
-
-        /* console.log(
+            /* console.log(
             Object.keys({}).length
         ); */
 
+            // var { name: n } = { name: 'jinshuo' };
+            // var { name } = { name: 'jinshuo' };
+            // console.log(name);
+            // console.log(n);
 
-        // var { name: n } = { name: 'jinshuo' };
-        // var { name } = { name: 'jinshuo' };
-        // console.log(name);
-        // console.log(n);
-
-
-        /* var str1 = new String('jinshuo');
+            /* var str1 = new String('jinshuo');
         var str2 = 'jinshuo'; */
 
-        var a = {
+            /* var a = {
             val: 0,
             toString() {
                 return ++this.val;
@@ -1203,14 +1129,128 @@
         }
         if (a == 1 && a == 2 & a == 3) {
             console.log('ok');
+        } */
+
+            /* var a={
+            valueOf(){
+                return 2;
+            }
         }
+        alert(a==2); */
+
+            /* var a = {
+                valueOf() {
+                    return 2;
+                },
+                toString() {
+                    return "px1";
+                },
+            };
+            console.log(parseInt(a)); */
 
 
 
+            // var obj = {};
+            // var str='str';
+            // obj[str]=1;
+            // var num=2;
+            // obj[num]=2;
+            // var buer=Boolean(1);
+            // obj[buer]=3;
+            // var null_=null;
+            // obj[null_]=4;
+            // var undefined_=undefined;
+            // obj[undefined_]=5;
+            // var sy = Symbol(6);
+            // obj[sy] = 6;
+            // var bigint_=BigInt(7);
+            // obj[bigint_]=7;
+            // var o = { name: "js" };
+            // obj[o] = 8;
+            // var arr=[1,2,3];
+            // obj[arr]=9;
+            // var date=new Date();
+            // obj[date]=10;
+            // var regexp=new RegExp(/^$/);
+            // obj[regexp]=11;
+            // var fn=function(){};
+            // obj[fn]=12;
+            // console.log(obj);
+            // console.log("--------------------");
+            // for (let key in obj) {
+            //     console.log(`${key}(${typeof key}):${obj[key]}`);
+            // }
+            // console.log("--------------------");
+            // console.log(`obj["[object Object]"]=${obj["[object Object]"]}`);
+            // console.log(`obj["1,2,3"]=${obj["1,2,3"]}`);
+            // console.log(`obj["/^$/"]=${obj["/^$/"]}`);
+            // console.log("--------------------");
+            // console.log(`obj[{}]=${obj[{}]}`);
+            // console.log(`obj[{a:1}]=${obj[{a:1}]}`);
+            // console.log(`obj[arr]=${obj[arr]}`);
+            // console.log(`obj[4,5,6]=${obj[[4,5,6]]}`);
+            // console.log(`obj[regexp]=${obj[regexp]}`);
+            // console.log(`obj[new RegExp(/^js$/)]=${obj[new RegExp(/^js$/)]}`);
+
+            /* var obj={};
+            var sy1=Symbol(1);
+            var sy2=Symbol(1);
+            obj[sy1]=1;
+            obj[sy2]=2;
+            console.log(obj[sy1]);
+            console.log(obj[sy2]); */
+
+            /* console.log(a);
+            func();
+            var a=1;
+            function func(){
+                console.log(2);
+            } */
+
+            // console.log(func);
+            /* func();
+            let func = function(){
+                console.log(2);
+            } */
+
+            /* var a;
+            var b=a;
+            console.log(a);
+            console.log(b);
+            b=1;
+            console.log(b);
+            console.log(a); */
+
+            /* let a=b={};
+            console.log(a);
+            console.log(b);
+            console.log('不加var, 直接b={}, 输出window.b:', window.b);
+            console.log('let a={}, 输出window.a:', window.a);
+            var d=10;
+            console.log('var d=10, 输出window.d:', window.d);
+            b['name']='js';
+            console.log(a);
+            console.log(b);
+            b={};
+            console.log(b);
+            console.log(a);
+            let c={};
+            c={'name':'js'};
+            console.log(c); */
 
 
-    </script>
+            let a=0,
+                b=0;
+            function A(a){
+                A=function(b){
+                    console.log(a+b++);
+                }
+                console.log(a++);
+            }
+            A(1);
+            A(2);
+            
 
-</body>
-
+        </script>
+    </body>
 </html>
