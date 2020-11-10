@@ -1148,8 +1148,6 @@
             };
             console.log(parseInt(a)); */
 
-
-
             // var obj = {};
             // var str='str';
             // obj[str]=1;
@@ -1238,19 +1236,203 @@
             c={'name':'js'};
             console.log(c); */
 
-
-            let a=0,
-                b=0;
-            function A(a){
-                A=function(b){
-                    console.log(a+b++);
-                }
+            /* let a = 0,
+                b = 0;
+            function A(a) {
+                A = function (b) {
+                    console.log(a + b++);
+                };
                 console.log(a++);
             }
             A(1);
-            A(2);
-            
+            A(2); */
 
+            /* function A(){
+                var x=1;
+                return function(){
+                    console.log(x++);
+                }
+            }
+            var fn=A();
+            A=null;
+            fn();
+            fn();
+            fn(); */
+
+            /* var btn =document.getElementsByTagName("button")[0];
+            var i=1;
+            function reduce(){
+                i--;
+                console.log(i);
+            }
+            btn.onclick=function(e, i){
+                reduce();
+                console.log(e);
+                console.log(i);
+            } */
+
+            /* function fn() {
+                c = 1;
+            }
+            fn();
+            console.log(c);
+            console.log(window.c); */
+
+            /* var a=1;
+            console.log(window.a);
+            let b=2;
+            console.log(window.b);
+            console.log(window.c);
+            console.log(c); */
+
+            /* console.log(f1);  //undefined
+            console.log(a);  //undefined
+            {
+                var a=1;
+                a=2;
+                console.log(window.a);  //2
+                f1=10;
+                console.log(window.f1);  //undefined
+                function f1(){
+                    console.log(1);
+                }
+                console.log(window.f1);  //10
+                f1=2;
+                console.log(window.f1);  //10
+                function f1(){
+                    console.log(2);
+                }
+                console.log(window.f1);  //2
+                f1=0;
+                console.log(f1);  //0
+                a=3;
+                console.log(a);  //3
+                console.log(window.a);  //3
+            }
+            console.log(a);  //3
+            console.log(f1);  //2 */
+
+            /* var a=12;
+            {
+                console.log(a);  //f a(){}
+                a=13;
+                console.log(a);  //13
+                console.log('a之前',window.a);  //12
+                function a(){};
+                console.log('a之后',window.a);  //13
+                a=10;
+                console.log('第二个a之前',window.a);  //13
+                function a(){};
+                console.log('第二个a之后',window.a);  //10
+                console.log(a);  //10
+            }
+            console.log(a);  //10 */
+
+            /* console.log(fn);
+            console.log(a);
+            if(false){
+                function fn(){
+                    console.log(1);
+                }
+                var a=2;
+            } */
+
+            /* function fn(x){
+                x();
+            }
+            fn(function(){
+                console.log(1);
+            }); */
+
+            /*  var x = 1;
+            function fn(
+                x,
+                y = function () {
+                    x = 2;
+                },
+                z
+            ) {
+                
+                var x = 3;
+                y();
+                console.log(x); //3
+            }
+            fn(5);
+            console.log(x); //1 */
+
+            /* var x = 1;
+            function func(
+                x,
+                y = function anonymous1() {
+                    x = 2;
+                }
+            ) {
+                var x = 3;
+                var y = function anonymous2() {
+                    x = 4;
+                };
+                y();
+                console.log(x);  //4
+            }
+            func(5);
+            console.log(x);  //1 */
+
+            /* var x = 1;
+            function func(
+                x,
+                y = function anonymous1() {
+                    x = 2;
+                }
+            ) {
+                function x() {}
+                y();
+                console.log(x);  //f x(){}
+            }
+            func(5);
+            console.log(x);  //1 */
+
+            /* var x = 1;
+            function fn(
+                y = function () {
+                    x = 2;
+                }
+            ) {
+                console.log(x);  //undefined
+                var x = 3;
+                y();
+                console.log(x); //3
+            }
+            fn();
+            console.log(x); //2 */
+
+            /* function f1() {
+                console.log(f2);
+                return function f2() {};
+            }
+            f1(); */
+
+            /* var a=2;
+            console.log(a*=2); */
+
+
+            /* function fn(){
+                fn=1;
+                console.log(fn);
+            }
+            fn();
+            console.log(fn);
+            fn();
+ */
+
+
+            (function b(){
+                b=20;
+                console.log(window.b);
+                console.log(b);
+            })();
+
+
+            
         </script>
     </body>
 </html>
