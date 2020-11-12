@@ -1414,7 +1414,6 @@
             /* var a=2;
             console.log(a*=2); */
 
-
             /* function fn(){
                 fn=1;
                 console.log(fn);
@@ -1424,23 +1423,158 @@
             fn();
  */
 
-
             /* (function b(){
                 b=20;
                 console.log(window.b);
                 console.log(b);
             })(); */
 
-
-            var reg=/a/;
+            /* var reg=/a/;
             var str='jinshuoahhh';
             var g=str.replace(reg, g=>{
                 return g;
             });
-            console.log(g);
+            console.log(g); */
+
+            /* function Fn(x, y){
+                this.z=x+y;
+            }
+            var res=Fn(1,2);
+            console.log(res);
+            console.log(Fn.z);
+            console.log(window.z); */
+
+            /* function _new(Fn) {
+                return function (...args) {
+                    var obj = {};
+                    obj.__proto__ = Fn.prototype;
+                    var res = Fn.call(obj, ...args);
+                    if (res !== null && typeof res === "object") return res;
+                    return obj;
+                };
+            }
+            function Fn(){
+                this.x=1;
+                return {y:2};
+            }
+            var obj1=_new(Fn)();
+            console.log(obj1);
+            var obj3=new Fn;
+            console.log(obj3); */
+            /* var obj2=new Fn();
+            console.log(obj2); */
+
+            /* function Fn(y, z){
+                this.x=y+z;
+            }
+            var obj1=new Fn(1, 2);
+            var obj2=new Fn;
+            console.log(obj1);
+            console.log(obj2); */
+
+            /* Function.prototype._call = function (obj = {}, ...args) {
+                obj.fn = this;
+                var res = obj.fn(...args);
+                delete obj.fn;
+                return res;
+            };
+
+            var obj = {};
+            function fn(x) {
+                this.y = x;
+                return this.y;
+            }
+            var res = fn._call(obj, 1);
+            console.log(obj);
+            console.log(res); */
+
+            /* function fn(){
+                console.log(1);
+            }
+            fn.a=1;
+            console.log(fn.a); */
+
+            /* function Fn(){
+                this.x=1;
+            }
+            console.log(typeof Fn); */
+
+            /* var fn = function () {};
+            fn.a=1;
+            console.log(fn.prototype); */
+
+            /* var obj={};
+            console.log(obj.prototype); */
+
+            /* var t=new Date();
+            console.log(t.prototype); */
+
+            /* function _new(Fn) {
+                return function (...args) {
+                    var obj = {};
+                    obj.__proto__ = Fn.prototype;
+                    var res = Fn.call(obj, ...args);
+                    if (res !== null && /^(object|function)$/.test(typeof res)) return res;
+                    return obj;
+                };
+            }
+            function Fn() {
+                this.x = 1;
+                return function(){};
+            }
+            var obj1 = _new(Fn)();
+            console.log(obj1); */
+
+            /* function Fn(){
+                this.x=1;
+                return function(){};
+            }
+            var f=new Fn();
+            console.log(f); */
+
+            /* var obj=Object.create(null);
+            console.log(obj.__proto__);
+
+            var obj1=Object.create({a:1});
+            console.log(obj1.__proto__); */
+
+            /* Object._create=function(prototype){
+                var tempFn=function(){};
+                tempFn.prototype=prototype;
+                return new tempFn;
+            }
+
+            var prototype={a:1};
+            var obj=Object._create(prototype);
+            console.log(obj.__proto__); */
+
+            /* Array.prototype.unRepeat = function () {
+                return [...new Set(this)];
+            };
+            var arr = [1, 1, 3, 6, 8, 8, 9, 9, 9, 2];
+            var new_arr = arr.unRepeat();
+            console.log(new_arr); */
+
+            /* Object.prototype.f = function () {};
+            var obj = {
+                name: "js",
+                age: 26,
+            };
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    console.log(key);
+                }
+            } */
 
 
-            
+            var obj = {
+                name: "js",
+                age: 26,
+            };
+            console.log(Object.keys(obj));
+
+
+
         </script>
     </body>
 </html>
