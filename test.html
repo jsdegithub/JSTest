@@ -1567,11 +1567,33 @@
             } */
 
 
-            var obj = {
+            /* var obj = {
                 name: "js",
                 age: 26,
             };
-            console.log(Object.keys(obj));
+            console.log(Object.keys(obj)); */
+
+
+            /* function Fn(){};
+            Fn.prototype.a=1;
+            var newPrototype=Object.create(Fn.prototype);
+            var newPrototype_data={
+                b:2,
+                c:3
+            }
+            Fn.prototype=Object.assign(newPrototype, newPrototype_data)
+            var obj=new Fn();
+            console.log(obj.__proto__); */
+
+
+            function Fn(){
+                this.a=1;
+                var b=function(){
+                    console.log('hhh');
+                }
+            }
+            var obj=new Fn();
+            obj.b();
 
 
 
