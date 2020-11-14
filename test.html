@@ -1566,13 +1566,11 @@
                 }
             } */
 
-
             /* var obj = {
                 name: "js",
                 age: 26,
             };
             console.log(Object.keys(obj)); */
-
 
             /* function Fn(){};
             Fn.prototype.a=1;
@@ -1585,18 +1583,94 @@
             var obj=new Fn();
             console.log(obj.__proto__); */
 
-
-            function Fn(){
+            /* function Fn(){
                 this.a=1;
                 var b=function(){
                     console.log('hhh');
                 }
             }
             var obj=new Fn();
-            obj.b();
+            obj.b(); */
+
+            /* function Fn(){
+                this.a=1;
+            };
+            Fn.prototype={
+                b:2
+            }
+            var obj=new Fn();
+            console.log(obj.__proto__);
+            console.log(obj instanceof Fn);
+            obj.__proto__={c:3};
+            console.log(obj.__proto__);
+            console.log(Fn.prototype);
+            console.log(obj.__proto__===Fn.prototype);
+            console.log(obj instanceof Fn); */
+
+            /* // instanceof源码--这个方法默认每个this都有__proto__,
+            // 因为想要找到_instanceof方法就必须通过__proto__来找，
+            // 所以第一个if(!this.__proto__)是多余的
+            Object.prototype._instanceof = function (Fn) {
+                if (!this.__proto__) {
+                    return false;
+                } else if (this.__proto__ === Fn.prototype) {
+                    return true;
+                } else {
+                    this.__proto__ = this.__proto__.__proto__;
+                    if (this.__proto__ === undefined) {
+                        return false;
+                    }
+                }
+            };
+
+            function Fn(){
+                this.x=1;
+            }
+            var obj1=new Fn();
+            var obj2={};
+            // var obj3={};
+            // obj3.__proto__=null;
+
+            // console.log(obj3._instanceof(Fn));
+            console.log(obj1._instanceof(Fn));
+            console.log(obj2._instanceof(Fn)); */
+
+            /* function _instanceof(obj, Fn) {
+                if (!obj.__proto__) {
+                    return false;
+                } else if (obj.__proto__ === Fn.prototype) {
+                    return true;
+                } else {
+                    if (obj.__proto__ === Object.prototype) {
+                        return false;
+                    }
+                    _instanceof(obj.__proto__, Fn);
+                }
+            }
+
+            function Fn() {
+                this.x = 1;
+            }
+            var obj1 = new Fn();
+            var obj2 = {};
+            var obj3 = {};
+            obj3.__proto__ = null;
+
+            console.log(_instanceof(obj1, Fn));
+            console.log(_instanceof(obj2, Fn));
+            console.log(_instanceof(obj3, Fn)); */
+
+            /* function a(y) {
+                this.x = y;
+            }
+            var obj = {};
+            var num = 1; */
 
 
+            
 
+
+            
         </script>
     </body>
 </html>
