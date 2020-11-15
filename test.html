@@ -364,164 +364,164 @@
 
         <script>
             /* function a() {
-            console.log(1);
-        }
-        let a = 2; */
+                       console.log(1);
+                   }
+                   let a = 2; */
 
             /* var a = 1;
-        var b = 2;
-        if (1) {
-            var a = 3;
-            let b = 4;
-            console.log(a, b);
-        }
-        console.log(a, b); */
+                   var b = 2;
+                   if (1) {
+                       var a = 3;
+                       let b = 4;
+                       console.log(a, b);
+                   }
+                   console.log(a, b); */
 
             /* for(let i=0; i<6; i++){
-            console.log(1);
-        }
-        console.log(i); */
+                       console.log(1);
+                   }
+                   console.log(i); */
 
             // alert(typeof Array);
 
             /* function f(x, y, z){
-            x=1;
-            y=2;
-        }
-        console.log(f.length);  // 3
-        console.log(f.name);  // f
-        console.log(f.prototype.constructor);  // f f(x, y, z){x=1; y=2;} */
+                       x=1;
+                       y=2;
+                   }
+                   console.log(f.length);  // 3
+                   console.log(f.name);  // f
+                   console.log(f.prototype.constructor);  // f f(x, y, z){x=1; y=2;} */
 
             /* Object.create = function (prototype) {
-            function Temp() { };
-            Temp.prototype = prototype;
-            return new Temp();
-        } */
+                       function Temp() { };
+                       Temp.prototype = prototype;
+                       return new Temp();
+                   } */
 
             // console.log(typeof undefined);
 
             /* function Fn() {
 
-        }
-        Fn.prototype.sayName = function () {
-            console.log('name: lmy');
-        }
-        Fn.prototype.sayHello = function () {
-            console.log('Hello');
-        } */
+                   }
+                   Fn.prototype.sayName = function () {
+                       console.log('name: lmy');
+                   }
+                   Fn.prototype.sayHello = function () {
+                       console.log('Hello');
+                   } */
             /* let newPrototype = Object.create(Fn.prototype);
-        Object.assign(newPrototype, {
-            sayName() {
-                console.log('name: LiMengYing');
-            },
-            sayAge() {
-                console.log('age: 30');
-            }
-        }) */
+                   Object.assign(newPrototype, {
+                       sayName() {
+                           console.log('name: LiMengYing');
+                       },
+                       sayAge() {
+                           console.log('age: 30');
+                       }
+                   }) */
             /* let newPrototype = {
-            sayName() {
-                console.log('name: LiMengYing');
-            },
-            sayAge() {
-                console.log('age: 30');
-            }
-        }
-        newPrototype.__proto__ = Fn.prototype;
-        Fn.prototype = newPrototype;
-        let obj = new Fn();
-        obj.sayName();
-        obj.__proto__.__proto__.sayName();
-        obj.sayHello(); */
+                       sayName() {
+                           console.log('name: LiMengYing');
+                       },
+                       sayAge() {
+                           console.log('age: 30');
+                       }
+                   }
+                   newPrototype.__proto__ = Fn.prototype;
+                   Fn.prototype = newPrototype;
+                   let obj = new Fn();
+                   obj.sayName();
+                   obj.__proto__.__proto__.sayName();
+                   obj.sayHello(); */
 
             /* let obj = { a: 1 };
-        obj.__proto__.b = 2;
-        for(let key in obj){
-            console.log(key);
-        } */
+                   obj.__proto__.b = 2;
+                   for(let key in obj){
+                       console.log(key);
+                   } */
 
             /* let fn = function () {
-            this.a = 1;
-            let b = 2;
-            c: 3
-        }
-        fn();
-        console.log(fn.hasOwnProperty('a'));  // false
-        console.log(fn.hasOwnProperty('b'));  // false
-        console.log(fn.hasOwnProperty('c'));
-        console.log(fn.c);
-        console.log(fn.b); */
+                       this.a = 1;
+                       let b = 2;
+                       c: 3
+                   }
+                   fn();
+                   console.log(fn.hasOwnProperty('a'));  // false
+                   console.log(fn.hasOwnProperty('b'));  // false
+                   console.log(fn.hasOwnProperty('c'));
+                   console.log(fn.c);
+                   console.log(fn.b); */
 
             /* function Foo(){
-            getName=function(){
-                console.log(1);
-            }
-            return this;
-        }
-        Foo.getName=function(){
-            console.log(2);
-        }
-        Foo.prototype.getName=function(){
-            console.log(3);
-        }
-        var getName=function(){
-            console.log(4);
-        }
-        function getName(){
-            console.log(5);
-        }
+                       getName=function(){
+                           console.log(1);
+                       }
+                       return this;
+                   }
+                   Foo.getName=function(){
+                       console.log(2);
+                   }
+                   Foo.prototype.getName=function(){
+                       console.log(3);
+                   }
+                   var getName=function(){
+                       console.log(4);
+                   }
+                   function getName(){
+                       console.log(5);
+                   }
 
-        Foo.getName();  // 2
-        getName();  // 4
-        Foo().getName();  // 1
-        getName();  // 1
-        new Foo.getName();  // 2
-        new Foo().getName();  // 3
-        new new Foo().getName();  // 3 */
+                   Foo.getName();  // 2
+                   getName();  // 4
+                   Foo().getName();  // 1
+                   getName();  // 1
+                   new Foo.getName();  // 2
+                   new Foo().getName();  // 3
+                   new new Foo().getName();  // 3 */
 
             // call继承
             /* function Parent() {
-            this.x = 100;
-        }
-        Parent.prototype.getX = function () {
-            return this.x;
-        }
-        function Child() {
-            Parent.call(this);
-            this.y = 200;
-        }
-        Child.prototype.getY = function () {
-            return this.y;
-        } */
+                       this.x = 100;
+                   }
+                   Parent.prototype.getX = function () {
+                       return this.x;
+                   }
+                   function Child() {
+                       Parent.call(this);
+                       this.y = 200;
+                   }
+                   Child.prototype.getY = function () {
+                       return this.y;
+                   } */
 
             /* class Parent {
-            constructor() {
-                this.x = 100;
-            }
-            getX() {
-                return this.x;
-            }
-        }
-        class Child extends Parent {
-            constructor() {
-                super();
-                this.y = 200;
-            }
-            getY() {
-                return this.y;
-            }
-        } */
+                       constructor() {
+                           this.x = 100;
+                       }
+                       getX() {
+                           return this.x;
+                       }
+                   }
+                   class Child extends Parent {
+                       constructor() {
+                           super();
+                           this.y = 200;
+                       }
+                       getY() {
+                           return this.y;
+                       }
+                   } */
 
             /* function Fn() {
-            this.x = 100;
-            var x = 200;
-            console.log(x);
-        } */
+                       this.x = 100;
+                       var x = 200;
+                       console.log(x);
+                   } */
             // Fn();
             // console.log(x);
 
             /* var obj = {};
-        Fn.call(obj);
-        console.log(obj); */
+                   Fn.call(obj);
+                   console.log(obj); */
 
             // alert(null == undefined == 0 == '' == false);
             // alert(null==0)
@@ -532,48 +532,48 @@
             // alert(1==true);  // true
 
             /* Fn.call();
-        console.log(window.x); */
+                   console.log(window.x); */
 
             /* function Fn() {
-            return 1;
-        }
-        let res = Fn.call();
-        console.log(res);  // 1 */
+                       return 1;
+                   }
+                   let res = Fn.call();
+                   console.log(res);  // 1 */
 
             /* // call源码
-        Function.prototype.call = function (context, ...params) {
-            context == undefined ? context = window : null;
-            let contextType = typeof context;
-            if (!/^(object|function)$/.test(contextType)) {
-                if (/^(symbol|bigint)$/.test(contextType)) {
-                    context = Object(context);
-                }
-                else {
-                    context = new contextType.constructor(context);
-                }
-            }
-            let key = Symbol('key'),
-                result;
-            context[key] = this;
-            result = context[key](...params);
-            delete context[key];
-            return result;
-        }
-        function Fn(x, y) {
-            this.x = x;
-            this.y = y;
-        }
-        let obj = {};
-        Fn.call(obj, 1, 2);
-        console.log(obj); */
+                   Function.prototype.call = function (context, ...params) {
+                       context == undefined ? context = window : null;
+                       let contextType = typeof context;
+                       if (!/^(object|function)$/.test(contextType)) {
+                           if (/^(symbol|bigint)$/.test(contextType)) {
+                               context = Object(context);
+                           }
+                           else {
+                               context = new contextType.constructor(context);
+                           }
+                       }
+                       let key = Symbol('key'),
+                           result;
+                       context[key] = this;
+                       result = context[key](...params);
+                       delete context[key];
+                       return result;
+                   }
+                   function Fn(x, y) {
+                       this.x = x;
+                       this.y = y;
+                   }
+                   let obj = {};
+                   Fn.call(obj, 1, 2);
+                   console.log(obj); */
 
             /* function slice() {
-            let arr = [];
-            for (let i = 0; i < this.length; i++) {
-                arr.push(this[i]);
-            }
-            return arr;
-        } */
+                       let arr = [];
+                       for (let i = 0; i < this.length; i++) {
+                           arr.push(this[i]);
+                       }
+                       return arr;
+                   } */
 
             // let utils = (function () {
             //     // 方案一
@@ -596,244 +596,244 @@
             // console.log(arr);
 
             /* function fn(){
-            [].forEach.call(arguments, item=>{
-                console.log(item);
-            })
-        }
-        fn(1, 2, 3); */
+                       [].forEach.call(arguments, item=>{
+                           console.log(item);
+                       })
+                   }
+                   fn(1, 2, 3); */
 
             // 深克隆
             /* function deepClone(obj) {
-            const constructor = obj.constructor;
-            if (obj === null) return null;
-            if (typeof obj !== 'object') return obj;
-            if (/^(RegExp | Date)$/i.test(constructor.name)) return new constructor(obj);
-            let newObj = new constructor();
-            for (let key in obj) {
-                if (!obj.hasOwnProperty(key)) break;
-                newObj[key] = deepClone(obj[key]);
-            }
-            return newObj;
-        } */
+                       const constructor = obj.constructor;
+                       if (obj === null) return null;
+                       if (typeof obj !== 'object') return obj;
+                       if (/^(RegExp | Date)$/i.test(constructor.name)) return new constructor(obj);
+                       let newObj = new constructor();
+                       for (let key in obj) {
+                           if (!obj.hasOwnProperty(key)) break;
+                           newObj[key] = deepClone(obj[key]);
+                       }
+                       return newObj;
+                   } */
 
             // 数据类型检测
             /* function toType(obj) {
-            let type = Object.prototype.toString.call(obj);
-            return /^\[object ([a-z]+)\]$/i.exec(type)[1].toLowerCase();
-        } */
+                       let type = Object.prototype.toString.call(obj);
+                       return /^\[object ([a-z]+)\]$/i.exec(type)[1].toLowerCase();
+                   } */
 
             // jQuery的解决方案
             /* var typeArr = ['Boolean', 'Number', 'String', 'Function', 'Array',
-            'Date', 'RegExp', 'Object', 'Error', 'Symbol'];
-        var class2Type = {};
-        typeArr.forEach(item => {
-            class2Type['[object ' + item + ']'] = item.toLowerCase();
-        })
-        function toType(obj) {
-            if (obj == null) return obj + '';
-            return typeof obj === 'object' || typeof obj === 'function' ?
-                class2Type[Object.prototype.toString.call(obj)] || 'object' :
-                typeof obj;
-        }
+                       'Date', 'RegExp', 'Object', 'Error', 'Symbol'];
+                   var class2Type = {};
+                   typeArr.forEach(item => {
+                       class2Type['[object ' + item + ']'] = item.toLowerCase();
+                   })
+                   function toType(obj) {
+                       if (obj == null) return obj + '';
+                       return typeof obj === 'object' || typeof obj === 'function' ?
+                           class2Type[Object.prototype.toString.call(obj)] || 'object' :
+                           typeof obj;
+                   }
 
 
-        // 检测是否为类数组
-        function isArrayLike(obj) {
-            var length = !!obj && "length" in obj && obj.length,
-                type = toType(obj);
+                   // 检测是否为类数组
+                   function isArrayLike(obj) {
+                       var length = !!obj && "length" in obj && obj.length,
+                           type = toType(obj);
 
-            if (isFunction(obj) || isWindow(obj)) {
-                return false;
-            }
+                       if (isFunction(obj) || isWindow(obj)) {
+                           return false;
+                       }
 
-            return type === "array" || length === 0 ||
-                typeof length === "number" && length > 0 && (length - 1) in obj;
-        }
+                       return type === "array" || length === 0 ||
+                           typeof length === "number" && length > 0 && (length - 1) in obj;
+                   }
 
 
-        // 检测是否为空对象
-        function isEmptyObject(obj) {
-            if (!obj || toType(obj) !== 'object')
-                return false;
-            for (var key in obj) {
-                if (obj.hasOwnProperty(key))
-                    return false;
-            }
-            return true;
-        } */
+                   // 检测是否为空对象
+                   function isEmptyObject(obj) {
+                       if (!obj || toType(obj) !== 'object')
+                           return false;
+                       for (var key in obj) {
+                           if (obj.hasOwnProperty(key))
+                               return false;
+                       }
+                       return true;
+                   } */
 
             /* let obj1 = {
-            x: function () {
-                console.log(1);
-                console.log(2);
-            },
-            y: function () {
-                console.log(1);
-            }
-        }
+                       x: function () {
+                           console.log(1);
+                           console.log(2);
+                       },
+                       y: function () {
+                           console.log(1);
+                       }
+                   }
 
-        let obj2 = {
-            x: function () {
-                console.log(2);
-                console.log(1);
-            },
-            y: function () {
-                console.log(1);
-            }
+                   let obj2 = {
+                       x: function () {
+                           console.log(2);
+                           console.log(1);
+                       },
+                       y: function () {
+                           console.log(1);
+                       }
 
-        }
-        console.log(obj1.x.toString()===obj2.x.toString());  //false
+                   }
+                   console.log(obj1.x.toString()===obj2.x.toString());  //false
 
- */
+            */
 
             /* function isEaqual(val1, val2) {
-            const type1 = val1 === null ? 'null' : typeof val1;
-            const type2 = val2 === null ? 'null' : typeof val2;
-            if (type1 === 'function' && type2 === 'function') {
-                return val1.toString() === val2.toString();
-            }
-            if (type1 === 'object' && type2 === 'object') {
-                const ct1 = val1.constructor;
-                const ct2 = val2.constructor;
-                if (ct1 === RegExp && ct2 === RegExp) {
-                    return ct1.toString() === ct2.toString();
-                }
-                if (ct1 === Date && ct2 === Date) {
-                    return val1.toString() === val2.toString();
-                }
-                const keys1 = Object.keys(val1);
-                const keys2 = Object.keys(val2);
-                if (keys1.length !== keys2.length) return false;
-                for (let i = 0; i < keys1.length; i++) {
-                    let key1 = keys1[i];
-                    let key2 = keys2[i];
-                    if (key1 !== key2) return false;
-                    let flag = isEaqual(val1[key1], val2[key2]);
-                    if (!flag) return false;
-                }
-                return true;
-            }
-            return val1 === val2;
-        } */
+                       const type1 = val1 === null ? 'null' : typeof val1;
+                       const type2 = val2 === null ? 'null' : typeof val2;
+                       if (type1 === 'function' && type2 === 'function') {
+                           return val1.toString() === val2.toString();
+                       }
+                       if (type1 === 'object' && type2 === 'object') {
+                           const ct1 = val1.constructor;
+                           const ct2 = val2.constructor;
+                           if (ct1 === RegExp && ct2 === RegExp) {
+                               return ct1.toString() === ct2.toString();
+                           }
+                           if (ct1 === Date && ct2 === Date) {
+                               return val1.toString() === val2.toString();
+                           }
+                           const keys1 = Object.keys(val1);
+                           const keys2 = Object.keys(val2);
+                           if (keys1.length !== keys2.length) return false;
+                           for (let i = 0; i < keys1.length; i++) {
+                               let key1 = keys1[i];
+                               let key2 = keys2[i];
+                               if (key1 !== key2) return false;
+                               let flag = isEaqual(val1[key1], val2[key2]);
+                               if (!flag) return false;
+                           }
+                           return true;
+                       }
+                       return val1 === val2;
+                   } */
 
             /*         // instanceof源码
-                function instanceOf(example, Fun) {
-                    let _proto = Object.getPrototypeOf(example);
-                    let _prototype = Fun.prototype;
-                    while (true) {
-                        if (!_proto) return false;
-                        if (_proto === _prototype) return true;
-                        _proto = Object.getPrototypeOf(_proto);
-                    }
-                }
-                // 在浏览器内部调用instanceof时是基于Function.prototype的Symbol.hasinstance实现的
-                Function.prototype[Symbol.hasInstance].call(Array, []);  //true
-                Array[Symbol.hasInstance]([]);  //true
-         */
+                           function instanceOf(example, Fun) {
+                               let _proto = Object.getPrototypeOf(example);
+                               let _prototype = Fun.prototype;
+                               while (true) {
+                                   if (!_proto) return false;
+                                   if (_proto === _prototype) return true;
+                                   _proto = Object.getPrototypeOf(_proto);
+                               }
+                           }
+                           // 在浏览器内部调用instanceof时是基于Function.prototype的Symbol.hasinstance实现的
+                           Function.prototype[Symbol.hasInstance].call(Array, []);  //true
+                           Array[Symbol.hasInstance]([]);  //true
+                    */
 
             /* function initParams(num) {
-            num = Number(num);
-            return isNaN(num) ? 0 : num;
-        }
+                       num = Number(num);
+                       return isNaN(num) ? 0 : num;
+                   }
 
-        Number.prototype.plus = function (num) {
-            num = initParams(num);
-            return this + num;
-        }
-        Number.prototype.minus = function (num) {
-            num = initParams(num);
-            return this - num;
-        }
+                   Number.prototype.plus = function (num) {
+                       num = initParams(num);
+                       return this + num;
+                   }
+                   Number.prototype.minus = function (num) {
+                       num = initParams(num);
+                       return this - num;
+                   }
 
-        let n = 1;
-        console.log(n.plus(2).minus(1));
-        console.log(n.plus('a'));
-        console.log(n.plus('b').minus(2)); */
+                   let n = 1;
+                   console.log(n.plus(2).minus(1));
+                   console.log(n.plus('a'));
+                   console.log(n.plus('b').minus(2)); */
 
             /* Number.prototype.plus = function (num) {
-            console.log(this);
-            console.log(typeof this);
-            return this + num;
-        }
-        let n = 1;
-        console.log(n.plus(2));
-        console.log(Number(1).plus(2));
-        // console.log(1.plus(2));
-        console.log('1'.plus(2)); */
+                       console.log(this);
+                       console.log(typeof this);
+                       return this + num;
+                   }
+                   let n = 1;
+                   console.log(n.plus(2));
+                   console.log(Number(1).plus(2));
+                   // console.log(1.plus(2));
+                   console.log('1'.plus(2)); */
 
             // 实现queryURLParams
             // url.queryURLParams('from') => xxx
             // url.queryURLParams('_HASH') => yyy
             // 方法一：通过 new URL()
             /* String.prototype.queryURLParams = function (key) {
-            let obj = {};
-            let {
-                search,
-                hash
-            } = new URL(this);
-            if (hash) {
-                obj['_HASH'] = hash.substring(1);
-            }
-            if (search) {
-                search = search.substring(1).split('&');
-                search.forEach(item => {
-                    let [key, val] = item.split('=');
-                    obj[key] = val;
-                })
-            }
-            return !key ? '' : obj[key];
-        }
-        let url = "http://www.baidu.com?name=js&age=26#alipay";
-        console.log(url.queryURLParams('_HASH'));
-        console.log(url.queryURLParams('name'));
-        console.log(url.queryURLParams('age')); */
+                       let obj = {};
+                       let {
+                           search,
+                           hash
+                       } = new URL(this);
+                       if (hash) {
+                           obj['_HASH'] = hash.substring(1);
+                       }
+                       if (search) {
+                           search = search.substring(1).split('&');
+                           search.forEach(item => {
+                               let [key, val] = item.split('=');
+                               obj[key] = val;
+                           })
+                       }
+                       return !key ? '' : obj[key];
+                   }
+                   let url = "http://www.baidu.com?name=js&age=26#alipay";
+                   console.log(url.queryURLParams('_HASH'));
+                   console.log(url.queryURLParams('name'));
+                   console.log(url.queryURLParams('age')); */
 
             // 方法二：正则表达式
             /* String.prototype.queryURLParams = function (key) {
-            let obj = {};
-            this.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, val) => {
-                obj[key] = val;
-            });
-            this.replace(/#([^?=&#]+)/g, (_, hash) => {
-                obj['_HASH'] = hash;
-            });
-            return !key ? '' : obj[key];
-        }
-        let url = "http://www.baidu.com?name=js&age=26#alipay";
-        console.log(url.queryURLParams('_HASH'));
-        console.log(url.queryURLParams('name'));
-        console.log(url.queryURLParams('age')); */
+                       let obj = {};
+                       this.replace(/([^?=&#]+)=([^?=&#]+)/g, (_, key, val) => {
+                           obj[key] = val;
+                       });
+                       this.replace(/#([^?=&#]+)/g, (_, hash) => {
+                           obj['_HASH'] = hash;
+                       });
+                       return !key ? '' : obj[key];
+                   }
+                   let url = "http://www.baidu.com?name=js&age=26#alipay";
+                   console.log(url.queryURLParams('_HASH'));
+                   console.log(url.queryURLParams('name'));
+                   console.log(url.queryURLParams('age')); */
 
             /* class A {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-            }
-            z = 1  //给实例设置的私有属性
-            static n = 2;  //类静态属性
-            static setX(n) {  //类静态方法
-                this.n = n;
-            }
-        }
-        let a = new A(1, 2);
-        console.log(a.__proto__.z);  //undefined
-        console.log(A.z);  //undefined
-        console.log(a.z);  //1
-        A.prototype._z = 3;  //类的原型上的属性只能在外部设置
-        console.log(a._z);  //3
-        console.log(a.__proto__._z);  //3
-        A.setX(10);
-        console.log(A.n);  //10 */
+                       constructor(x, y) {
+                           this.x = x;
+                           this.y = y;
+                       }
+                       z = 1  //给实例设置的私有属性
+                       static n = 2;  //类静态属性
+                       static setX(n) {  //类静态方法
+                           this.n = n;
+                       }
+                   }
+                   let a = new A(1, 2);
+                   console.log(a.__proto__.z);  //undefined
+                   console.log(A.z);  //undefined
+                   console.log(a.z);  //1
+                   A.prototype._z = 3;  //类的原型上的属性只能在外部设置
+                   console.log(a._z);  //3
+                   console.log(a.__proto__._z);  //3
+                   A.setX(10);
+                   console.log(A.n);  //10 */
 
             /* let obj = {
-            2: 3,
-            3: 4,
-            length: 2,
-            push: Array.prototype.push
-        }
-        obj.push(1);
-        obj.push(2);
-        console.log(obj);  //{2:1, 3:2, length:4, push:f} */
+                       2: 3,
+                       3: 4,
+                       length: 2,
+                       push: Array.prototype.push
+                   }
+                   obj.push(1);
+                   obj.push(2);
+                   console.log(obj);  //{2:1, 3:2, length:4, push:f} */
 
             // a为何值时以下 if 语句的条件为真？
             // 注：==比较的时候，如果两边数据类型不一致，默认会进行数据类型转换
@@ -841,277 +841,277 @@
             // 对象转换为数字，会调取valueOf（获取原始值）/toString(如果对象私有属性中有toString，
             // 则不会再向原型上去查找)
             /* var a = {
-            i: 0,
-            toString() {
-                return ++this.i;
-            }
-        } */
+                       i: 0,
+                       toString() {
+                           return ++this.i;
+                       }
+                   } */
             // 方案二：
             /* var a = [1, 2, 3];
-        a.toString = a.shift;
-        if (a == 1 && a == 2 && a == 3) {
-            console.log('ok');    //ok
-        } */
+                   a.toString = a.shift;
+                   if (a == 1 && a == 2 && a == 3) {
+                       console.log('ok');    //ok
+                   } */
             /* // 方案三：数据劫持
-        var i = 0;
-        Object.defineProperty(window, 'a', {
-            get() {
-                return ++i;
-            }
-        })
-        if (a == 1 && a == 2 && a == 3) {
-            console.log('ok');    //ok
-        } */
+                   var i = 0;
+                   Object.defineProperty(window, 'a', {
+                       get() {
+                           return ++i;
+                       }
+                   })
+                   if (a == 1 && a == 2 && a == 3) {
+                       console.log('ok');    //ok
+                   } */
 
             /* // 实现 toArray方法
-        // 方案一：
-        function toArray(...args) {
-            return args;
-        }
-        // 方案二：
-        function toArray() {
-            return [...arguments]
-        }
-        // 方案三：
-        function toArray() {
-            return Array.from(arguments);
-        }
-        // 方案四：
-        function toArray() {
-            var arr = [];
-            for (var i = 0; i < arguments.length; i++) {
-                arr.push(arguments[i]);
-            }
-            return arr;
-        }
-        // 方案五：
-        // slice方法源码模拟
-        Array.prototype.slice = function () {
-            var arr = [];
-            for (let i = 0; i < this.length; i++) {
-                arr.push(this[i]);
-            }
-            return arr;
-        }
-        function toArray() {
-            return Array.prototype.slice.call(arguments);
-        }
-        // 方案六：
-        function toArray() {
-            var arr = [];
-            [].forEach.call(arguments, item => {
-                arr.push(item);
-            })
-            return arr;
-        } */
+                   // 方案一：
+                   function toArray(...args) {
+                       return args;
+                   }
+                   // 方案二：
+                   function toArray() {
+                       return [...arguments]
+                   }
+                   // 方案三：
+                   function toArray() {
+                       return Array.from(arguments);
+                   }
+                   // 方案四：
+                   function toArray() {
+                       var arr = [];
+                       for (var i = 0; i < arguments.length; i++) {
+                           arr.push(arguments[i]);
+                       }
+                       return arr;
+                   }
+                   // 方案五：
+                   // slice方法源码模拟
+                   Array.prototype.slice = function () {
+                       var arr = [];
+                       for (let i = 0; i < this.length; i++) {
+                           arr.push(this[i]);
+                       }
+                       return arr;
+                   }
+                   function toArray() {
+                       return Array.prototype.slice.call(arguments);
+                   }
+                   // 方案六：
+                   function toArray() {
+                       var arr = [];
+                       [].forEach.call(arguments, item => {
+                           arr.push(item);
+                       })
+                       return arr;
+                   } */
 
             // 内置call方法的实现原理
             // 'use strict'
             /*         Function.prototype.call = function (obj, ...args) {
-                    obj = obj == undefined ? window : obj;
-                    let objType = typeof obj;
-                    if (!/^(object|function)$/i.test(objType)) {
-                        obj = Object(obj);
-                    }
-                    let key = Symbol('key');
-                    obj[key] = this;
-                    let res = obj[key](...args);
-                    delete obj[key];
-                    return res;
-                }
-                function fn(x, y) {
-                    this.x = x;
-                    this.y = y;
-                    return this.x + this.y;
-                }
-                let obj = {
-                    x: 1,
-                    y: 2
-                }
-                let res = fn.call(obj, 3, 4);
-                console.log(obj);
-                console.log(res); */
+                               obj = obj == undefined ? window : obj;
+                               let objType = typeof obj;
+                               if (!/^(object|function)$/i.test(objType)) {
+                                   obj = Object(obj);
+                               }
+                               let key = Symbol('key');
+                               obj[key] = this;
+                               let res = obj[key](...args);
+                               delete obj[key];
+                               return res;
+                           }
+                           function fn(x, y) {
+                               this.x = x;
+                               this.y = y;
+                               return this.x + this.y;
+                           }
+                           let obj = {
+                               x: 1,
+                               y: 2
+                           }
+                           let res = fn.call(obj, 3, 4);
+                           console.log(obj);
+                           console.log(res); */
 
             /* function fn(...args) {
-            console.log(...args);  //1 2 3
-            console.log(args);  //[1, 2, 3]
-        }
-        fn(1, 2, 3);
- */
+                       console.log(...args);  //1 2 3
+                       console.log(args);  //[1, 2, 3]
+                   }
+                   fn(1, 2, 3);
+            */
 
             /* function fn(...params) {
-            console.log(...params);
-        }
-        let obj = {};
-        fn.apply(obj, [1, 2, 3]);  //1 2 3
+                       console.log(...params);
+                   }
+                   let obj = {};
+                   fn.apply(obj, [1, 2, 3]);  //1 2 3
 
-        function fn(...params) {
-            console.log(params);
-        }
-        let obj = {};
-        fn.apply(obj, [1, 2, 3]);  //[1, 2, 3] */
+                   function fn(...params) {
+                       console.log(params);
+                   }
+                   let obj = {};
+                   fn.apply(obj, [1, 2, 3]);  //[1, 2, 3] */
 
             /* var name = 'js';
-        function A(x, y) {
-            var res = x + y;
-            console.log(res, this.name);
-        }
-        function B(x, y) {
-            var res = x - y;
-            console.log(res, this.name);
-        }
-        B.call(A, 40, 30);
-        B.call.call.call(A, 20, 10);
-        Function.prototype.call(A, 60, 50);
-        Function.prototype.call.call.call(A, 80, 70); */
+                   function A(x, y) {
+                       var res = x + y;
+                       console.log(res, this.name);
+                   }
+                   function B(x, y) {
+                       var res = x - y;
+                       console.log(res, this.name);
+                   }
+                   B.call(A, 40, 30);
+                   B.call.call.call(A, 20, 10);
+                   Function.prototype.call(A, 60, 50);
+                   Function.prototype.call.call.call(A, 80, 70); */
 
             /* // bind源码
-        Function.prototype.bind = function (context, ...params) {
-            let _this = this;
-            //返回的内层函数也可能需要接收参数，例如：事件绑定函数需要接收事件e
-            // =>
-            // document.body.onclick=function(e){
-            //     fn.call(obj, 1, 2, e);
-            // }
-            // =>
-            // document.body.onclick = fn.bind(obj, 1, 2);
-            // =>
-            // 所以，返回的函数需要加上 ...args
-            // =>
-            return function (...args) {
-                _this.call(context, ...params.concat(args));
-            }
-        }
+                   Function.prototype.bind = function (context, ...params) {
+                       let _this = this;
+                       //返回的内层函数也可能需要接收参数，例如：事件绑定函数需要接收事件e
+                       // =>
+                       // document.body.onclick=function(e){
+                       //     fn.call(obj, 1, 2, e);
+                       // }
+                       // =>
+                       // document.body.onclick = fn.bind(obj, 1, 2);
+                       // =>
+                       // 所以，返回的函数需要加上 ...args
+                       // =>
+                       return function (...args) {
+                           _this.call(context, ...params.concat(args));
+                       }
+                   }
 
-        let obj = {};
-        function fn(x, y) {
-            this.x = x;
-            this.y = y;
-        }
-        let f = fn.bind(obj, 1, 2);
-        f();
-        console.log(obj);  //{x: 1, y: 2} */
+                   let obj = {};
+                   function fn(x, y) {
+                       this.x = x;
+                       this.y = y;
+                   }
+                   let f = fn.bind(obj, 1, 2);
+                   f();
+                   console.log(obj);  //{x: 1, y: 2} */
 
             // 函数的防抖
             /* function debounce(func, wait = 500, immediate = false) {
-            let timer,
-                now;
-            return function (...args) {
-                clearTimeout(timer);
-                // 此句对于 immediate的两种情况都必不可少
-                // 当 immediate为 true时，若不设置 clearTimeout(timer)，
-                // 若连续点击按钮，那么 500ms后的点击动作每次点击都会触发
-                // func.call(this, ...args)执行
-                // 这是因为，在 500ms前设置的定时器生效，使得 timer=null,
-                // 此时再点击 => 触发点击事件的绑定函数 =>
-                // => 执行 now = immediate && !timer;语句 => now就会变为真
-                // func.call(this, ...args)就会执行
-                now = immediate && !timer;
-                now ? func.call(this, ...args) : null;
-                timer = setTimeout(_ => {
-                    timer = null;
-                    !immediate ? func.call(this, ...args) : null;
-                }, wait);
-            }
-        }
-        function func(ev) {
-            console.log(ev);
-            console.log('ok');
-        }
-        let btn = document.getElementsByTagName('button')[0];
-        // btn.onclick = debounce(func);
-        btn.onclick = debounce(func, 500, true); */
+                       let timer,
+                           now;
+                       return function (...args) {
+                           clearTimeout(timer);
+                           // 此句对于 immediate的两种情况都必不可少
+                           // 当 immediate为 true时，若不设置 clearTimeout(timer)，
+                           // 若连续点击按钮，那么 500ms后的点击动作每次点击都会触发
+                           // func.call(this, ...args)执行
+                           // 这是因为，在 500ms前设置的定时器生效，使得 timer=null,
+                           // 此时再点击 => 触发点击事件的绑定函数 =>
+                           // => 执行 now = immediate && !timer;语句 => now就会变为真
+                           // func.call(this, ...args)就会执行
+                           now = immediate && !timer;
+                           now ? func.call(this, ...args) : null;
+                           timer = setTimeout(_ => {
+                               timer = null;
+                               !immediate ? func.call(this, ...args) : null;
+                           }, wait);
+                       }
+                   }
+                   function func(ev) {
+                       console.log(ev);
+                       console.log('ok');
+                   }
+                   let btn = document.getElementsByTagName('button')[0];
+                   // btn.onclick = debounce(func);
+                   btn.onclick = debounce(func, 500, true); */
 
             // 函数的节流
             /* function throttle(func, delay = 1000) {
-            // let timer = null;
-            let previous = 0;
-            return function (...params) {
-                let now = new Date(),
-                    remainingTime = delay - (now - previous);
-                if (remainingTime <= 0) {
-                    // clearTimeout(timer);
-                    // timer = null;
-                    previous = now;
-                    func.call(this, ...params);
-                }
-                // else if (!timer) {
-                //     timer = setTimeout(_ => {
-                //         clearTimeout(timer);
-                //         timer = null;
-                //         previous = new Date();
-                //         func.call(this, ...params);
-                //     }, remainingTime);
-                // }
-            };
-        }
-        function func(ev) {
-            console.log(ev);
-            console.log('ok');
-        }
-        let btn = document.getElementsByTagName('button')[0];
-        btn.onclick = throttle(func); */
+                       // let timer = null;
+                       let previous = 0;
+                       return function (...params) {
+                           let now = new Date(),
+                               remainingTime = delay - (now - previous);
+                           if (remainingTime <= 0) {
+                               // clearTimeout(timer);
+                               // timer = null;
+                               previous = now;
+                               func.call(this, ...params);
+                           }
+                           // else if (!timer) {
+                           //     timer = setTimeout(_ => {
+                           //         clearTimeout(timer);
+                           //         timer = null;
+                           //         previous = new Date();
+                           //         func.call(this, ...params);
+                           //     }, remainingTime);
+                           // }
+                       };
+                   }
+                   function func(ev) {
+                       console.log(ev);
+                       console.log('ok');
+                   }
+                   let btn = document.getElementsByTagName('button')[0];
+                   btn.onclick = throttle(func); */
 
             /* new Promise((resolve, reject) => {
-            reject(1);
-        }).then(result => {
-            return Promise.reject(1);
-        }).catch(_ => {
-            console.log(1);
-        }) */
+                       reject(1);
+                   }).then(result => {
+                       return Promise.reject(1);
+                   }).catch(_ => {
+                       console.log(1);
+                   }) */
 
             /* let validator = {
-            set: function (obj, prop, value) {
-                obj[prop] = value;
-                // 表示成功
-                return true;
-            }
-        };
+                       set: function (obj, prop, value) {
+                           obj[prop] = value;
+                           // 表示成功
+                           return true;
+                       }
+                   };
 
-        let js = { name: 'jinshuo', age: 26 };
-        let person = new Proxy(js, validator);
-        js.age = 25;
-        console.log(person.age);
-        person.age = 0;
-        console.log(js.age); */
+                   let js = { name: 'jinshuo', age: 26 };
+                   let person = new Proxy(js, validator);
+                   js.age = 25;
+                   console.log(person.age);
+                   person.age = 0;
+                   console.log(js.age); */
 
             /* new Promise((resolve, reject) => {
-            reject(1);
-        }).then(result => {
-            console.log(result);
-        }).catch(reason => {
-            console.log(reason);  //1
-        }) */
+                       reject(1);
+                   }).then(result => {
+                       console.log(result);
+                   }).catch(reason => {
+                       console.log(reason);  //1
+                   }) */
 
             /* function A(f) {
-            return function () {
-                window.a = function () {
-                    window.b = f();
-                }
-            }
-        }
-        f = function () {
-            return 1;
-        }
-        var res = A(f);
-        res();
-        a();
-        console.log(b); */
+                       return function () {
+                           window.a = function () {
+                               window.b = f();
+                           }
+                       }
+                   }
+                   f = function () {
+                       return 1;
+                   }
+                   var res = A(f);
+                   res();
+                   a();
+                   console.log(b); */
 
             /* var name = 'jinshuo';
-        var str = name.slice(1);
-        console.log(str);
-        console.log(name);
+                   var str = name.slice(1);
+                   console.log(str);
+                   console.log(name);
 
-        var arr = [1, 2, 3];
-        console.log(arr.splice(1));  //splice不能对字符串使用 */
+                   var arr = [1, 2, 3];
+                   console.log(arr.splice(1));  //splice不能对字符串使用 */
 
             /* var { name, age } = { name: 'jinshuo', age: 25 };
-        console.log(name, age); */
+                   console.log(name, age); */
 
             /* console.log(
-            Object.keys({}).length
-        ); */
+                       Object.keys({}).length
+                   ); */
 
             // var { name: n } = { name: 'jinshuo' };
             // var { name } = { name: 'jinshuo' };
@@ -1119,34 +1119,34 @@
             // console.log(n);
 
             /* var str1 = new String('jinshuo');
-        var str2 = 'jinshuo'; */
+                   var str2 = 'jinshuo'; */
 
             /* var a = {
-            val: 0,
-            toString() {
-                return ++this.val;
-            }
-        }
-        if (a == 1 && a == 2 & a == 3) {
-            console.log('ok');
-        } */
+                       val: 0,
+                       toString() {
+                           return ++this.val;
+                       }
+                   }
+                   if (a == 1 && a == 2 & a == 3) {
+                       console.log('ok');
+                   } */
 
             /* var a={
-            valueOf(){
-                return 2;
-            }
-        }
-        alert(a==2); */
+                       valueOf(){
+                           return 2;
+                       }
+                   }
+                   alert(a==2); */
 
             /* var a = {
-                valueOf() {
-                    return 2;
-                },
-                toString() {
-                    return "px1";
-                },
-            };
-            console.log(parseInt(a)); */
+                           valueOf() {
+                               return 2;
+                           },
+                           toString() {
+                               return "px1";
+                           },
+                       };
+                       console.log(parseInt(a)); */
 
             // var obj = {};
             // var str='str';
@@ -1191,452 +1191,723 @@
             // console.log(`obj[new RegExp(/^js$/)]=${obj[new RegExp(/^js$/)]}`);
 
             /* var obj={};
-            var sy1=Symbol(1);
-            var sy2=Symbol(1);
-            obj[sy1]=1;
-            obj[sy2]=2;
-            console.log(obj[sy1]);
-            console.log(obj[sy2]); */
+                       var sy1=Symbol(1);
+                       var sy2=Symbol(1);
+                       obj[sy1]=1;
+                       obj[sy2]=2;
+                       console.log(obj[sy1]);
+                       console.log(obj[sy2]); */
 
             /* console.log(a);
-            func();
-            var a=1;
-            function func(){
-                console.log(2);
-            } */
+                       func();
+                       var a=1;
+                       function func(){
+                           console.log(2);
+                       } */
 
             // console.log(func);
             /* func();
-            let func = function(){
-                console.log(2);
-            } */
+                       let func = function(){
+                           console.log(2);
+                       } */
 
             /* var a;
-            var b=a;
-            console.log(a);
-            console.log(b);
-            b=1;
-            console.log(b);
-            console.log(a); */
+                       var b=a;
+                       console.log(a);
+                       console.log(b);
+                       b=1;
+                       console.log(b);
+                       console.log(a); */
 
             /* let a=b={};
-            console.log(a);
-            console.log(b);
-            console.log('不加var, 直接b={}, 输出window.b:', window.b);
-            console.log('let a={}, 输出window.a:', window.a);
-            var d=10;
-            console.log('var d=10, 输出window.d:', window.d);
-            b['name']='js';
-            console.log(a);
-            console.log(b);
-            b={};
-            console.log(b);
-            console.log(a);
-            let c={};
-            c={'name':'js'};
-            console.log(c); */
+                       console.log(a);
+                       console.log(b);
+                       console.log('不加var, 直接b={}, 输出window.b:', window.b);
+                       console.log('let a={}, 输出window.a:', window.a);
+                       var d=10;
+                       console.log('var d=10, 输出window.d:', window.d);
+                       b['name']='js';
+                       console.log(a);
+                       console.log(b);
+                       b={};
+                       console.log(b);
+                       console.log(a);
+                       let c={};
+                       c={'name':'js'};
+                       console.log(c); */
 
             /* let a = 0,
-                b = 0;
-            function A(a) {
-                A = function (b) {
-                    console.log(a + b++);
-                };
-                console.log(a++);
-            }
-            A(1);
-            A(2); */
+                           b = 0;
+                       function A(a) {
+                           A = function (b) {
+                               console.log(a + b++);
+                           };
+                           console.log(a++);
+                       }
+                       A(1);
+                       A(2); */
 
             /* function A(){
-                var x=1;
-                return function(){
-                    console.log(x++);
-                }
-            }
-            var fn=A();
-            A=null;
-            fn();
-            fn();
-            fn(); */
+                           var x=1;
+                           return function(){
+                               console.log(x++);
+                           }
+                       }
+                       var fn=A();
+                       A=null;
+                       fn();
+                       fn();
+                       fn(); */
 
             /* var btn =document.getElementsByTagName("button")[0];
-            var i=1;
-            function reduce(){
-                i--;
-                console.log(i);
-            }
-            btn.onclick=function(e, i){
-                reduce();
-                console.log(e);
-                console.log(i);
-            } */
+                       var i=1;
+                       function reduce(){
+                           i--;
+                           console.log(i);
+                       }
+                       btn.onclick=function(e, i){
+                           reduce();
+                           console.log(e);
+                           console.log(i);
+                       } */
 
             /* function fn() {
-                c = 1;
-            }
-            fn();
-            console.log(c);
-            console.log(window.c); */
+                           c = 1;
+                       }
+                       fn();
+                       console.log(c);
+                       console.log(window.c); */
 
             /* var a=1;
-            console.log(window.a);
-            let b=2;
-            console.log(window.b);
-            console.log(window.c);
-            console.log(c); */
+                       console.log(window.a);
+                       let b=2;
+                       console.log(window.b);
+                       console.log(window.c);
+                       console.log(c); */
 
             /* console.log(f1);  //undefined
-            console.log(a);  //undefined
-            {
-                var a=1;
-                a=2;
-                console.log(window.a);  //2
-                f1=10;
-                console.log(window.f1);  //undefined
-                function f1(){
-                    console.log(1);
-                }
-                console.log(window.f1);  //10
-                f1=2;
-                console.log(window.f1);  //10
-                function f1(){
-                    console.log(2);
-                }
-                console.log(window.f1);  //2
-                f1=0;
-                console.log(f1);  //0
-                a=3;
-                console.log(a);  //3
-                console.log(window.a);  //3
-            }
-            console.log(a);  //3
-            console.log(f1);  //2 */
+                       console.log(a);  //undefined
+                       {
+                           var a=1;
+                           a=2;
+                           console.log(window.a);  //2
+                           f1=10;
+                           console.log(window.f1);  //undefined
+                           function f1(){
+                               console.log(1);
+                           }
+                           console.log(window.f1);  //10
+                           f1=2;
+                           console.log(window.f1);  //10
+                           function f1(){
+                               console.log(2);
+                           }
+                           console.log(window.f1);  //2
+                           f1=0;
+                           console.log(f1);  //0
+                           a=3;
+                           console.log(a);  //3
+                           console.log(window.a);  //3
+                       }
+                       console.log(a);  //3
+                       console.log(f1);  //2 */
 
             /* var a=12;
-            {
-                console.log(a);  //f a(){}
-                a=13;
-                console.log(a);  //13
-                console.log('a之前',window.a);  //12
-                function a(){};
-                console.log('a之后',window.a);  //13
-                a=10;
-                console.log('第二个a之前',window.a);  //13
-                function a(){};
-                console.log('第二个a之后',window.a);  //10
-                console.log(a);  //10
-            }
-            console.log(a);  //10 */
+                       {
+                           console.log(a);  //f a(){}
+                           a=13;
+                           console.log(a);  //13
+                           console.log('a之前',window.a);  //12
+                           function a(){};
+                           console.log('a之后',window.a);  //13
+                           a=10;
+                           console.log('第二个a之前',window.a);  //13
+                           function a(){};
+                           console.log('第二个a之后',window.a);  //10
+                           console.log(a);  //10
+                       }
+                       console.log(a);  //10 */
 
             /* console.log(fn);
-            console.log(a);
-            if(false){
-                function fn(){
-                    console.log(1);
-                }
-                var a=2;
-            } */
+                       console.log(a);
+                       if(false){
+                           function fn(){
+                               console.log(1);
+                           }
+                           var a=2;
+                       } */
 
             /* function fn(x){
-                x();
-            }
-            fn(function(){
-                console.log(1);
-            }); */
+                           x();
+                       }
+                       fn(function(){
+                           console.log(1);
+                       }); */
 
             /*  var x = 1;
-            function fn(
-                x,
-                y = function () {
-                    x = 2;
-                },
-                z
-            ) {
-                
-                var x = 3;
-                y();
-                console.log(x); //3
-            }
-            fn(5);
-            console.log(x); //1 */
+                       function fn(
+                           x,
+                           y = function () {
+                               x = 2;
+                           },
+                           z
+                       ) {
+
+                           var x = 3;
+                           y();
+                           console.log(x); //3
+                       }
+                       fn(5);
+                       console.log(x); //1 */
 
             /* var x = 1;
-            function func(
-                x,
-                y = function anonymous1() {
-                    x = 2;
-                }
-            ) {
-                var x = 3;
-                var y = function anonymous2() {
-                    x = 4;
-                };
-                y();
-                console.log(x);  //4
-            }
-            func(5);
-            console.log(x);  //1 */
+                       function func(
+                           x,
+                           y = function anonymous1() {
+                               x = 2;
+                           }
+                       ) {
+                           var x = 3;
+                           var y = function anonymous2() {
+                               x = 4;
+                           };
+                           y();
+                           console.log(x);  //4
+                       }
+                       func(5);
+                       console.log(x);  //1 */
 
             /* var x = 1;
-            function func(
-                x,
-                y = function anonymous1() {
-                    x = 2;
-                }
-            ) {
-                function x() {}
-                y();
-                console.log(x);  //f x(){}
-            }
-            func(5);
-            console.log(x);  //1 */
+                       function func(
+                           x,
+                           y = function anonymous1() {
+                               x = 2;
+                           }
+                       ) {
+                           function x() {}
+                           y();
+                           console.log(x);  //f x(){}
+                       }
+                       func(5);
+                       console.log(x);  //1 */
 
             /* var x = 1;
-            function fn(
-                y = function () {
-                    x = 2;
-                }
-            ) {
-                console.log(x);  //undefined
-                var x = 3;
-                y();
-                console.log(x); //3
-            }
-            fn();
-            console.log(x); //2 */
+                       function fn(
+                           y = function () {
+                               x = 2;
+                           }
+                       ) {
+                           console.log(x);  //undefined
+                           var x = 3;
+                           y();
+                           console.log(x); //3
+                       }
+                       fn();
+                       console.log(x); //2 */
 
             /* function f1() {
-                console.log(f2);
-                return function f2() {};
-            }
-            f1(); */
+                           console.log(f2);
+                           return function f2() {};
+                       }
+                       f1(); */
 
             /* var a=2;
-            console.log(a*=2); */
+                       console.log(a*=2); */
 
             /* function fn(){
-                fn=1;
-                console.log(fn);
-            }
-            fn();
-            console.log(fn);
-            fn();
- */
+                           fn=1;
+                           console.log(fn);
+                       }
+                       fn();
+                       console.log(fn);
+                       fn();
+            */
 
             /* (function b(){
-                b=20;
-                console.log(window.b);
-                console.log(b);
-            })(); */
+                           b=20;
+                           console.log(window.b);
+                           console.log(b);
+                       })(); */
 
             /* var reg=/a/;
-            var str='jinshuoahhh';
-            var g=str.replace(reg, g=>{
-                return g;
-            });
-            console.log(g); */
+                       var str='jinshuoahhh';
+                       var g=str.replace(reg, g=>{
+                           return g;
+                       });
+                       console.log(g); */
 
             /* function Fn(x, y){
-                this.z=x+y;
-            }
-            var res=Fn(1,2);
-            console.log(res);
-            console.log(Fn.z);
-            console.log(window.z); */
+                           this.z=x+y;
+                       }
+                       var res=Fn(1,2);
+                       console.log(res);
+                       console.log(Fn.z);
+                       console.log(window.z); */
 
             /* function _new(Fn) {
-                return function (...args) {
-                    var obj = {};
-                    obj.__proto__ = Fn.prototype;
-                    var res = Fn.call(obj, ...args);
-                    if (res !== null && typeof res === "object") return res;
-                    return obj;
-                };
-            }
-            function Fn(){
-                this.x=1;
-                return {y:2};
-            }
-            var obj1=_new(Fn)();
-            console.log(obj1);
-            var obj3=new Fn;
-            console.log(obj3); */
+                           return function (...args) {
+                               var obj = {};
+                               obj.__proto__ = Fn.prototype;
+                               var res = Fn.call(obj, ...args);
+                               if (res !== null && typeof res === "object") return res;
+                               return obj;
+                           };
+                       }
+                       function Fn(){
+                           this.x=1;
+                           return {y:2};
+                       }
+                       var obj1=_new(Fn)();
+                       console.log(obj1);
+                       var obj3=new Fn;
+                       console.log(obj3); */
             /* var obj2=new Fn();
-            console.log(obj2); */
+                       console.log(obj2); */
 
             /* function Fn(y, z){
-                this.x=y+z;
-            }
-            var obj1=new Fn(1, 2);
-            var obj2=new Fn;
-            console.log(obj1);
-            console.log(obj2); */
+                           this.x=y+z;
+                       }
+                       var obj1=new Fn(1, 2);
+                       var obj2=new Fn;
+                       console.log(obj1);
+                       console.log(obj2); */
 
             /* Function.prototype._call = function (obj = {}, ...args) {
-                obj.fn = this;
-                var res = obj.fn(...args);
-                delete obj.fn;
-                return res;
-            };
+                           obj.fn = this;
+                           var res = obj.fn(...args);
+                           delete obj.fn;
+                           return res;
+                       };
 
-            var obj = {};
-            function fn(x) {
-                this.y = x;
-                return this.y;
-            }
-            var res = fn._call(obj, 1);
-            console.log(obj);
-            console.log(res); */
+                       var obj = {};
+                       function fn(x) {
+                           this.y = x;
+                           return this.y;
+                       }
+                       var res = fn._call(obj, 1);
+                       console.log(obj);
+                       console.log(res); */
 
             /* function fn(){
-                console.log(1);
-            }
-            fn.a=1;
-            console.log(fn.a); */
+                           console.log(1);
+                       }
+                       fn.a=1;
+                       console.log(fn.a); */
 
             /* function Fn(){
-                this.x=1;
-            }
-            console.log(typeof Fn); */
+                           this.x=1;
+                       }
+                       console.log(typeof Fn); */
 
             /* var fn = function () {};
-            fn.a=1;
-            console.log(fn.prototype); */
+                       fn.a=1;
+                       console.log(fn.prototype); */
 
             /* var obj={};
-            console.log(obj.prototype); */
+                       console.log(obj.prototype); */
 
             /* var t=new Date();
-            console.log(t.prototype); */
+                       console.log(t.prototype); */
 
             /* function _new(Fn) {
-                return function (...args) {
-                    var obj = {};
-                    obj.__proto__ = Fn.prototype;
-                    var res = Fn.call(obj, ...args);
-                    if (res !== null && /^(object|function)$/.test(typeof res)) return res;
-                    return obj;
-                };
-            }
-            function Fn() {
-                this.x = 1;
-                return function(){};
-            }
-            var obj1 = _new(Fn)();
-            console.log(obj1); */
+                           return function (...args) {
+                               var obj = {};
+                               obj.__proto__ = Fn.prototype;
+                               var res = Fn.call(obj, ...args);
+                               if (res !== null && /^(object|function)$/.test(typeof res)) return res;
+                               return obj;
+                           };
+                       }
+                       function Fn() {
+                           this.x = 1;
+                           return function(){};
+                       }
+                       var obj1 = _new(Fn)();
+                       console.log(obj1); */
 
             /* function Fn(){
-                this.x=1;
-                return function(){};
-            }
-            var f=new Fn();
-            console.log(f); */
+                           this.x=1;
+                           return function(){};
+                       }
+                       var f=new Fn();
+                       console.log(f); */
 
             /* var obj=Object.create(null);
-            console.log(obj.__proto__);
+                       console.log(obj.__proto__);
 
-            var obj1=Object.create({a:1});
-            console.log(obj1.__proto__); */
+                       var obj1=Object.create({a:1});
+                       console.log(obj1.__proto__); */
 
             /* Object._create=function(prototype){
-                var tempFn=function(){};
-                tempFn.prototype=prototype;
-                return new tempFn;
-            }
+                           var tempFn=function(){};
+                           tempFn.prototype=prototype;
+                           return new tempFn;
+                       }
 
-            var prototype={a:1};
-            var obj=Object._create(prototype);
-            console.log(obj.__proto__); */
+                       var prototype={a:1};
+                       var obj=Object._create(prototype);
+                       console.log(obj.__proto__); */
 
             /* Array.prototype.unRepeat = function () {
-                return [...new Set(this)];
-            };
-            var arr = [1, 1, 3, 6, 8, 8, 9, 9, 9, 2];
-            var new_arr = arr.unRepeat();
-            console.log(new_arr); */
+                           return [...new Set(this)];
+                       };
+                       var arr = [1, 1, 3, 6, 8, 8, 9, 9, 9, 2];
+                       var new_arr = arr.unRepeat();
+                       console.log(new_arr); */
 
             /* Object.prototype.f = function () {};
-            var obj = {
-                name: "js",
-                age: 26,
-            };
-            for (var key in obj) {
-                if (obj.hasOwnProperty(key)) {
-                    console.log(key);
-                }
-            } */
+                       var obj = {
+                           name: "js",
+                           age: 26,
+                       };
+                       for (var key in obj) {
+                           if (obj.hasOwnProperty(key)) {
+                               console.log(key);
+                           }
+                       } */
 
             /* var obj = {
-                name: "js",
-                age: 26,
-            };
-            console.log(Object.keys(obj)); */
+                           name: "js",
+                           age: 26,
+                       };
+                       console.log(Object.keys(obj)); */
 
             /* function Fn(){};
-            Fn.prototype.a=1;
-            var newPrototype=Object.create(Fn.prototype);
-            var newPrototype_data={
-                b:2,
-                c:3
-            }
-            Fn.prototype=Object.assign(newPrototype, newPrototype_data)
-            var obj=new Fn();
-            console.log(obj.__proto__); */
+                       Fn.prototype.a=1;
+                       var newPrototype=Object.create(Fn.prototype);
+                       var newPrototype_data={
+                           b:2,
+                           c:3
+                       }
+                       Fn.prototype=Object.assign(newPrototype, newPrototype_data)
+                       var obj=new Fn();
+                       console.log(obj.__proto__); */
 
             /* function Fn(){
-                this.a=1;
-                var b=function(){
-                    console.log('hhh');
-                }
-            }
-            var obj=new Fn();
-            obj.b(); */
+                           this.a=1;
+                           var b=function(){
+                               console.log('hhh');
+                           }
+                       }
+                       var obj=new Fn();
+                       obj.b(); */
 
             /* function Fn(){
-                this.a=1;
-            };
-            Fn.prototype={
-                b:2
-            }
-            var obj=new Fn();
-            console.log(obj.__proto__);
-            console.log(obj instanceof Fn);
-            obj.__proto__={c:3};
-            console.log(obj.__proto__);
-            console.log(Fn.prototype);
-            console.log(obj.__proto__===Fn.prototype);
-            console.log(obj instanceof Fn); */
+                           this.a=1;
+                       };
+                       Fn.prototype={
+                           b:2
+                       }
+                       var obj=new Fn();
+                       console.log(obj.__proto__);
+                       console.log(obj instanceof Fn);
+                       obj.__proto__={c:3};
+                       console.log(obj.__proto__);
+                       console.log(Fn.prototype);
+                       console.log(obj.__proto__===Fn.prototype);
+                       console.log(obj instanceof Fn); */
 
             /* // instanceof源码--这个方法默认每个this都有__proto__,
-            // 因为想要找到_instanceof方法就必须通过__proto__来找，
-            // 所以第一个if(!this.__proto__)是多余的
-            Object.prototype._instanceof = function (Fn) {
-                if (!this.__proto__) {
+                       // 因为想要找到_instanceof方法就必须通过__proto__来找，
+                       // 所以第一个if(!this.__proto__)是多余的
+                       Object.prototype._instanceof = function (Fn) {
+                           if (!this.__proto__) {
+                               return false;
+                           } else if (this.__proto__ === Fn.prototype) {
+                               return true;
+                           } else {
+                               this.__proto__ = this.__proto__.__proto__;
+                               if (this.__proto__ === undefined) {
+                                   return false;
+                               }
+                           }
+                       };
+
+                       function Fn(){
+                           this.x=1;
+                       }
+                       var obj1=new Fn();
+                       var obj2={};
+                       // var obj3={};
+                       // obj3.__proto__=null;
+
+                       // console.log(obj3._instanceof(Fn));
+                       console.log(obj1._instanceof(Fn));
+                       console.log(obj2._instanceof(Fn)); */
+
+            /* function _instanceof(obj, Fn) {
+                           if (!obj.__proto__) {
+                               return false;
+                           } else if (obj.__proto__ === Fn.prototype) {
+                               return true;
+                           } else {
+                               if (obj.__proto__ === Object.prototype) {
+                                   return false;
+                               }
+                               _instanceof(obj.__proto__, Fn);
+                           }
+                       }
+
+                       function Fn() {
+                           this.x = 1;
+                       }
+                       var obj1 = new Fn();
+                       var obj2 = {};
+                       var obj3 = {};
+                       obj3.__proto__ = null;
+
+                       console.log(_instanceof(obj1, Fn));
+                       console.log(_instanceof(obj2, Fn));
+                       console.log(_instanceof(obj3, Fn)); */
+
+            /* function a(y) {
+                           this.x = y;
+                       }
+                       var obj = {};
+                       var num = 1; */
+
+            /* // slice源码
+                       Array.prototype._slice = function (start = 0, end = this.length) {
+                           var arr = [];
+                           for (var i = start; i < end; i++) {
+                               arr.push(this[i]);
+                           }
+                           return arr;
+                       };
+                       var arr=[1,2,3,4,5,6];
+                       var new_arr=arr._slice();
+                       console.log(new_arr); */
+
+            /* // 将类数组转换为数组
+                       function toArray() {
+                           return [].slice.call(arguments);
+                       }
+                       console.log(toArray(1, 2, 3));
+
+                       function toArray() {
+                           return [...arguments];
+                       }
+                       console.log(toArray(1, 2, 3));
+
+
+                       function toArray() {
+                           return Array.from(arguments);
+                       }
+                       console.log(toArray(1, 2, 3));
+
+
+                       function toArray(...args) {
+                           return args;
+                       }
+                       console.log(toArray(1, 2, 3)); */
+
+            /* var arr=[1,{a:1},3];
+                       var new_arr=JSON.parse(JSON.stringify(arr));
+
+                       console.log(arr);
+                       console.log(new_arr);
+                       console.log(arr===new_arr); */
+
+            // 深克隆
+            /* function deepCopy(obj) {
+                           var constructor = obj.constructor;
+                           if (obj === null) return null;
+                           if (typeof obj !== "object") return obj;
+                           if (/^(RegExp|Date)$/i.test(constructor.name)) return new constructor(obj);
+                           var new_obj = new constructor();
+                           for (var key in obj) {
+                               if (!obj.hasOwnProperty(key)) break;
+                               new_obj[key] = deepCopy(obj[key]);
+                           }
+                           return new_obj;
+                       }
+
+                       var arr = [1, { a: 1 }, 2, new Date(), function(){}];
+                       var new_arr=deepCopy(arr);
+                       console.log(arr, new_arr);
+                       console.log(arr[1]===new_arr[1]);
+                       console.log(arr[3]===new_arr[3]);
+                       console.log(arr[4]===new_arr[4]); */
+
+            /* Function.prototype.call = function (context, ...params) {
+                           context == undefined ? (context = window) : null;
+                           let contextType = typeof context;
+                           if (!/^(object|function)$/.test(contextType)) {
+                               context = Object(context);
+                           }
+                           let key = Symbol("key"),
+                               result;
+                           context[key] = this;
+                           result = context[key](...params);
+                           delete context[key];
+                           return result;
+                       };
+                       function Fn(x, y) {
+                           this.x = x;
+                           this.y = y;
+                           return this.x + this.y;
+                       }
+                       let obj = 1;
+                       var res = Fn.call(obj, 1, 2);
+                       console.log(res); */
+
+            /* function checkType(obj, Fn) {
+                           function _instanceof(obj, Fn) {
+                               if (obj === null) {
+                                   if (Fn === Object) {
+                                       return true;
+                                   } else {
+                                       return false;
+                                   }
+                               }
+                               if (obj === undefined) {
+                                   if (Fn === Number) {
+                                       return true;
+                                   } else {
+                                       return false;
+                                   }
+                               }
+                               if (!obj.__proto__) {
+                                   return false;
+                               } else if (obj.__proto__ === Fn.prototype) {
+                                   return true;
+                               } else {
+                                   if (obj.__proto__ === Object.prototype) {
+                                       return false;
+                                   }
+                                   return _instanceof(obj.__proto__, Fn);
+                               }
+                           }
+                           // 判断是否为普通对象
+                           if (Fn === Object) {
+                               var flag = false;
+                               var arr = [Function, Array, Date, RegExp];
+                               arr.forEach((item) => {
+                                   flag = flag || _instanceof(obj, item);
+                               });
+                               if (!flag) {
+                                   return true;
+                               } else {
+                                   return false;
+                               }
+                           } else {
+                               return _instanceof(obj, Fn);
+                           }
+                       } */
+
+            // 数据类型检测
+            /* function checkType(obj) {
+                           var type = Object.prototype.toString.call(obj);
+                           return /^\[object ([a-zA-Z]+)\]$/.exec(type)[1].toLocaleLowerCase();
+                       } */
+
+            /* var typeArr = [
+                "Number",
+                "String",
+                "Boolean",
+                "Symbol",
+                "BigInt",
+                "Function",
+                "Object",
+                "Array",
+                "Date",
+                "RegExp",
+            ];
+            var class2Type = {};
+            typeArr.forEach((item) => {
+                class2Type["[object " + item + "]"] = item;
+            });
+            function toType(obj) {
+                if (obj == null) {
+                    return obj + "";
+                }
+                return typeof obj === "function" || typeof obj === "object"
+                    ? class2Type[Object.prototype.toString.call(obj)] || "object"
+                    : typeof obj;
+            } */
+
+            /* function isCommenObject(obj) {
+                if (!obj) return false;
+                return Object.prototype.toString.call(obj) === "[object Object]";
+            } */
+
+            /* function isEmptyObject(obj) {
+                if (!obj || Object.prototype.toString.call(obj) !== "[object Object]") {
                     return false;
-                } else if (this.__proto__ === Fn.prototype) {
+                }
+                for (var key in obj) {
+                    if (!Object.prototype.hasOwnProperty(key)) break;
+                    return false;
+                }
+                return true;
+            } */
+
+            /* function isArrayLike(obj) {
+                var length = !!obj && 'length' in obj && obj.length,
+                    type = toType(obj);
+                if (isFunction(obj) || isWindow(obj)) {
+                    return false;
+                }
+                return type === "array" || length === 0 ||
+                    typeof length === "number" && length > 0 && length - 1 in obj;
+            } */
+
+            /* function isEqual(val1, val2) {
+                const type1 = val1 === null ? "null" : typeof val1;
+                const type2 = val2 === null ? "null" : typeof val2;
+                if (type1 === "function" && type2 === "function") {
+                    return val1.toString() === val2.toString();
+                }
+                if (type1 === "object" && type2 === "object") {
+                    const ct1 = val1.constructor;
+                    const ct2 = val2.constructor;
+                    if (ct1 === RegExp && ct2 === RegExp) {
+                        return ct1.toString() === ct2.toString();
+                    }
+                    if (ct1 === Date && ct2 === Date) {
+                        return val1.toString() === val2.toString();
+                    }
+                    if (ct1 === Array && ct2 === Array) {
+                        return val1.sort().toString() === val2.sort().toString();
+                    }
+                    const keys1 = Object.keys(val1);
+                    const keys2 = Object.keys(val2);
+                    // debugger;
+                    if (keys1.length !== keys2.length) return false;
+                    for (let i = 0; i < keys1.length; i++) {
+                        let key1 = keys1[i];
+                        if (key1 in val2) {
+                            if (val1[key1] !== val2[key1]) return false;
+                        } else {
+                            return false;
+                        }
+                    }
                     return true;
-                } else {
-                    this.__proto__ = this.__proto__.__proto__;
-                    if (this.__proto__ === undefined) {
+                }
+                return val1 === val2;
+            }
+
+            var obj1 = { a: 1, b: 2 };
+            var obj2 = { b: 2, a: 1 };
+            isEqual(obj1, obj2); */
+
+            function _instanceof(obj, Fn) {
+                if (obj === null) {
+                    if (Fn === Object) {
+                        return true;
+                    } else {
                         return false;
                     }
                 }
-            };
-
-            function Fn(){
-                this.x=1;
-            }
-            var obj1=new Fn();
-            var obj2={};
-            // var obj3={};
-            // obj3.__proto__=null;
-
-            // console.log(obj3._instanceof(Fn));
-            console.log(obj1._instanceof(Fn));
-            console.log(obj2._instanceof(Fn)); */
-
-            /* function _instanceof(obj, Fn) {
+                if (obj === undefined) {
+                    if (Fn === Number) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
                 if (!obj.__proto__) {
+                    //用于判断__proto__被设置为空的情况
                     return false;
                 } else if (obj.__proto__ === Fn.prototype) {
                     return true;
@@ -1644,33 +1915,9 @@
                     if (obj.__proto__ === Object.prototype) {
                         return false;
                     }
-                    _instanceof(obj.__proto__, Fn);
+                    return _instanceof(obj.__proto__, Fn);
                 }
             }
-
-            function Fn() {
-                this.x = 1;
-            }
-            var obj1 = new Fn();
-            var obj2 = {};
-            var obj3 = {};
-            obj3.__proto__ = null;
-
-            console.log(_instanceof(obj1, Fn));
-            console.log(_instanceof(obj2, Fn));
-            console.log(_instanceof(obj3, Fn)); */
-
-            /* function a(y) {
-                this.x = y;
-            }
-            var obj = {};
-            var num = 1; */
-
-
-            
-
-
-            
         </script>
     </body>
 </html>
