@@ -1891,7 +1891,7 @@
             var obj2 = { b: 2, a: 1 };
             isEqual(obj1, obj2); */
 
-            function _instanceof(obj, Fn) {
+            /* function _instanceof(obj, Fn) {
                 if (obj === null) {
                     if (Fn === Object) {
                         return true;
@@ -1917,7 +1917,20 @@
                     }
                     return _instanceof(obj.__proto__, Fn);
                 }
+            } */
+
+            // instanceof源码
+            function instanceOf(obj, Fun) {
+                let _proto = Object.getPrototypeOf(obj);
+                let _prototype = Fun.prototype;
+                while (true) {
+                    if (!_proto) return false;
+                    if (_proto === _prototype) return true;
+                    _proto = Object.getPrototypeOf(_proto);
+                }
             }
+            
+            
         </script>
     </body>
 </html>
