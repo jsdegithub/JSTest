@@ -10,6 +10,7 @@
         <button index="0">点击</button>
         <button index="1">点击</button>
         <button index="2">点击</button>
+        <div style="width: 300px; height: 2000px; border: 1px solid lightblue"></div>
 
         <script>
             // alert(Boolean([]&&0));
@@ -1919,7 +1920,7 @@
                 }
             } */
 
-            // instanceof源码
+            /* // instanceof源码
             function instanceOf(obj, Fun) {
                 let _proto = Object.getPrototypeOf(obj);
                 let _prototype = Fun.prototype;
@@ -1929,8 +1930,125 @@
                     _proto = Object.getPrototypeOf(_proto);
                 }
             }
-            
-            
+
+            // push源码
+            Array.prototype._push = function (item) {
+                this[this.length] = item;
+                this.length++;
+                return --this.length;  //不能写成 this.length--
+            };
+            var arr = [1, 2, 3];
+            // arr.push(1); */
+
+            /* var a = {
+                val: 1,
+                valueOf() {
+                    return this.val++;
+                },
+                toString(){
+                    return this.val++;
+                }
+            };
+            if (a == 1 && a == 2 && a == 3) {
+                console.log("ok");
+            } */
+
+            /* function toArray(){
+                return Array.prototype.slice.call(arguments);
+            }
+            var arr=toArray(1,2,3);
+            console.log(arr); */
+
+            /* // bind源码
+            Function.prototype._bind = function (obj, ...args) {
+                var _this = this;
+                return function (...params) {
+                    _this.call(obj, ...args.concat(params));
+                };
+            };
+            function fn(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            var obj = {};
+            // fn._bind(obj, 1, 2)();
+            fn._bind(obj)(1, 2);
+            console.log(obj); //{x:1, y:2} */
+
+            /* function outer() {
+                console.log(this);  //{}
+                return function inner() {
+                    console.log(this);  //window
+                };
+            }
+            var inner=outer.call({});
+            inner(); */
+
+            /* function fn(x) {
+                this.x = x;
+                this.y = 2;
+            }
+            var obj = {};
+            fn.call(obj, [1, 2, 3]);
+            console.log(obj); */
+
+            /* // 函数的防抖
+            function debounce(fn, timeGap = 1000, immediate = true) {
+                var timer = null;
+                var now;
+                return function (...args) {
+                    clearTimeout(timer);  //clearTimeout(timer)并不会让 timer置为 null
+                    now = immediate && !timer;
+                    timer = setTimeout(function () {
+                        timer = null;
+                        !immediate && fn.call(this, ...args);
+                    }, timeGap);
+                    now ? fn.call(this, ...args) : null;
+                };
+            }
+
+            function fn(...args) {
+                console.log(args);
+            }
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = debounce(fn); */
+
+            /* // 函数的节流
+            function throttle(fn, time_gap) {
+                var previous = new Date().getTime();
+                var now;
+                return function (e) {
+                    now = new Date().getTime();
+                    if (now - previous >= time_gap) {
+                        fn.call(this, e);
+                        previous = now;
+                    }
+                };
+            }
+
+            function fn(e) {
+                console.log(e);
+            }
+            window.onscroll = throttle(fn, 500); */
+
+            function fn() {
+                console.log(1);
+                return Promise.reject("error");
+            }
+            (async function () {
+                setTimeout(() => {
+                    console.log(3);
+                });
+                try {
+                    Promise.resolve("promise").then((res) => console.log(res));
+                    let value = await fn();
+                    console.log("被await阻塞的代码执行了");
+                    console.log(value);
+                } catch {
+                    console.log("fn失败");
+                }
+            })();
+            console.log(4);
         </script>
     </body>
 </html>
