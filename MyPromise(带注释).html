@@ -66,6 +66,9 @@
                             var x = resolveFn(result);
                             x instanceof MyPromise ?
                                 x.then(resolve, reject) :
+                                // x的状态决定了resolve还是reject执行，但是由于resolve和reject
+                                // 中已经记录了自己的_this，所以resolve和reject只会改变自己的
+                                // Promise实例的状态
                                 //若 x状态为成功就调用 新 MyPromise 实例的 resolve方法
                                 // 将新 Promise实例的状态改为成功；
                                 //若 x状态为失败就调用 新 MyPromise 实例的 reject方法

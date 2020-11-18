@@ -2031,7 +2031,7 @@
             }
             window.onscroll = throttle(fn, 500); */
 
-            function fn() {
+            /* function fn() {
                 console.log(1);
                 return Promise.reject("error");
             }
@@ -2048,7 +2048,92 @@
                     console.log("fn失败");
                 }
             })();
-            console.log(4);
+            console.log(4); */
+
+            // js实现unique函数,使[1,[2,3],[[4],[4,[4,5]]]].unique()的结果是[1,2,3,4,5]
+            // debugger;
+            /* Array.prototype.unique = function () {
+                var new_arr = [];
+                function copeFn(arr) {
+                    var len = arr.length;
+                    for (var i = 0; i < len; i++) {
+                        if (Object.prototype.toString.call(arr[i]) !== "[object Array]") {
+                            new_arr.push(arr[i]);
+                        } else {
+                            copeFn(arr[i]);
+                        }
+                    }
+                }
+                copeFn(this);
+                return [...new Set(new_arr)];
+            };
+
+            var arr = [1, [2, 3], [[4], [4, [4, 5]]]];
+            var new_arr = arr.unique();
+            console.log(arr);
+            console.log(new_arr); */
+
+            // 使用promise实现1000ms后输出1，再过2000ms后输出2，再过3000ms后输出3
+            /* function delay(delay_time) {
+                return new Promise((resolve) => {
+                    var timer = setTimeout(() => {
+                        clearTimeout(timer);
+                        timer = null;
+                        resolve();
+                    }, delay_time);
+                });
+            }
+
+            delay(1000)
+                .then(() => {
+                    console.log(1);
+                    return delay(2000);
+                })
+                .then(() => {
+                    console.log(2);
+                    return delay(3000);
+                })
+                .then(() => {
+                    console.log(3);
+                }); */
+
+            /* function delay(delay_time) {
+                return new Promise((resolve) => {
+                    var timer = setTimeout(() => {
+                        clearTimeout(timer);
+                        timer = null;
+                        resolve();
+                    }, delay_time);
+                });
+            }
+            (async function () {
+                await delay(1000);
+                console.log(1);
+                await delay(2000);
+                console.log(2);
+                await delay(3000);
+                console.log(3);
+            })(); */
+
+            /* var p1 = new Promise((resolve) => {
+                resolve("ok");
+            });
+            var p2 = p1.then(
+                (result) => {
+                    console.log(result);
+                },
+                (reason) => {
+                    console.log(reason);
+                }
+            );
+            console.log(p2); */
+
+            var params = {};
+            var p = new Proxy(params, {
+                set(obj, key, value) {
+                    obj[key] = value;
+                },
+            });
         </script>
     </body>
 </html>
