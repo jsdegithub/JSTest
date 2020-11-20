@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>小米商城</title>
+        <link rel="shortcut icon" href="./imgs/favicon.ico" />
+        <link rel="stylesheet" href="./reset.css" />
+        <link rel="stylesheet" href="./swiper-6.1.2/swiper-bundle.min.css" />
+        <style>
+            .top-banner {
+                height: 120px;
+                background: url("./imgs/a2a9e6db5e3c5374301827435d8595c6.jpg")
+                    no-repeat center;
+                /* 设置背景图片的高为120，宽度自适应 */
+                background-size: auto 120px;
+            }
+            .header-wrapper {
+                height: 40px;
+                line-height: 40px;
+                background-color: #333333;
+            }
+            .container {
+                width: 1226px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: #b0b0b0;
+            }
+            .header .header-left {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .header .header-right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .header span {
+                margin-right: 10px;
+            }
+            .my-cart {
+                display: inline-block;
+                width: 110px;
+                height: 100%;
+                background-color: #ff6600;
+                text-align: center;
+                color: #ffffff;
+                margin-left: 10px;
+            }
+            .my-cart .icon-cart {
+                display: inline-block;
+                width: 16px;
+                height: 12px;
+                background: url("./imgs/icon-cart-checked.png") no-repeat center;
+                background-size: contain;
+                margin-right: 4px;
+            }
+            .logo-container {
+                height: 112px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-logo {
+                display: inline-block;
+                width: 55px;
+                height: 55px;
+                background-color: #ff6600;
+            }
+            .header-logo a {
+                display: inline-block;
+                width: 110px;
+                height: 55px;
+            }
+            .header-logo a::before {
+                content: "";
+                display: inline-block;
+                width: 55px;
+                height: 55px;
+                background: url("./imgs/mi-logo.png") no-repeat center;
+                background-size: contain;
+                transition: margin 0.2s;
+            }
+
+            .header-logo a::after {
+                content: "";
+                display: inline-block;
+                width: 55px;
+                height: 55px;
+                background: url("./imgs/mi-home.png") no-repeat center;
+                background-size: contain;
+            }
+
+            .header-logo a:hover:before {
+                margin-left: -55px;
+                transition: margin 0.2s;
+            }
+            .logo-right-right {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 300px;
+                height: 50px;
+                line-height: 50px;
+                padding-left: 10px;
+                border: 1px solid #999999;
+            }
+            .logo-right-right input {
+                border: none;
+                height: 50px;
+                line-height: 50px;
+                width: 250px;
+                border-right: 1px solid #999999;
+            }
+            .logo-right-right a {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 17px;
+                background: url("/imgs/icon-search.png") no-repeat center;
+                background-size: contain;
+            }
+            .logo-right {
+                flex: 1;
+                width: 850px;
+                padding-left: 180px;
+            }
+            .logo-right span {
+                font-size: 16px;
+                color: #333333;
+                margin-right: 10px;
+            }
+            .logo-right span:hover {
+                cursor: pointer;
+                color: #ff6600;
+            }
+            .home-hero {
+                position: relative;
+                width: 100%;
+                height: 360px;
+                background-color: aliceblue;
+                margin-bottom: 26px;
+            }
+            .banner {
+                position: relative;
+                width: 100%;
+                height: 170px;
+                margin-bottom: 26px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .banner .banner-item {
+                width: 316px;
+                height: 100%;
+                background-color: rgb(248, 234, 207);
+                transition: all 0.3s;
+            }
+            .banner .banner-item:not(:first-child):hover {
+                z-index: 2;
+                -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s;
+            }
+            .banner .banner-item:first-child {
+                width: 234px;
+                background: #5f5750;
+            }
+            .banner .banner-item:not(:first-child) img {
+                width: 100%;
+                /* height: 100%; */
+                /* 宽高只设置一个，让另一边自适应，这样可以防止图片失真 */
+            }
+            .banner .banner-item:first-child .home-channel-list {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 3px;
+            }
+            .banner .banner-item:first-child .home-channel-list li {
+                position: relative;
+                width: 70px;
+                height: 82px;
+                padding-left: 3px;
+                padding-right: 3px;
+                text-align: center;
+            }
+            .banner
+                .banner-item:first-child
+                .home-channel-list
+                li:not(:first-child):not(:nth-child(4))::after {
+                content: "";
+                position: absolute;
+                top: 6px;
+                left: 0;
+                width: 1px;
+                height: 70px;
+                background: #665e57;
+            }
+            .banner
+                .banner-item:first-child
+                .home-channel-list
+                li:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before {
+                content: "";
+                position: absolute;
+                top: -1px;
+                left: 6px;
+                width: 64px;
+                height: 1px;
+                background: #665e57;
+            }
+            .banner .banner-item:first-child .home-channel-list li a {
+                display: inline-block;
+                color: #ffffff;
+                cursor: pointer;
+                padding-top: 18px;
+                opacity: 0.7;
+                transition: opacity 0.3s;
+                /* 在原标签上加 transition的作用是让鼠标离开时也有动画 */
+            }
+            .banner .banner-item:first-child .home-channel-list li a:hover {
+                opacity: 1;
+                transition: opacity 0.3s;
+            }
+            .banner .banner-item:first-child .home-channel-list li a:hover p {
+                color: #ffffff;
+                transition: color 0.3s;
+            }
+            .banner .banner-item:first-child .home-channel-list li a p {
+                transition: color 0.3s;
+            }
+            .banner .banner-item:first-child .home-channel-list li img {
+                width: 24px;
+                height: 24px;
+            }
+            .page-main {
+                background: #f5f5f5;
+                width: 100%;
+            }
+            .box-h {
+                height: 58px;
+                line-height: 58px;
+            }
+            .box-h h2 {
+                color: #333333;
+                font-size: 22px;
+                font-weight: 200;
+            }
+            .box-list .item:first-child {
+                padding-top: 40px;
+                padding-bottom: 40px;
+                display: flex;
+                flex-direction: column;
+                /* justify-content: space-between; */
+                align-items: center;
+                box-sizing: border-box;
+            }
+            .box-list .item:first-child .round {
+                font-size: 21px;
+                color: #ef3a3b;
+                padding-top: 15px;
+                text-align: center;
+            }
+            .box-list .item:first-child img {
+                margin: 25px auto;
+                margin-bottom: 30px;
+                border: 0;
+                width: 34px;
+                height: 53px;
+            }
+            .box-list .item:first-child .desc {
+                color: rgba(0, 0, 0, 0.54);
+                font-size: 15px;
+            }
+            .box-list .item:first-child .countdown {
+                width: 168px;
+                margin: 28px auto 0;
+                margin-top: 30px;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+            }
+            .box-list .item:first-child .countdown span {
+                width: 46px;
+                height: 46px;
+                background: #605751;
+                color: #fff;
+                font-size: 24px;
+                line-height: 46px;
+            }
+            .box-list .item:first-child .countdown i {
+                width: 15px;
+                height: 46px;
+                line-height: 46px;
+                color: #605751;
+                font-size: 28px;
+                font-style: normal;
+            }
+            .box-list .swiper-container .goods {
+                position: relative;
+                width: 234px;
+                height: 339px;
+                text-align: center;
+                background-color: #ffffff;
+                border-top: 1px solid;
+            }
+            .box-list .item:first-child {
+                border-top: 1px solid #e53935;
+            }
+            .box-list .swiper-container .goods:first-child {
+                border-color: #f0f0f0;
+            }
+            .box-list .swiper-container .goods:nth-child(2) {
+                border-color: #f0f0f0;
+            }
+            .box-list
+                .swiper-container
+                .swiper-wrapper
+                .swiper-slide
+                .goods-container
+                .goods:nth-child(3) {
+                border-color: #f0f0f0;
+                width: 248px;
+            }
+            .box-list .swiper-container .goods:nth-child(4) {
+                border-color: #f0f0f0;
+                background: rgba(255, 255, 255, 0.7);
+            }
+            .box-list .swiper-container .goods::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 2;
+                background: rgba(0, 0, 0, 0.02);
+            }
+            .box-list .swiper-container .goods a {
+                display: inline-block;
+                margin-top: 39px;
+                color: #757575;
+                cursor: pointer;
+                text-align: center;
+            }
+            .box-list .swiper-container .goods .thumb {
+                width: 160px;
+                height: 165.6px;
+                margin-left: 37px;
+                margin-right: 37px;
+                margin-bottom: 22px;
+            }
+            .box-list .swiper-container .goods .content {
+                width: 234px;
+                height: 262.2px;
+            }
+            .box-list .swiper-container .goods .content h3 {
+                display: block;
+                font-size: 1.17em;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                font-weight: 400;
+                color: #333333;
+                margin: 0;
+                margin-bottom: 3px;
+            }
+            .box-list .swiper-container .goods .content .desc {
+                height: 18px;
+                margin: 0 20px 12px;
+                font-size: 12px;
+                text-overflow: ellipsis;
+                color: #b0b0b0;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .box-list .swiper-container .goods .content .price {
+                margin: 0;
+            }
+            .box-list .swiper-container .goods .content .price span {
+                font-size: 14px;
+                color: #ff6709;
+            }
+            .box-list .swiper-container .goods .content .price del {
+                font-size: 14px;
+                color: #b0b0b0;
+            }
+            .box-list .item:first-child {
+                position: relative;
+                width: 234px;
+                height: 340px;
+                background: #f1eded;
+            }
+            .box-list .item:not(:first-child) {
+                margin-left: 14px;
+            }
+            .box-list-wrapper {
+                width: 1240px;
+                margin-left: -14px;
+            }
+            .box-list {
+                display: flex;
+                margin-left: 14px;
+            }
+            .box-list .swiper-container {
+                display: flex;
+                width: 978px;
+                height: 340px;
+                margin-left: 14px;
+            }
+            .box-list
+                .swiper-container
+                .swiper-slide
+                .goods-container
+                .goods:last-child::after {
+                position: absolute;
+                left: -14px;
+                content: "";
+                display: block;
+                height: 340px;
+                width: 14px;
+                background: #f5f5f5;
+            }
+            .box-list .swiper-container .swiper-wrapper .goods-container {
+                display: flex;
+                position: relative;
+            }
+            .box-list
+                .swiper-container
+                .swiper-wrapper
+                .goods-container
+                .goods:not(:nth-last-child(2)) {
+                margin-right: 14px;
+            }
+            .box-list .swiper-container img {
+                width: 160px;
+            }
+            .home-banner-box {
+                height: 120px;
+                margin: 22px 0;
+                background-color: lightblue;
+            }
+            .home-banner-box img {
+                width: 100%;
+            }
+            .phone-list {
+                height: 614px;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 36px;
+            }
+            .phone-list-left {
+                width: 234px;
+                background-color: lightcyan;
+            }
+            .phone-list-left img {
+                width: 100%;
+            }
+            .phone-list-right {
+                width: 978px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                transition: all 0.5s;
+            }
+            .phone-list-right img {
+                width: 160px;
+            }
+            .phone-list-right-b1,
+            .phone-list-right-b2 {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                /* align-items: center; */
+            }
+            .phone-list-right .phone {
+                width: 234px;
+                height: 300px;
+                background: #ffffff;
+                transition: all 0.5s;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .phone-list-right .phone .title {
+                margin: 15px 10px 5px;
+                text-align: center;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 14px;
+                font-weight: 400;
+                color: #333;
+                display: block;
+                cursor: pointer;
+            }
+            .phone-list-right .phone .desc {
+                margin: 0 10px 10px;
+                height: 18px;
+                font-size: 12px;
+                color: #b0b0b0;
+                /* 以下三句显示效果是：当字数过长时，超出容器宽度的部分用省略号代替 */
+                /* 这三句缺一不可，需捆绑使用 */
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .phone-list-right .phone .price {
+                margin: 0 10px 14px;
+                text-align: center;
+                color: #ff6700;
+                cursor: pointer;
+                display: block;
+                font-size: 14px;
+            }
+            .phone-list-right .phone:hover {
+                z-index: 2;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.5s;
+            }
+            .phone-list-left:hover {
+                z-index: 2;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.5s;
+            }
+            constructed stylesheet .brick-item-m-2 {
+                height: 260px;
+                padding: 20px 0;
+            }
+            .tv {
+                height: 614px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-bottom: 36px;
+            }
+            .tv .tv-1,
+            .tv .tv-2 {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .zhoubian .tv .tv-item del {
+                color: #b0b0b0;
+                text-align: center;
+                cursor: pointer;
+                font-style: 14px;
+                margin-left: 3px;
+            }
+            .zhoubian .tv-2 {
+                display: flex;
+                justify-content: left;
+            }
+            .zhoubian .tv-2 .tv-item {
+                margin-right: 14px;
+            }
+            .tv .tv-item {
+                width: 234px;
+                height: 300px;
+                background: #ffffff;
+                transition: all 0.5s;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .tv .tv-item del {
+                color: #b0b0b0;
+                text-align: center;
+                cursor: pointer;
+                font-style: 14px;
+                margin-left: 3px;
+            }
+            .tv .tv-item:first-child,
+            .tv .tv-item:nth-child(6) {
+                padding: 0;
+            }
+            .tv #last-tv {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                background: #f5f5f5;
+            }
+            .tv #last-tv .b1,
+            .tv #last-tv .b2 {
+                width: 234px;
+                height: 143px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #ffffff;
+                z-index: 2;
+                transition: all 0.3s;
+            }
+            .tv #last-tv .b1:hover,
+            .tv #last-tv .b2:hover {
+                z-index: 2;
+                -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                -webkit-transform: translate3d(0, -2px, 0);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.3s;
+            }
+            .tv #last-tv .b1 .left {
+                width: 94px;
+                margin-right: 10px;
+            }
+            .tv #last-tv .b1 .left .title {
+                color: #333;
+                font-size: 14px;
+                font-weight: 400;
+                cursor: pointer;
+                margin-bottom: 5px;
+            }
+            .tv #last-tv .b1 .left .price {
+                font-size: 14px;
+                color: #ff6600;
+                cursor: pointer;
+            }
+            .tv #last-tv .b1 .right img {
+                width: 80px;
+                height: 80px;
+            }
+            .tv #last-tv .b2 {
+                display: flex;
+                align-items: center;
+                position: relative;
+            }
+            .tv #last-tv .b2 .left {
+                position: absolute;
+                left: 30px;
+                cursor: pointer;
+            }
+            .tv #last-tv .b2 .left .more {
+                font-size: 18px;
+                color: #333;
+            }
+            .tv #last-tv .b2 .left .hot {
+                color: #757575;
+            }
+            .tv #last-tv .b2 .right {
+                color: #ff6600;
+                position: absolute;
+                right: 50px;
+                transform: scale(4);
+                cursor: pointer;
+            }
+            .tv #last-tv .b2 .right::before {
+                content: "\E615";
+                font-family: iconfont !important;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -webkit-text-stroke-width: 0.2px;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            .tv .tv-item:first-child img {
+                width: 234px;
+            }
+            .tv .tv-item:nth-child(6) img {
+                width: 234px;
+            }
+            .tv .tv-item:not(:first-child):not(:nth-child(6)) img {
+                width: 160px;
+            }
+            .tv .tv-item .title {
+                margin: 15px 10px 5px;
+                text-align: center;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 14px;
+                font-weight: 400;
+                color: #333;
+                display: block;
+                cursor: pointer;
+            }
+            .tv .tv-item .desc {
+                margin: 0 10px 10px;
+                height: 18px;
+                font-size: 12px;
+                color: #b0b0b0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .tv .tv-item .price {
+                margin: 0 10px 14px;
+                text-align: center;
+                color: #ff6700;
+                cursor: pointer;
+                display: block;
+                font-size: 14px;
+            }
+            .tv .tv-item:hover {
+                z-index: 2;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.5s;
+            }
+            .video {
+                display: flex;
+                justify-content: space-between;
+            }
+            .video .video-item {
+                width: 296px;
+                height: 285px;
+                background-color: #ffffff;
+                transition: all 0.3s;
+            }
+            .video .video-item .video-item-img {
+                position: relative;
+            }
+            .video .video-item .video-item-img:hover .play {
+                background-color: #ff6700;
+                border-color: #ff6700;
+            }
+            .video .video-item .play {
+                position: absolute;
+                left: 20px;
+                bottom: 38px;
+                width: 32px;
+                height: 20px;
+                border: 2px solid #fff;
+                border-radius: 12px;
+                background-color: #424242;
+                background-color: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                -webkit-transition: all 0.2s;
+                transition: all 0.2s;
+                overflow: hidden;
+            }
+            .video .video-item .play i {
+                font-size: 30px;
+                line-height: 20px;
+            }
+            .video .video-item .play i::before {
+                content: "\E601";
+                font-family: iconfont !important;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -webkit-text-stroke-width: 0.2px;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            .video .video-item:hover {
+                z-index: 2;
+                -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                -webkit-transform: translate3d(0, -2px, 0);
+                transform: translate3d(0, -2px, 0);
+                transition: all 0.3s;
+            }
+            .video .video-item .video-item-img img {
+                width: 100%;
+                margin-bottom: 28px;
+            }
+            .video .video-item .content .title {
+                font-size: 14px;
+                margin: 0 14px 6px;
+                font-weight: 400;
+                text-align: center;
+                color: #333;
+                height: 20.8px;
+                line-height: 20.8px;
+            }
+            .video .video-item .content .desc {
+                height: 18px;
+                line-height: 18px;
+                margin: 0 14px;
+                font-size: 12px;
+                color: #b0b0b0;
+                text-align: center;
+            }
+            .video-add-margin-bottom {
+                height: 26px;
+            }
+            .footer-service {
+                height: 80px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #e0e0e0;
+                color: #616161;
+            }
+            .footer-service span {
+                flex: 1;
+                height: 25px;
+                line-height: 25px;
+                display: inline-block;
+                font-size: 16px;
+                text-align: center;
+                border-right: #e0e0e0 1px solid;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            .footer-service span:hover {
+                color: #ff6600;
+            }
+            /* 这一段代码必须放在下一段代码的前面，不然 background属性会重置之前对 background-size的设置 */
+            .footer-service span .icon-setting {
+                background: url("./imgs/icon-setting.png") no-repeat center;
+            }
+            .footer-service span .icon-circle-7 {
+                background: url("./imgs/icon-7day.png") no-repeat center;
+            }
+            .footer-service span .icon-circle-15 {
+                background: url("./imgs/icon-15day.png") no-repeat center;
+            }
+            .footer-service span .icon-post {
+                background: url("./imgs/icon-post.png") no-repeat center;
+            }
+            .footer-service span .icon-location {
+                background: url("./imgs/icon-loc.png") no-repeat center;
+            }
+            .footer-service span .icon-setting,
+            .footer-service span .icon-circle-7,
+            .footer-service span .icon-circle-15,
+            .footer-service span .icon-post,
+            .footer-service span .icon-location {
+                width: 24px;
+                height: 24px;
+                vertical-align: middle;
+                background-size: contain;
+                margin-right: 5px;
+            }
+            .footer-service span:last-child {
+                border-right: none;
+            }
+            .footer-links {
+                height: 170px;
+                padding: 40px 0;
+                display: flex;
+            }
+            .footer-links .col-links {
+                flex: 1;
+            }
+            .footer-links .col-links .col-links-title {
+                height: 16.8px;
+                line-height: 16.8px;
+                margin-bottom: 26px;
+                font-size: 14px;
+                color: #424242;
+            }
+            .footer-links
+                .col-links
+                .col-links-content
+                .col-links-content-item {
+                height: 17.6px;
+                line-height: 17.6px;
+                margin-top: 10px;
+                font-size: 12px;
+                color: #757575;
+                cursor: pointer;
+            }
+            .footer-links
+                .col-links
+                .col-links-content
+                .col-links-content-item:hover {
+                color: #ff6600;
+            }
+            .footer-links .tel {
+                text-align: center;
+                width: 243px;
+                height: 110.2px;
+                border-left: 1px solid #e0e0e0;
+                margin-bottom: 5px;
+                position: relative;
+            }
+            .footer-links .tel a span {
+                margin-left: 3px;
+            }
+            @font-face {
+                font-family: iconfont;
+                src: url(data:application/x-font-ttf;charset=utf-8;base64,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)
+                    format("woff");
+                font-weight: 400;
+            }
+            .footer-links .tel a::before {
+                content: "\E600";
+                font-family: iconfont !important;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -webkit-text-stroke-width: 0.2px;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            .footer-links .tel .tel-num {
+                height: 21.6px;
+                line-height: 21.6px;
+                margin-bottom: 5px;
+                color: #ff6600;
+                font-size: 22px;
+            }
+            .footer-links .tel .time {
+                font-size: 12px;
+                height: 17.6px;
+                line-height: 17.6px;
+                color: #616161;
+                margin-bottom: 5px;
+            }
+            .footer-links .tel a {
+                display: inline-block;
+                width: 118px;
+                height: 28px;
+                font-size: 12px;
+                line-height: 28px;
+                border: 1px solid #ff6600;
+                background: #fff;
+                color: #ff6600;
+                cursor: pointer;
+                transition: all 0.4s;
+                margin: 0;
+            }
+            .footer-links .tel a:hover {
+                background-color: #ff6600;
+                color: #ffffff;
+            }
+            .mi-icon {
+                height: 21px;
+                line-height: 21px;
+                margin-top: 10px;
+                color: #616161;
+            }
+            .footer-links .tel .mi-icon .weibo {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                margin-left: 6px;
+                background: url("./imgs/wb.png") no-repeat center;
+                background-size: contain;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+            .footer-links .tel .mi-icon .weibo:hover {
+                background: url("./imgs/wb@2x.png") no-repeat center;
+                background-size: contain;
+            }
+            .footer-links .tel .mi-icon .weixin {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                margin-left: 6px;
+                background: url("./imgs/wx.png") no-repeat center;
+                background-size: contain;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+            .footer-links .tel .mi-icon .weixin:hover {
+                background: url("./imgs/wx@2x.png") no-repeat center;
+                background-size: contain;
+            }
+            .footer-links .tel .mi-icon .weixin:hover ~ #wx-qrcode {
+                display: block;
+            }
+            .footer-links #wx-qrcode {
+                display: block;
+                width: 126px;
+                height: 126px;
+                position: absolute;
+                z-index: 2;
+                top: 115px;
+                left: 95px;
+                display: none;
+            }
+            .footer .page-main {
+                background: #fafafa;
+            }
+            .site-info {
+                padding-top: 30px;
+                background: #fafafa;
+            }
+            .site-info .container {
+                display: flex;
+            }
+            .site-info .container::before {
+                content: "";
+                display: inline-block;
+                width: 57px;
+                height: 57px;
+                margin-right: 10px;
+                background: url("./imgs/logo-footer.png") no-repeat center;
+                background-size: contain;
+            }
+            .site-info .info-text .sites {
+                height: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                color: #b0b0b0;
+            }
+            .site-info .info-text .sites a {
+                color: #757575;
+            }
+            .site-info .info-text .sites span {
+                margin-left: 5px;
+            }
+            .site-info .info-text #content p {
+                height: 17px;
+                line-height: 17px;
+                color: #b0b0b0;
+            }
+            .info-links {
+                padding-left: 67px;
+                margin: 4px auto 15px;
+            }
+            .info-links a {
+                display: inline-block;
+                width: 85px;
+                height: 28px;
+                background: no-repeat center;
+                background-size: contain;
+            }
+            .info-links a:last-child {
+                width: 105.6px;
+                height: 40px;
+            }
+            .info-links a:first-of-type {
+                background-image: url("./imgs/truste.png");
+            }
+            .info-links a:nth-child(2) {
+                background-image: url("./imgs/v-logo-2.png");
+            }
+            .info-links a:nth-child(3) {
+                background-image: url("./imgs/v-logo-1.png");
+            }
+            .info-links a:nth-child(4) {
+                background-image: url("./imgs/ba10428a4f9495ac310fd0b5e0cf8370.png");
+            }
+            .info-links a:nth-child(5) {
+                background-image: url("./imgs/f1ee261b96ae71e845efba398efeca02.png");
+            }
+            .last-sentence {
+                margin-top: 30px;
+                height: 19px;
+                background: url("./imgs/slogan2020.png") no-repeat center;
+                background-size: contain;
+            }
+            .last-block-clear-q {
+                height: 30px;
+            }
+            .home-tool-bar {
+                position: fixed;
+                bottom: 70px;
+                right: 0;
+                z-index: 99;
+            }
+            .home-tool-bar a {
+                position: relative;
+                display: block;
+                width: 82px;
+                height: 90px;
+                margin-top: -1px;
+                background-color: #fff;
+                border: 1px solid #f5f5f5;
+                text-align: center;
+            }
+            .home-tool-bar a:hover {
+                color: #ff6600;
+            }
+            .home-tool-bar a:last-child {
+                margin-top: 14px;
+            }
+            .home-tool-bar a .icon {
+                position: relative;
+                width: 30px;
+                height: 30px;
+                margin: 0 auto 8px;
+                padding-top: 18px;
+            }
+            .home-tool-bar a .icon img {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 30px;
+                height: 30px;
+                transition: opacity 0.3s;
+            }
+            .home-tool-bar a span {
+                color: #757575;
+                font-size: 14px;
+                transition: color 0.3s;
+            }
+            .home-tool-bar a:hover span {
+                color: #ff6600;
+            }
+            /* .home-tool-bar a:hover .icon img {
+                content: url("./imgs/totop_hover.png");
+            } */
+            .home-tool-bar a .icon .static {
+                opacity: 1;
+                transition: opacity 0.3s;
+            }
+            .home-tool-bar a .icon .hover {
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .home-tool-bar a:hover .icon .hover {
+                opacity: 1;
+            }
+            .home-tool-bar a:hover .icon .static {
+                opacity: 0;
+            }
+            .home-tool-bar .pop-content {
+                width: 100px;
+                padding: 14px;
+                padding-top: 20px;
+                position: absolute;
+                left: -145px;
+                top: 0;
+                background: #ffffff;
+                border: 1px solid #f5f5f5;
+                z-index: 10;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .home-tool-bar a .logo-hover-wrapper:hover ~ .pop-content {
+                opacity: 1;
+                transition: opacity 0.3s;
+            }
+            .home-tool-bar .pop-content::after {
+                content: "";
+                display: block;
+                background: #ffffff;
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                z-index: 10;
+                top: 37px;
+                right: -5px;
+                transform: rotate(45deg);
+            }
+            .home-tool-bar .pop-content img {
+                width: 100px;
+                height: 100px;
+            }
+            .home-tool-bar .pop-content span {
+                display: block;
+                width: 82px;
+                margin: 14px auto 0;
+                color: #757575;
+                text-align: center;
+            }
+            .home-tool-bar #goToTop {
+                opacity: 0;
+            }
+            .swiper-box {
+                margin-bottom: 14px;
+                position: relative;
+            }
+            .swiper-box .swiper-container {
+                height: 460px;
+            }
+            .swiper-box .swiper-container img {
+                width: 100%;
+                height: 100%;
+            }
+            .swiper-box .swiper-container .swiper-button-prev,
+            .swiper-box .swiper-container .swiper-button-next {
+                color: #d6d3d3b5;
+                width: 41px;
+                height: 69px;
+                top: 50%;
+                margin-top: -35px;
+                cursor: pointer;
+                border-radius: 2px;
+            }
+            .swiper-box .swiper-container .swiper-button-prev {
+                left: 234px;
+            }
+            .swiper-box .swiper-container .swiper-button-next {
+                right: 0;
+            }
+            .swiper-box .swiper-container .swiper-button-prev:hover,
+            .swiper-box .swiper-container .swiper-button-next:hover {
+                background: #666666a1;
+                color: #e0e0e0;
+            }
+            .swiper-box .swiper-pagination {
+            }
+            .swiper-box
+                .swiper-container
+                .swiper-pagination
+                .swiper-pagination-bullets {
+                color: #d6d3d3b5;
+            }
+            .swiper-box .swiper-container {
+                --swiper-theme-color: #d6d3d3b5;
+                --swiper-navigation-size: 28px;
+            }
+            .swiper-box .nav-menu {
+                position: absolute;
+                left: 0;
+                z-index: 9;
+                width: 234px;
+                height: 460px;
+                padding: 26px 0;
+                background-color: #55585a78;
+                box-sizing: border-box;
+            }
+            .swiper-box .nav-menu .menu-wrap .menu-item {
+                height: 50px;
+                line-height: 50px;
+            }
+            .swiper-box .nav-menu .menu-wrap .menu-item:hover {
+                background-color: #ff6600;
+            }
+            .swiper-box .nav-menu .menu-wrap .menu-item a {
+                position: relative;
+                display: block;
+                font-size: 16px;
+                color: #ffffff;
+                padding-left: 30px;
+            }
+            .swiper-box .nav-menu .menu-wrap .menu-item a::after {
+                position: absolute;
+                right: 30px;
+                top: 17.5px;
+                vertical-align: center;
+                content: "";
+                display: inline-block;
+                width: 10px;
+                height: 15px;
+                background: url("./imgs/icon-arrow.png") no-repeat center;
+                background-size: contain;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-banner"></div>
+        <div class="header-wrapper">
+            <div class="container">
+                <div class="header">
+                    <div class="header-left">
+                        <span>小米商城</span>
+                        <span>MIUI</span>
+                        <span>loT</span>
+                        <span>云服务</span>
+                        <span>金融</span>
+                        <span>有品</span>
+                        <span>小爱开放平台</span>
+                        <span>企业团购</span>
+                        <span>资质证照</span>
+                        <span>协议规则</span>
+                        <span>下载APP</span>
+                        <span>智能生活</span>
+                        <span>SelectLocation</span>
+                    </div>
+                    <div class="header-right">
+                        <span>JinShuo</span>
+                        <span>退出</span>
+                        <span>我的订单</span>
+                        <a href="javascript:;" class="my-cart">
+                            <span class="icon-cart"></span>
+                            购物车(0)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="logo-container">
+                <div class="header-logo">
+                    <a href=""></a>
+                </div>
+                <div class="logo-right">
+                    <span>小米手机</span>
+                    <span>RedMi 红米</span>
+                    <span>电视</span>
+                    <span>笔记本</span>
+                    <span>家电</span>
+                    <span>路由器</span>
+                    <span>智能硬件</span>
+                    <span>服务</span>
+                    <span>社区</span>
+                </div>
+                <div class="logo-right-right">
+                    <input type="text" placeholder="搜索..." />
+                    <a href="javascript:;"></a>
+                </div>
+            </div>
+            <div class="swiper-box">
+                <div class="nav-menu">
+                    <ul class="menu-wrap">
+                        <li class="menu-item">
+                            <a href="javascript:;">手机 电话卡</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">电视 盒子</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">笔记本 平板</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">家电 插线板</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">出行 穿戴</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">智能 路由器</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">电源 配件</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:;">生活 箱包</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="swiper-container" id="swiper1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./imgs/mi-bracelet.webp" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="./imgs/5996037f1186354a680dfd7c050d32d6.webp"
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="./imgs/499c6a806572dab61c794dd9ae4c7617.webp"
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="./imgs/9ebff5f5c1f52f2dbdd611897adbefd4.webp"
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="imgs/3d9f8cf47b5eeb286a83e6e95a60105a.jpg"
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="./imgs/9871ec89f05402dd97c525cbb824ff8d.webp"
+                            />
+                        </div>
+                    </div>
+                    <div
+                        class="swiper-pagination"
+                        id="swiper1-pagination"
+                    ></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <div class="banner">
+                <div class="banner-item">
+                    <ul class="home-channel-list">
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-1.png" />
+                                <p>小米秒杀</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-2.png" />
+                                <p>企业团购</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-3.png" />
+                                <p>F码通道</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-4.png" />
+                                <p>米粉卡</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-5.png" />
+                                <p>以旧换新</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="./imgs/banner1-6.png" />
+                                <p>话费充值</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="banner-item">
+                    <img src="./imgs/banner-2.jpg" />
+                </div>
+                <div class="banner-item">
+                    <img src="./imgs/banner-3.jpg" />
+                </div>
+                <div class="banner-item">
+                    <img src="./imgs/banner-4.jpg" />
+                </div>
+            </div>
+        </div>
+        <div class="page-main">
+            <div class="container">
+                <div class="box-h">
+                    <h2>小米闪购</h2>
+                </div>
+                <div class="box-list-wrapper">
+                    <div class="box-list">
+                        <div class="item">
+                            <div class="round">10:00 场</div>
+                            <img
+                                src="data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAA1CAYAAAAklDnhAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+                            bWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
+                            bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6
+                            eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1
+                            MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo
+                            dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw
+                            dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv
+                            IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS
+                            ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD
+                            cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5j
+                            ZUlEPSJ4bXAuaWlkOjY4Q0ZFMkY5MTJFNzExRThCMkM4OEM1RTNBNjczQUVBIiB4bXBNTTpEb2N1
+                            bWVudElEPSJ4bXAuZGlkOjY4Q0ZFMkZBMTJFNzExRThCMkM4OEM1RTNBNjczQUVBIj4gPHhtcE1N
+                            OkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NjhDRkUyRjcxMkU3MTFFOEIy
+                            Qzg4QzVFM0E2NzNBRUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NjhDRkUyRjgxMkU3MTFF
+                            OEIyQzg4QzVFM0E2NzNBRUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94Onht
+                            cG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5oEyacAAACoklEQVR42sSYv0tbURTHX0LqD6T4g4pE
+                            cHDoUOloBxVd/QFFEcQqWtrSKlKFmmAslopohzgIbv4FwUEE0clFujiIi+BSIbRQ0ooKRReRULHf
+                            S48Qgu++c3/FAx+iyU3eJzf3nnPuC/1qavQ04zVY8szjCHRGNN9cBD6DSkOJKzAGzsOaH/AW1FuY
+                            jRg4EH/oiJSCTxYk1sDK7T86Iu9BraHED/Au9wlVkYdg2lAiC/rBhYnIB/DIUOQj2M9/UkWkCsQN
+                            JbbA8l0vqIhMgXIDiZ/gFbgxEakBEwYSf8Eg+OM3gCsyA8oMRETy25UN4IjUgVEDiW2wGDSIIzIL
+                            ijUljsFLv3WhIvKYFphOXNO6OOUMDhKZA7qFcQF85Q6WXeQpeKEpcULlvY8xthp8iwR8I93qLLb7
+                            KnOsSPWNfhd6Bro99yHqTi9IhyWzEXIsIXbSG7Djt1jbQHsBZkMkyZRs13wpgIRoiJKy7dsBWh1L
+                            bN5Vt3JFQrQ2XMYeGKBk5yvSI7aRQ4k0eA4uZZlVPM47lDgTZxd6lKb4AcqkLuKSZiIdVGsiVFNc
+                            xDV9yT1Orekjoe+MDw4pHqwmaJewit66Ql0QaX+DOTaZe4DitAFZxQaaEynKnJ6KCDeaQAtj3A7V
+                            kBtXIpwT3iFV06zqquaKPKEtKIsM6Mo/StoWiQeMvSCJjO4+54hEwTCjuTk0STgckUm6QxTY3LgU
+                            Kc+/jyFrblyKCIkKbnPjSkT8HDGV5saVyBAtVHZz40Ik7HNTRtrcuBARF2tQbW5ciCR0mhvbIs2E
+                            cnNjWySh29zYFGnIK25KzY1Nkdziptzc2BKJUu7Qbm5sicQom2o3NzZEKqiu/DZpbmyIjIAHNBMZ
+                            7x4iTALjhcgVQSIl3v87w5vePcY/AQYAFYR6skFSqBUAAAAASUVORK5CYII="
+                                alt="小米闪购"
+                            />
+                            <div class="desc">距离结束还有</div>
+                            <div class="countdown">
+                                <span id="hour">00</span>
+                                <i>:</i>
+                                <span id="minute">00</span>
+                                <i>:</i>
+                                <span id="second">00</span>
+                            </div>
+                        </div>
+                        <div class="swiper-container" id="swiper2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="goods-container">
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/kongtiao.png"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        变频 | 米家互联网空调
+                                                        1.5匹
+                                                    </h3>
+                                                    <p class="desc">
+                                                        变频，快速制冷热
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>1899元</span>
+                                                        <del>2299元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/shoubiao.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        米兔儿童学习手表4 蓝色
+                                                    </h3>
+                                                    <p class="desc">
+                                                        8天超长待机，AI双摄高清视频通话
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>799元</span>
+                                                        <del>899元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/saodi.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        米家扫拖机器人G1 白色
+                                                    </h3>
+                                                    <p class="desc">
+                                                        能扫会拖，整屋清洁一步到位
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>899元</span>
+                                                        <del>999元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/shukongtiao.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        定频 |
+                                                        米家互联网立式空调 2匹
+                                                    </h3>
+                                                    <p class="desc">
+                                                        高效制冷热，出众静音
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>2999元</span>
+                                                        <del>3499元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="goods-container">
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/bx.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        米家两门冰箱 160L 银色
+                                                    </h3>
+                                                    <p class="desc">
+                                                        小巧能装，速冻养鲜
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>899元</span>
+                                                        <del>1099元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/kongtiao.png"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        小米手表 尊享版 曜石黑
+                                                    </h3>
+                                                    <p class="desc">
+                                                        能打电话、能下载APP，才是真正的智能手表
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>1799元</span>
+                                                        <del>1999元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/yinxiang.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        小米无线充蓝牙音箱 白色
+                                                    </h3>
+                                                    <p class="desc">
+                                                        内置30W
+                                                        MAX无线充电，边听歌、边充电
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>199元</span>
+                                                        <del>249元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="javascript:;">
+                                                <div class="content">
+                                                    <div class="thumb">
+                                                        <img
+                                                            src="./imgs/jinghua.webp"
+                                                        />
+                                                    </div>
+                                                    <h3 class="title">
+                                                        米家空气净化器 2S
+                                                    </h3>
+                                                    <p class="desc">
+                                                        好空气看得见
+                                                    </p>
+                                                    <p class="price">
+                                                        <span>749元</span>
+                                                        <del>899元</del>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-banner-box">
+                    <img src="./imgs/47addc32aff1d2a84fc4535707190881.webp" />
+                </div>
+                <div class="box-h">
+                    <h2>手机</h2>
+                </div>
+                <div class="phone-list">
+                    <div class="phone-list-left">
+                        <img
+                            src="./imgs/574c6643ab91c6618bfb2d0e2c761d0b.webp"
+                        />
+                    </div>
+                    <div class="phone-list-right">
+                        <div class="phone-list-right-b1">
+                            <div class="phone">
+                                <img src="./imgs/phone1.webp" />
+                                <h3 class="title">小米10 至尊版</h3>
+                                <p class="desc">120X 变焦/120W秒充/120Hz屏幕</p>
+                                <p class="price">5299元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone2.webp" />
+                                <h3 class="title">Redmi K30 至尊版</h3>
+                                <p class="desc">
+                                    120Hz弹出全面屏，天玑1000+旗舰处理器
+                                </p>
+                                <p class="price">1999元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone3.webp" />
+                                <h3 class="title">腾讯黑鲨3S</h3>
+                                <p class="desc">骁龙865处理器，120Hz刷新率</p>
+                                <p class="price">3999元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone4.webp" />
+                                <h3 class="title">Redmi 9A</h3>
+                                <p class="desc">
+                                    5000mAh长循环大电量，6.53"超大护眼屏幕
+                                </p>
+                                <p class="price">599元起</p>
+                            </div>
+                        </div>
+                        <div class="phone-list-right-b2">
+                            <div class="phone">
+                                <img src="./imgs/phone5.webp" />
+                                <h3 class="title">小米10 青春版 5G</h3>
+                                <p class="desc">50倍潜望式变焦 / 轻薄5G手机</p>
+                                <p class="price">1899元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone6.webp" />
+                                <h3 class="title">小米10</h3>
+                                <p class="desc">骁龙865/1亿像素相机</p>
+                                <p class="price">3799元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone7.webp" />
+                                <h3 class="title">Redmi K30 Pro</h3>
+                                <p class="desc">双模5G，骁龙865，弹出全面屏</p>
+                                <p class="price">2999元起</p>
+                            </div>
+                            <div class="phone">
+                                <img src="./imgs/phone8.webp" />
+                                <h3 class="title">Redmi K30 Pro 变焦版</h3>
+                                <p class="desc">双模5G，骁龙865，弹出全面屏</p>
+                                <p class="price">3399元起</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-banner-box">
+                    <img src="./imgs/c3b86ede4dd31d7c126d56fbdde4f855.webp" />
+                </div>
+                <div class="box-h">
+                    <h2>家电</h2>
+                </div>
+                <div class="tv">
+                    <div class="tv-1">
+                        <div class="tv-item">
+                            <img src="./imgs/tv1.webp" />
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv2.webp" />
+                            <h3 class="title">Redmi 红米电视 70英寸</h3>
+                            <p class="desc">70英寸震撼巨屏，4K画质，细腻如真</p>
+                            <p class="price">3199元&nbsp;<del>3799元</del></p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv3.webp" />
+                            <h3 class="title">小米10 至尊版</h3>
+                            <p class="desc">120X 变焦/120W秒充/120Hz屏幕</p>
+                            <p class="price">899元</p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv4.webp" />
+                            <h3 class="title">小米全面屏电视E32C</h3>
+                            <p class="desc">全面屏设计，人工智能系统</p>
+                            <p class="price">2199元&nbsp;<del>2299元</del></p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv5.jpg" />
+                            <h3 class="title">米家空调</h3>
+                            <p class="desc">出众静音，快速制冷热</p>
+                            <p class="price">1499元&nbsp;<del>1799元</del></p>
+                        </div>
+                    </div>
+                    <div class="tv-2">
+                        <div class="tv-item">
+                            <img src="./imgs/tv6.webp" />
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv7.webp" />
+                            <h3 class="title">米家互联网洗烘一体机 Pro 10kg</h3>
+                            <p class="desc">智能洗烘，省心省力</p>
+                            <p class="price">2999元&nbsp;<del>3299元</del></p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv8.webp" />
+                            <h3 class="title">Redmi全自动波轮洗衣机1A 8kg</h3>
+                            <p class="desc">一键操作，父母都爱用</p>
+                            <p class="price">799元&nbsp;<del>899元</del></p>
+                        </div>
+                        <div class="tv-item">
+                            <img src="./imgs/tv9.webp" />
+                            <h3 class="title">15.6" 四核i7 16G 独显 512G</h3>
+                            <p class="desc">全面均衡的国民轻薄本</p>
+                            <p class="price">4699元&nbsp;<del>4899元</del></p>
+                        </div>
+                        <div id="last-tv">
+                            <div class="b1">
+                                <div class="left">
+                                    <h3 class="title">Air 13.3" 2019款</h3>
+                                    <p class="price">5499元起</p>
+                                </div>
+                                <div class="right">
+                                    <img src="./imgs/tv10.webp" />
+                                </div>
+                            </div>
+                            <div class="b2">
+                                <div class="left">
+                                    <p class="more">浏览更多</p>
+                                    <p class="hot">热门</p>
+                                </div>
+                                <div class="right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-banner-box">
+                    <img src="./imgs/59e8fc8ba9718c266882719fb4bbcedd.webp" />
+                </div>
+
+                <div class="zhoubian">
+                    <div class="box-h">
+                        <h2>周边</h2>
+                    </div>
+                    <div class="tv">
+                        <div class="tv-1">
+                            <div class="tv-item">
+                                <img src="./imgs/zhoubian-1.webp" />
+                            </div>
+                            <div class="tv-item">
+                                <img src="./imgs/zhoubian-2.webp" />
+                                <h3 class="title">米家飞行员太阳镜 Pro</h3>
+                                <p class="desc">尼龙偏光，轻巧佩戴</p>
+                                <p class="price">199元起</p>
+                            </div>
+                            <div class="tv-item">
+                                <img src="./imgs/zhoubian-3.webp" />
+                                <h3 class="title">小米巨能写中性笔10支装</h3>
+                                <p class="desc">一支顶4支，超长顺滑书写</p>
+                                <p class="price">9.99元</p>
+                            </div>
+                            <div class="tv-item">
+                                <img src="./imgs/zhoubian-4.webp" />
+                                <h3 class="title">米家迷你保温杯</h3>
+                                <p class="desc">可以随身携带的温度</p>
+                                <p class="price">49元</p>
+                            </div>
+                            <div class="tv-item">
+                                <img src="./imgs/zhoubian-5.jpg" />
+                                <h3 class="title">贝医生巴氏牙刷 四色装</h3>
+                                <p class="desc">进口刷毛，好品质</p>
+                                <p class="price">39.9元</p>
+                            </div>
+                        </div>
+                        <div class="tv-2">
+                            <div class="tv-item">
+                                <img src="./imgs/zhoubian-6.webp" />
+                            </div>
+                            <div class="tv-item">
+                                <img src="./imgs/zhoubian-7.webp" />
+                                <h3 class="title">米家负离子速干吹风机 H300</h3>
+                                <p class="desc">小巧精悍，速干小超人</p>
+                                <p class="price">149元</p>
+                            </div>
+                            <div class="tv-item">
+                                <img src="./imgs/zhoubian-8.webp" />
+                                <h3 class="title">米家运动鞋4</h3>
+                                <p class="desc">轻盈若絮,弹若脱兔</p>
+                                <p class="price">179元&nbsp;<del>199元</del></p>
+                            </div>
+                            <div id="last-tv">
+                                <div class="b2">
+                                    <div class="left">
+                                        <p class="more">浏览更多</p>
+                                        <p class="hot">热门</p>
+                                    </div>
+                                    <div class="right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-banner-box">
+                        <img
+                            src="./imgs/88e35cffc82cd98cd53172460067af17.webp"
+                        />
+                    </div>
+                </div>
+
+                <div class="box-h">
+                    <h2>视频</h2>
+                </div>
+                <div class="video">
+                    <div class="video-item">
+                        <div class="video-item-img">
+                            <img src="./imgs/video-1.webp" />
+                            <span class="play">
+                                <i class="iconfont-play"></i>
+                            </span>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Redmi 10X系列发布会</h3>
+                            <p class="desc">Redmi 10X系列发布会</p>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-item-img">
+                            <img src="./imgs/video-2.webp" />
+                            <span class="play">
+                                <i class="iconfont-play"></i>
+                            </span>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">小米10 青春版 发布会</h3>
+                            <p class="desc"></p>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-item-img">
+                            <img src="./imgs/video-3.webp" />
+                            <span class="play">
+                                <i class="iconfont-play"></i>
+                            </span>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">小米10 8K手机拍大片</h3>
+                            <p class="desc"></p>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-item-img">
+                            <img src="./imgs/video-4.webp" />
+                            <span class="play">
+                                <i class="iconfont-play"></i>
+                            </span>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">小米10发布会</h3>
+                            <p class="desc"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-add-margin-bottom"></div>
+        </div>
+        <div class="container">
+            <div class="footer-service">
+                <span><span class="icon-setting"></span>预约维修服务</span>
+                <span><span class="icon-circle-7"></span>7天无理由退货</span>
+                <span><span class="icon-circle-15"></span>15天免费换货</span>
+                <span><span class="icon-post"></span>满99元包邮</span>
+                <span><span class="icon-location"></span>520余家售后网点</span>
+            </div>
+            <div class="footer-links">
+                <div class="col-links">
+                    <div class="col-links-title">帮助中心</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">账户管理</div>
+                        <div class="col-links-content-item">购物指南</div>
+                        <div class="col-links-content-item">订单操作</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">服务支持</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">售后政策</div>
+                        <div class="col-links-content-item">自助服务</div>
+                        <div class="col-links-content-item">相关下载</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">线下门店</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">小米之家</div>
+                        <div class="col-links-content-item">服务网点</div>
+                        <div class="col-links-content-item">授权体验店</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">关于小米</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">了解小米</div>
+                        <div class="col-links-content-item">加入小米</div>
+                        <div class="col-links-content-item">投资者关系</div>
+                        <div class="col-links-content-item">企业社会责任</div>
+                        <div class="col-links-content-item">廉洁举报</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">关注我们</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">新浪微博</div>
+                        <div class="col-links-content-item">官方微信</div>
+                        <div class="col-links-content-item">联系我们</div>
+                        <div class="col-links-content-item">公益基金会</div>
+                    </div>
+                </div>
+                <div class="col-links">
+                    <div class="col-links-title">特色服务</div>
+                    <div class="col-links-content">
+                        <div class="col-links-content-item">F码通道</div>
+                        <div class="col-links-content-item">礼物码</div>
+                        <div class="col-links-content-item">防伪查询</div>
+                    </div>
+                </div>
+                <div class="tel">
+                    <p class="tel-num">400-100-5678</p>
+                    <p class="time">8:00-18:00（仅收市话费）</p>
+                    <a href="javascript:;"><span>人工客服</span></a>
+                    <p class="mi-icon">
+                        关注小米：
+                        <span class="weibo"></span>
+                        <span class="weixin"></span>
+                        <img src="./imgs/wx-img.png" id="wx-qrcode" />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="page-main">
+                <div class="site-info">
+                    <div class="container">
+                        <div class="info-text">
+                            <p class="sites">
+                                <a href="javascript:;">小米商城</a
+                                ><span>|</span> <a href="javascript:;">MIUI</a
+                                ><span>|</span> <a href="javascript:;">米家</a
+                                ><span>|</span> <a href="javascript:;">米聊</a
+                                ><span>|</span> <a href="javascript:;">多看</a
+                                ><span>|</span> <a href="javascript:;">游戏</a
+                                ><span>|</span>
+                                <a href="javascript:;">政企服务</a
+                                ><span>|</span>
+                                <a href="javascript:;">小米天猫店</a
+                                ><span>|</span>
+                                <a href="javascript:;">小米集团隐私政策</a
+                                ><span>|</span>
+                                <a href="javascript:;"
+                                    >小米公司儿童信息保护规则</a
+                                ><span>|</span>
+                                <a href="javascript:;">小米商城隐私政策</a
+                                ><span>|</span>
+                                <a href="javascript:;">小米商城用户协议</a
+                                ><span>|</span>
+                                <a href="javascript:;">问题反馈</a
+                                ><span>|</span>
+                                <a href="javascript:;">Select Location</a>
+                            </p>
+                            <div id="content">
+                                <p>
+                                    &copy;mi.com 京ICP证110507号
+                                    京ICP备10046444号 京公网安备11010802020134号
+                                    京网文[2020]0276-042号
+                                </p>
+                                <p>
+                                    （京）网械平台备字（2018）第00005号
+                                    互联网药品信息服务资格证
+                                    （京）-非经营性-2014-0090 营业执照
+                                    医疗器械质量公告
+                                </p>
+                                <p>
+                                    增值电信业务许可证 网络食品经营备案
+                                    京食药网食备202010048 食品经营许可证
+                                </p>
+                                <p>
+                                    违法和不良信息举报电话：171-5104-4404
+                                    知识产权侵权投诉
+                                    本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="info-links">
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;" id="changing-picture"></a>
+                    </div>
+                    <div class="last-sentence"></div>
+                    <div class="last-block-clear-q"></div>
+                </div>
+            </div>
+        </div>
+        <div class="home-tool-bar">
+            <a href="javascript:;">
+                <div class="logo-hover-wrapper">
+                    <div class="icon">
+                        <img src="./imgs/phone.png" class="static" />
+                        <img src="./imgs/phone-hover.png" class="hover" />
+                    </div>
+                    <span>手机APP</span>
+                </div>
+                <div class="pop-content">
+                    <img src="./imgs/tool-bar-logo.png" />
+                    <span>扫码领取新人百元礼包</span>
+                </div>
+            </a>
+            <a href="javascript:;">
+                <div class="icon">
+                    <img src="./imgs/personal.png" class="static" />
+                    <img src="./imgs/personal-hover.png" class="hover" />
+                </div>
+                <span>个人中心</span>
+            </a>
+            <a href="javascript:;">
+                <div class="icon">
+                    <img src="./imgs/shouhou.png" class="static" />
+                    <img src="./imgs/shouhou-hover.png" class="hover" />
+                </div>
+                <span>售后服务</span>
+            </a>
+            <a href="javascript:;">
+                <div class="icon">
+                    <img src="./imgs/kefu.png" class="static" />
+                    <img src="./imgs/kefu-hover.png" class="hover" />
+                </div>
+                <span>人工客服</span>
+            </a>
+            <a href="javascript:;">
+                <div class="icon">
+                    <img src="./imgs/cart.png" class="static" />
+                    <img src="./imgs/cart-hover.png" class="hover" />
+                </div>
+                <span>购物车</span>
+            </a>
+            <a href="javascript:;" id="goToTop">
+                <div class="icon">
+                    <img src="./imgs/totop.png" class="static" />
+                    <img src="./imgs/totop-hover.png" class="hover" />
+                </div>
+                <span>回顶部</span>
+            </a>
+        </div>
+    </body>
+</html>
+<script src="./swiper-6.1.2/swiper-bundle.min.js"></script>
+<script>
+    window.onload = function () {
+        var el = document.getElementById("changing-picture");
+        var img = window.getComputedStyle(el).backgroundImage;
+        var changeFn = function () {
+            if (
+                img ==
+                'url("/imgs/f1ee261b96ae71e845efba398efeca02.png")'
+            ) {
+                el.style.backgroundImage =
+                    "url('/imgs/70432ddbf147b4de533777da61688c12.png')";
+            } else {
+                el.style.backgroundImage =
+                    "url('/imgs/f1ee261b96ae71e845efba398efeca02.png')";
+            }
+            img = el.style.backgroundImage;
+        };
+        var timer = setInterval(changeFn, 3000);
+
+        //回到顶部按钮功能实现
+        var goToTop = document.getElementById("goToTop");
+        var scrollTop =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop;
+        window.onscroll = function () {
+            scrollTop =
+                window.pageYOffset ||
+                document.documentElement.scrollTop ||
+                document.body.scrollTop;
+            if (scrollTop > 1000) {
+                goToTop.style.opacity = 1; //1不能写成字符串形式
+            } else {
+                goToTop.style.opacity = 0; //0不能写成字符串形式
+            }
+        };
+        //点击按钮回到顶部
+        goToTop.onclick = function () {
+            document.documentElement.scrollTop = 0;
+        };
+
+        //初始化swiper组件
+        var swiper1 = new Swiper("#swiper1", {
+            autoplay: true,
+            autoplay: {
+                disableOnInteraction: false,
+            },
+            loop: true,
+            pagination: {
+                el: "#swiper1-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+        var swiper2 = new Swiper("#swiper2", {
+            autoplay: true,
+            loop: true,
+            speed: 2500,
+        });
+
+        //倒计时器
+        var dateStr = "2020/11/10";
+        var endTime = new Date(dateStr);
+        var hourDom = document.getElementById("hour"),
+            minuteDom = document.getElementById("minute"),
+            secondDom = document.getElementById("second");
+        var countdownFn = function () {
+            var now = new Date(),
+                hour = now.getHours(),
+                minute = now.getMinutes(),
+                second = now.getSeconds();
+            var leftTime = endTime.getTime() - now.getTime(), //距离结束时间的毫秒数
+                leftHour = Math.floor((leftTime / (1000 * 60 * 60)) % 24), //计算小时数
+                leftMinute = Math.floor((leftTime / (1000 * 60)) % 60), //计算分钟数
+                leftSecond = Math.floor((leftTime / 1000) % 60); //计算秒数
+            if (leftTime <= 0) {
+                /*
+                //计时结束停止计时
+                clearInterval(timer);
+                timer = null;
+                hourDom.innerText = "00";
+                minuteDom.innerText = "00";
+                secondDom.innerText = "00";
+                return;
+                */
+                //计时结束重置计时结束时间为第二天24时
+                dateStr = dateStr.replace(
+                    /^(\d{4}\/\d{2}\/)(\d{2})$/,
+                    (_, g1, g2) => {
+                        g2 =
+                            Number(g2) + 1 < 10
+                                ? 0 + String(Number(g2) + 1)
+                                : String(Number(g2) + 1);
+                        return g1 + g2;
+                    }
+                );
+                endTime = new Date(dateStr);
+            }
+            if (leftHour < 10) {
+                leftHour = "0" + leftHour;
+            }
+            if (leftMinute < 10) {
+                leftMinute = "0" + leftMinute;
+            }
+            if (leftSecond < 10) {
+                leftSecond = "0" + leftSecond;
+            }
+            hourDom.innerText = leftHour;
+            minuteDom.innerText = leftMinute;
+            secondDom.innerText = leftSecond;
+        };
+        var timer = setInterval(countdownFn, 1000);
+    };
+</script>
