@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .btn {
+                position: absolute;
+                width: 100px;
+                height: 30px;
+                background-color: #b3d4fc;
+                border: 1px solid #b3d4fc;
+                border-radius: 5px;
+                outline: none;
+            }
+            .btn:active {
+                background-color: lightskyblue;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="btn">拖动</button>
+        <script>
+            // 拖拽功能实现
+            var o, x, y, ox, oy;
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onmousedown = function (e) {
+                o = e.target;
+                x = e.pageX;
+                y = e.pageY;
+                ox = o.offsetLeft;
+                oy = o.offsetTop;
+                document.onmousemove = move;
+            };
+            function move(e) {
+                var newX = e.pageX;
+                var newY = e.pageY;
+                o.style.left = newX - x + ox + "px";
+                o.style.top = newY - y + oy + "px";
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            };
+        </script>
+    </body>
+</html>

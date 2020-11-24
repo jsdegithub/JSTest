@@ -4,10 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <style></style>
     </head>
 
     <body>
-        <button index="0">点击</button>
+        <button index="0" class="btn">点击</button>
         <button index="1">点击</button>
         <button index="2">点击</button>
         <div style="width: 300px; height: 2000px; border: 1px solid lightblue"></div>
@@ -2128,12 +2129,161 @@
             );
             console.log(p2); */
 
-            var params = {};
+            /* var params = {};
             var p = new Proxy(params, {
                 set(obj, key, value) {
                     obj[key] = value;
                 },
-            });
+            }); */
+
+            // 快速排序
+            /* function qSort(list) {
+                if (list.length == 0) {
+                    return [];
+                }
+                var lesser = [];
+                var greater = [];
+                var pivot = list[0];
+                for (var i = 1; i < list.length; i++) {
+                    if (list[i] < pivot) {
+                        lesser.push(list[i]);
+                    } else {
+                        greater.push(list[i]);
+                    }
+                }
+                return qSort(lesser).concat(pivot, qSort(greater));
+            } */
+
+            /* function quickSort(arr) {
+                if (arr.length <= 0) {
+                    return [];
+                }
+                var pivot = arr[0],
+                    less = [],
+                    more = [];
+                for (var i = 1; i < arr.length; i++) {
+                    if (arr[i] < pivot) {
+                        less.push(arr[i]);
+                    } else {
+                        more.push(arr[i]);
+                    }
+                }
+                return quickSort(less).concat(pivot, quickSort(more));
+            } */
+            // 大数相加方法二
+            // var sum = bigNumberAdd(123456, 123456);
+            // console.log(sum);
+
+            /* function sumBigNumber(a, b) {
+                var res = "",
+                    temp = 0;
+                a = String(a).split("");
+                b = String(b).split("");
+                while (a.length || b.length || temp) {
+                    temp += ~~a.pop() + ~~b.pop();
+                    res = (temp % 10) + res;
+                    temp = temp > 9;
+                }
+                return res.replace(/^0+/, "");
+            } */
+
+            // 快速排序
+            /* function quickSort(arr){
+                if(arr.length<=0){
+                    return [];
+                }
+                var pivot=arr[0];
+                var less=[];
+                var more=[];
+                for(var i=1; i<arr.length; i++){
+                    if(arr[i]<pivot){
+                        less.push(arr[i]);
+                    }else{
+                        more.push(arr[i]);
+                    }
+                }
+                return quickSort(less).concat(pivot, quickSort(more));
+            }
+            var old_arr = [3, 2, 3, 6, 9, 8, 4, 12, 5];
+            var new_arr = quickSort(old_arr);
+            console.log(new_arr); */
+
+            // 大数相加
+            /* function bigNumberAdd(n1, n2) {
+                var res = "";
+                var temp = 0;
+                n1 = String(n1).split("").reverse();
+                n2 = String(n2).split("").reverse();
+                var len1 = n1.length;
+                var len2 = n2.length;
+                var maxLen = len1 > len2 ? len1 : len2;
+                for (var i = 0; i < maxLen; i++) {
+                    var x = Number(n1[i] || 0);
+                    var y = Number(n2[i] || 0);
+                    temp = temp + x + y;
+                    res = (temp % 10) + res;
+                    temp = temp > 9;
+                }
+                if (temp) {
+                    res = "1" + res;
+                }
+                return Number(res);
+            } */
+
+            /* // 走台阶问题
+            function jumpSteps(n) {
+                if (n === 1) return 1;
+                if (n === 2) return 2;
+                return jumpSteps(n - 1) + jumpSteps(n - 2);
+            } */
+
+            /* // 函数的节流
+            function throttle(fn, time) {
+                var previous = new Date().getTime();
+                var now;
+                return function (e) {
+                    now = new Date().getTime();
+                    if (now - previous >= time) {
+                        fn.call(this, e);
+                        previous = now;
+                    }
+                };
+            } */
+
+            /* // 函数的防抖
+            function debounce(fn, interval, immediate = true) {
+                var timer = null;
+                var now;
+                return function (...args) {
+                    clearTimeout(timer);
+                    now = immediate && !timer;
+                    timer = setTimeout(function () {
+                        timer = null;
+                        !immediate && fn.call(this, ...args);
+                    }, interval);
+                    now && fn.call(this, ...args);
+                };
+            }
+            function fn(...args) {
+                console.log(args);
+            }
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = debounce(fn)(1, 2, 3); */
+
+            // 函数的防抖
+            function debounce(fn, interval, immediate = true) {
+                var timer = null;
+                var now;
+                return function (...args) {
+                    clearTimeout(timer);
+                    now = immediate && !timer;
+                    timer = setTimeout(function () {
+                        timer = null;
+                        !immediate && fn.call(this, ...args);
+                    }, 1000);
+                    now && fn.call(this, ...args);
+                };
+            }
         </script>
     </body>
 </html>

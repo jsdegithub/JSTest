@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>LozyLoad</title>
+        <style>
+            .images {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                width: 500px;
+            }
+            .img-item {
+                height: 400px;
+                width: 400px;
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="images">
+            <img class="img-item" alt="loading" data-src="./css-img/sprites/1.jpg" />
+            <img class="img-item" alt="loading" data-src="./css-img/sprites/2.jpg" />
+            <img class="img-item" alt="loading" data-src="./css-img/sprites/tb1.png" />
+            <img class="img-item" alt="loading" data-src="./css-img/sprites/animal.png" />
+            <img class="img-item" alt="loading" data-src="./css-img/sprites/jiangshi.png" />
+        </div>
+        <script type="text/javascript">
+            var imgs = document.getElementsByTagName("img");
+            var lazyload = function () {
+                var scrollTop = document.documentElement.scrollTop;
+                var windowHeight = window.innerHeight;
+                for (var i = 0; i < imgs.length; i++) {
+                    if (imgs[i].offsetTop < scrollTop + windowHeight) {
+                        imgs[i].src = imgs[i].getAttribute("data-src");
+                    }
+                }
+            };
+            /* function throttle(method, delay) {
+                var timer = null;
+                return function () {
+                    var context = this,
+                        args = arguments;
+                    clearTimeout(timer);
+                    timer = setTimeout(function () {
+                        method.apply(context, args);
+                    }, delay);
+                };
+            } */
+            function throttle(fn, time) {
+                var previous = new Date().getTime();
+                var now;
+                return function (e) {
+                    now = new Date().getTime();
+                    if (now - previous >= time) {
+                        fn.call(this, e);
+                        previous = now;
+                    }
+                };
+            }
+            window.onscroll = throttle(lazyload, 1000);
+        </script>
+    </body>
+</html>
