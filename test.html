@@ -2270,7 +2270,7 @@
             var btn = document.getElementsByTagName("button")[0];
             btn.onclick = debounce(fn)(1, 2, 3); */
 
-            // 函数的防抖
+            /* // 函数的防抖
             function debounce(fn, interval, immediate = true) {
                 var timer = null;
                 var now;
@@ -2283,7 +2283,179 @@
                     }, 1000);
                     now && fn.call(this, ...args);
                 };
+            } */
+
+            /* // 设置cookie:
+            document.cookie = "name=jinshuo";
+
+            // 获取cookie
+            // "__gads=ID=eeb856201224bf5e-225ac1db56c400e2:T=1603347655:RT=1603347655:S=ALNI_MaV-ybWT19SrWmPufHQSUlnnoHW9g; _ga=GA1.2.407063736.1603347659; _gid=GA1.2.2018110147.1606213253; SERVERID=e861f758a7dc0c8cfeac76f2accad538|1606222525|1606222525; Hm_lvt_3eec0b7da6548cf07db3bc477ea905ee=1606213252,1606222525,1606233550,1606235984; _gat_gtag_UA_84264393_2=1; Hm_lpvt_3eec0b7da6548cf07db3bc477ea905ee=1606241859"
+            function getCookie(key) {
+                var cookieStr = document.cookie;
+                var cookieArr = cookieStr.split("; ");
+                for (var i = 0; i < cookieArr.length; i++) {
+                    var arr = cookieArr[i].split("=");
+                    if (key == arr[0]) {
+                        return arr[1];
+                    }
+                }
+                return null;
+            } */
+
+            // 设置和获取localStorage
+            /* function getLocalStorage(name) {
+                return JSON.parse(localStorage.getItem(name));
             }
+            function setLocalStorage(name, val) {
+                localStorage.setItem(name, JSON.stringify(val));
+            }
+            function addLocalStorage(name, addVal) {
+                let oldVal = getLocalStorage(name);
+                let newVal = oldVal.concat(addVal);
+                setLocalStorage(name, newVal);
+            } */
+
+            // 深拷贝
+            /* function deepCopy(obj) {
+                if (obj === null) return null;
+                if (typeof obj !== "object") return obj;
+                var constructor = obj.constructor;
+                if (/^(Date|RegExp)$/i.test(constructor.name)) {
+                    return new constructor(obj);
+                }
+                var new_obj = new constructor();
+                for (var key in obj) {
+                    if (!obj.hasOwnProperty(key)) break;
+                    new_obj[key] = deepCopy(obj[key]);
+                }
+                return new_obj;
+            } */
+
+            /* var arr = [1, 2, 3];
+            var new_arr = [];
+            for (var key in arr) {
+                if (!arr.hasOwnProperty(key)) break;
+                new_arr[key] = arr[key];
+            }
+            console.log(new_arr); */
+
+            // new源码
+            /* function _new(Fn) {
+                return function (...args) {
+                    var obj = {};
+                    obj.__proto__ = Fn.prototype;
+                    var res = Fn.call(obj, ...args);
+                    if (res !== null && /^(function|object)$/i.test(res.constructor.name)) {
+                        return res;
+                    }
+                    return obj;
+                };
+            }
+            function Fn(){
+                // return function(){};
+                this.x=1;
+                return 1;
+            }
+            var obj=_new(Fn)();
+            console.log(obj); */
+
+            /*  function Fn(){
+                return function(){console.log(1);};
+            }
+            var res=new Fn();
+            console.log(res); */
+
+            // call源码
+            /* Function.prototype._call = function (obj={}, ...args) {
+                obj.fn = this;
+                var res = obj.fn(...args);
+                delete obj.fn;
+                return res;
+            }; */
+
+            /* function fn(){
+                return 1;
+            }
+            var obj={}; */
+
+            // call源码
+            /* Function.prototype.call = function (obj, ...args) {
+                obj == undefined ? (obj = {}) : null;
+                if (!/^(function|object)$/i.test(obj.constructor.name)) {
+                    obj = Object(obj);
+                }
+                var key = Symbol("key");
+                obj.key = this;
+                var res = obj.key(...args);
+                delete obj.key;
+                return res;
+            };
+            function fn() {
+                return 1;
+            }
+            var obj = {};
+            var res = fn.call(1);
+            console.log(res); */
+
+            // bind源码
+            /* Function.prototype.bind=function(obj){
+                var _this=this;
+                return function(...args){
+                    _this.call(obj, ...args);
+                }
+            } */
+
+            // create源码
+            /* Object.create=function(prototype){
+                function Fn(){};
+                Fn.prototype=prototype;
+                return new Fn();
+            } */
+
+            // instanceof源码
+            /* function _instanceof(obj, Fn) {
+                var proto = obj.__proto__;
+                var prototype = Fn.prototype;
+                while (1) {
+                    if (!proto) {
+                        return false;
+                    }
+                    if (proto === prototype) {
+                        return true;
+                    }
+                    proto = proto.__proto__;
+                }
+            } */
+
+            // 数组去重
+            /* function unique(arr){
+                return [...new Set(arr)];
+            } */
+            // 若arr使一串数字，如unique(1,2,3,3),则：
+            /* function unique(arr) {
+                console.log([...new Set(arguments)]);
+                return [...new Set([...arguments])];
+            } */
+
+            function fn() {
+                console.log(1);
+                return Promise.reject("error111");
+            }
+            (async function () {
+                setTimeout(() => {
+                    console.log(3);
+                });
+                Promise.resolve("promise").then((res) => console.log(res));
+                    let value = await fn();
+                    console.log("被await阻塞的代码执行了");
+                    console.log(value);
+                /* try {
+                    
+                } catch {
+                    console.log("fn失败");
+                } */
+            })();
+            console.log(4);
         </script>
     </body>
 </html>
