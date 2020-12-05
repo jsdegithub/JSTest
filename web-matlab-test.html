@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> JavaScript Call WebService </title>
+ 
+<script type="text/javascript" src="js/jquery-1.10.0.js"></script>
+<script type="text/javascript">
+ 
+	$(document).ready(function(){
+		
+		$("#jsonButton").click(function(){
+			
+			var url = $("#jsonText").val();
+			
+			var str ="";
+			
+			str += '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.soap.com/">';
+				str += '<soapenv:Header/>';
+				str += '<soapenv:Body>';
+					str += '<ser:getText>';
+						str += '<arg0>'+url+'</arg0>';
+					str += '</ser:getText>';
+				str += '</soapenv:Body>';
+			str += '</soapenv:Envelope>';
+			
+	
+			$.post("http://localhost:8080/gis/services/esbservice",str,function(data){
+				$("#jsonDiv").html($(data).text());
+			});
+		});
+		$("#htmlButton").click(function(){
+			
+			var url = $("#htmlText").val();
+			
+			var str ="";
+			
+			str += '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.soap.com/">';
+				str += '<soapenv:Header/>';
+				str += '<soapenv:Body>';
+					str += '<ser:getText>';
+						str += '<arg0>'+url+' </arg0>';
+					str += '</ser:getText>';
+				str += '</soapenv:Body>';
+			str += '</soapenv:Envelope>';
+			
+	
+			$.post("http://localhost:8080/gis/services/esbservice",str,function(data){
+				$("#htmlDiv").html($(data).text());
+			});
+		});
+		
+		$("#binaryButton").click(function(){
+			
+			var url = $("#binaryText").val();
+			
+			var str ="";
+			
+			str += '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.soap.com/">';
+				str += '<soapenv:Header/>';
+				str += '<soapenv:Body>';
+					str += '<ser:getBinary>';
+						str += '<arg0>'+url+' </arg0>';
+					str += '</ser:getBinary>';
+				str += '</soapenv:Body>';
+			str += '</soapenv:Envelope>';
+			
+	
+			$.post("http://localhost:8080/gis/services/esbservice",str,function(data){
+				$("img").attr("src","data:image/gif;base64,"+$(data).text());
+			});
+		});
+		
+	});
+ 
+</script>
+</head>
+<body>
+ 
+	<h3>页面通过ESB平台调用REST服务: 返回JSON文本数据</h3>
+	<hr/>
+ 
+	URL:<input id="jsonText" type="text" value="http://server.arcgisonline.com/arcgis/rest/services?f=json"/> 
+	<input id="jsonButton" value="GET_JSON" type="button"/><br/><br/>
+	
+	<div id="jsonDiv">
+	
+	</div>
+	
+	<br/><br/>
+	<h3>页面通过ESB平台调用REST服务: 返回HTML/XML文本数据</h3>
+	<hr/>
+ 
+	URL:<input id="htmlText" type="text" value="http://server.arcgisonline.com/arcgis/rest/services"/> 
+	<input id="htmlButton" value="GET_HTML" type="button"/><br/><br/>
+	
+	<div id="htmlDiv">
+	
+	</div>
+	
+	<br/><br/>
+	<h3>页面通过ESB平台调用REST服务: 返回图片二进制数据</h3>
+	<hr/>
+ 
+	URL:<input id="binaryText" type="text" value="http://sampleserver1c.arcgisonline.com/arcgisoutput/_ags_map5e57267ff6fb4227a8f8685915856213.png"/> 
+	<input id="binaryButton" value="GET_BINARY" type="button"/><br/><br/>
+	
+	<div id="binaryDiv">
+		<img alt="" src=""/>
+	</div>
+	
+	
+ 
+</body>
+</html>
