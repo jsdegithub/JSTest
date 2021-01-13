@@ -4,7 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <style></style>
+        <style>
+            .btn{
+                background-color: lightskyblue;
+            }
+        </style>
     </head>
 
     <body>
@@ -2437,7 +2441,7 @@
                 return [...new Set([...arguments])];
             } */
 
-            function fn() {
+            /* function fn() {
                 console.log(1);
                 return Promise.reject("error111");
             }
@@ -2449,13 +2453,21 @@
                     let value = await fn();
                     console.log("被await阻塞的代码执行了");
                     console.log(value);
-                /* try {
+                try {
                     
                 } catch {
                     console.log("fn失败");
-                } */
+                }
             })();
-            console.log(4);
+            console.log(4); */
+
+            var btn=document.getElementsByClassName('btn');
+            for(let i=0; i<btn.length; i++){
+                btn[i].onclick=function(){
+                    if(btn[i].className)
+                }
+            }
+
 
             
             
