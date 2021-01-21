@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>rem动态适配</title>
+        <style>
+            html {
+                font-size: 100px;
+            }
+            .box {
+                font-size: 0.3rem;
+                width: 2rem;
+                height: 2rem;
+                border: 0.1rem solid lightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">这是测试文字</div>
+
+        <script>
+            // 针对750的设计稿，且根元素大小（即rem大小）设置为100px:
+            function refreshRem() {
+                var desW = 750,
+                    winW = document.documentElement.clientWidth,
+                    ratio = winW / desW;
+                document.documentElement.style.fontSize = ratio * 100 + "px";
+            }
+            refreshRem();
+            window.addEventListener("resize", refreshRem);
+        </script>
+    </body>
+</html>
