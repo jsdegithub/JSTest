@@ -4,20 +4,20 @@
     padding: 0.24rem 0.08rem;
 }
 .hd_cut {
+    position: relative;
     width: 1.98rem;
     height: 0.44rem;
+    line-height: 0.44rem;
     display: flex;
     font-size: 0.24rem;
     border-radius: 0.3rem;
     background: rgba(0, 0, 0, 0.1);
-    position: relative;
+    margin-top: 0.12rem;
 }
 .hd_cut a {
     width: 50%;
     height: 0.44rem;
-    line-height: 0.44rem;
     text-align: center;
-    /* color: rgba(0, 0, 0, 0.4); */
     color: hsla(0, 0%, 100%, 0.4);
 }
 .hd_cut a:first-child::after {
@@ -37,9 +37,24 @@
 .hd_logo {
     width: 2.04rem;
     height: 0.56rem;
+    margin: 0.04rem 0.11rem 0.32rem 0.2rem;
 }
 .hd_logo img {
     display: block;
     width: 100%;
     height: 100%;
+}
+
+.hd_set a {
+    color: #ffffff;
+    margin-left: 0.33rem;
+}
+.hd_set {
+    font-size: 0.36rem;
+    margin: 0.08rem 0.2rem 0 0;
+}
+
+.hd {
+    display: flex;
+    justify-content: space-between;
 }

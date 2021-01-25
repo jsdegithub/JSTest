@@ -1,0 +1,42 @@
+/* 字体图标 */
+@font-face {
+    font-family: SinaHomeFont;
+    /* 把图标文件下载到本地 */
+    /* src: url(./font/SinaHomeFont.7fcdfd2c.ttf) format("truetype"),
+        url(../../static/fonts/SinaHomeFont.170a1efa.woff) format("woff"),
+        url(../../static/img/SinaHomeFont.4d88884c.svg#SinaHomeFont) format("svg"); */
+    /* 直接引用线上地址 */
+    src: url(https://mjs.sinaimg.cn/wap/project/homev8/8.9.30/homev8/static/fonts/SinaHomeFont.7fcdfd2c.ttf)
+            format("truetype"),
+        url(https://mjs.sinaimg.cn/wap/project/homev8/8.9.30/homev8/static/fonts/SinaHomeFont.170a1efa.woff)
+            format("woff"),
+        url(https://mjs.sinaimg.cn/wap/project/homev8/8.9.30/homev8/static/img/SinaHomeFont.4d88884c.svg#SinaHomeFont)
+            format("svg");
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+[class*=" icon_"],
+[class^="icon_"] {
+    font-family: SinaHomeFont !important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon_search:before {
+    content: "\e930";
+}
+.icon_user:before {
+    content: "\e93b";
+}
+.icon_set:before {
+    content: "\e932";
+}
