@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            /* function fun(n, k) {
+                console.log(k);
+                return {
+                    fun: function (m) {
+                        return fun(m, n);
+                    },
+                };
+            }
+            var a = fun(0);
+            a.fun(1);
+            a.fun(2);
+            a.fun(3);
+            var b = fun(0).fun(1).fun(2).fun(3);
+            var c = fun(0).fun(1);
+            c.fun(2);
+            c.fun(3); */
+
+            /* var o={};
+            o[0]=1;
+            o['0']=2;
+            console.log(o['0']);
+            console.log(o[0]); */
+
+            /* var b;
+            var a=b={};
+            b[0]=2;
+            // b=null;
+            console.log(a[0]); */
+
+            var obj = {
+                valueOf() {
+                    return '1';
+                },
+                toString() {
+                    return 2;
+                },
+            };
+
+            var obj2 = {
+                valueOf() {
+                    return '1';
+                },
+                toString() {
+                    return 2;
+                },
+            };
+
+
+            
+        </script>
+    </body>
+</html>
