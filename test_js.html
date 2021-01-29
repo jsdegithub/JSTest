@@ -36,9 +36,9 @@
             // b=null;
             console.log(a[0]); */
 
-            var obj = {
+            /* var obj = {
                 valueOf() {
-                    return '1';
+                    return 1;
                 },
                 toString() {
                     return 2;
@@ -52,10 +52,119 @@
                 toString() {
                     return 2;
                 },
+            }; */
+
+            /* let x = 5;
+            function fn(x) {
+                return function (y) {
+                    console.log(y + ++x);
+                };
+            }
+            let f = fn(6);
+            f(7);
+            fn(8)(9);
+            f(10);
+            console.log(x); */
+
+            /* {
+                let x=1;
+                console.log(x);
+            }
+            console.log(x); */
+
+            /* function x() {
+                console.log(1);
+            }
+            console.log(x); */
+
+            /* console.log(fn);
+            {
+                function fn() {
+                    console.log(1);
+                }
+            } */
+
+            /* {
+                console.log(x); //f x(){console.log(2);}
+                console.log(window.x); //undefined
+                x = 0;
+                x++;
+                console.log(x); //1
+                console.log(window.x); //undefined
+                function x() {
+                    console.log(1);
+                }
+                console.log(x); //1
+                console.log(window.x); //1
+                x++;
+                console.log(x); //2
+                console.log(window.x); //1
+                function x() {
+                    console.log(2);
+                }
+                console.log(x); //2
+                console.log(window.x); //2
+                x = 6;
+                console.log(x); //6
+                console.log(window.x); //2
+            }
+            console.log(x); //2 */
+
+            /* var x = 2;
+            var f = function () {
+                x++;
             };
+            var g = function (a) {
+                var x = 1;
+                a(x);
+                console.log(x);  //1
+            };
+            g(f);
+            console.log(x);  //3 */
 
+            /* function f(
+                x = function () {
+                    y++;
+                    console.log(y); //2
+                },
+                y = 1
+            ) {
+                var x;
+                var y = 3;
+                x();
+                console.log(y); //3
+            }
+            f(); */
 
-            
+            /* var x = 1;
+            function fn(
+                x,
+                y = function () {
+                    x = 2;
+                }
+            ) {
+                var x;
+                y();
+                console.log(x); //5
+            }
+            fn(5);
+            console.log(x); //1 */
+
+            var x = 1;
+            function f(
+                x = 2,
+                y = function () {
+                    x++;
+                    console.log(x);
+                }
+            ) {
+                console.log(x); //f x(){}
+                function x() {}
+                y(); //3
+                console.log(x); //f x(){}
+            }
+            f();
+            console.log(x); //1
         </script>
     </body>
 </html>
