@@ -150,7 +150,7 @@
             fn(5);
             console.log(x); //1 */
 
-            var x = 1;
+            /* var x = 1;
             function f(
                 x = 2,
                 y = function () {
@@ -164,7 +164,42 @@
                 console.log(x); //f x(){}
             }
             f();
-            console.log(x); //1
+            console.log(x); //1 */
+
+            /* function f(y) {
+                console.log(arguments[0]);  //1
+                var x = arguments[0] = 2;
+                console.log(y);  //2
+                y = 3;
+                console.log(arguments[0]);  //3
+                console.log(x);  //2
+            }
+            f(1); */
+
+            /* var a = 9;
+            function fn() {
+                a = 0;
+                return function (b) {
+                    return b + a++;
+                };
+            }
+            var f = fn();
+            console.log(f(5));
+            console.log(fn()(5));
+            console.log(f(5));
+            console.log(a); */
+
+            var a = 1;
+            (function a() {
+                a = 2;
+                console.log(a);
+            })();
+            console.log(a);
+
+            /* function f() {
+                console.log(f);
+            }
+            f(); //ƒ f() {console.log(f);} */
         </script>
     </body>
 </html>
