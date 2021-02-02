@@ -189,17 +189,164 @@
             console.log(f(5));
             console.log(a); */
 
-            var a = 1;
+            /* var a = 1;
             (function a() {
                 a = 2;
                 console.log(a);
             })();
-            console.log(a);
+            console.log(a); */
 
             /* function f() {
                 console.log(f);
             }
             f(); //ƒ f() {console.log(f);} */
+
+            /* function f(...args) {
+                console.log(args);
+            }
+            f(1); */
+
+            /* function fun(n, o) {
+                console.log(o);
+                return {
+                    fun: function (m) {
+                        return fun(m, n);
+                    },
+                };
+            }
+            var c = fun(0).fun(1);
+            c.fun(2);
+            c.fun(3); */
+
+            /* function A() {
+                this.x = 1;
+            }
+            var a = new A();
+            console.log(A.prototype.isPrototypeOf(a)); //true */
+
+            /* var arr = [1, 2, 3];
+            var f = function () {console.log(1);};
+            var arr2=['a'];
+            var obj={'name':'js'} */
+            // ---------------------------------------------------------------------------
+            // ---------------------------------------------------------------------------
+
+            // new源码
+            /* function _new(Fn) {
+                return function (...args) {
+                    var obj = {};
+                    obj.__proto__ = Fn.prototype;
+                    var res = Fn.call(obj, ...args);
+                    if (res !== null && /^(function|object)$/.test(typeof res)) {
+                        return res;
+                    } else {
+                        return obj;
+                    }
+                };
+            }
+            function Fn(x, y) {
+                this.x = x;
+                this.y = y;
+                // return {};
+            }
+            var fn = _new(Fn)(1, 2);
+            console.log(fn); */
+
+            /* function Fn() {
+                this.x = 1;
+            }
+            var fn = new Fn();
+            console.log(fn.__proto__); */
+
+            /* function f() {}
+            console.log(f.prototype); */
+
+            // Object.create源码
+            /* Object.create = function (prototype) {
+                var Fn = function () {};
+                Fn.prototype = prototype;
+                return new Fn();
+            }; */
+
+            // 解决原型重定向后原来的原型上属性和方法丢失问题
+            /* function Fn() {}
+            Fn.prototype.a = 1;
+            Fn.prototype.b = 2;
+            var proto = Object.create(Fn.prototype);
+            var newProto = {
+                x: 1,
+                f: function () {
+                    console.log(1);
+                },
+            };
+            proto = Object.assign(proto, newProto);
+            Fn.prototype = proto; */
+
+            // 深拷贝
+            /* function deepCopy(obj) {
+                var constructor = obj.constructor;
+                if (obj === null) return null;
+                if (typeof constructor !== "object") return obj;
+                if (/^(RegExp|Date)$/i.test(constructor.name)) return new constructor(obj);
+                var new_obj = new constructor();
+                for (var key in obj) {
+                    if (!obj.hasOwnProperty(key)) break;
+                    new_obj[key] = deepCopy(obj[key]);
+                }
+                return new_obj;
+            } */
+
+            // 数据类型检测
+            /* function checkType(obj) {
+                var type = Object.prototype.toString.call(obj);
+                return /^\[object ([a-zA-Z]+)\]$/.exec(type)[1].toLowerCase();
+            } */
+
+            // call源码
+            /* Function.prototype._call = function (obj, ...args) {
+                obj.fn = this;
+                var res = obj.fn(...args);
+                delete obj.fn;
+                return res;
+            }; */
+
+            /* Function.prototype.call = function (obj, ...args) {
+                if (obj == null) {
+                    obj = window;
+                }
+                var objType = typeof obj;
+                if (!/^(function|object)$/.test(objType)) {
+                    obj = Object(obj);
+                }
+                var key = Symbol("key");
+                obj[key] = this;
+                var res = obj[key](...args);
+                delete obj[key];
+                return res;
+            }; */
+
+            // bind源码
+            /* Function.prototype.bind = function (obj, ...args1) {
+                var _this = this;
+                return function (...args2) {
+                    _this.call(obj, ...args1.concat(args2));
+                };
+            }; */
+
+            // instanceof源码
+            function _instanceof(obj, fn) {
+                var prototype = fn.prototype;
+                var proto = Object.getPrototypeOf(obj);
+                while (true) {
+                    if (proto === null) {
+                        return false;
+                    }
+                    if (proto === prototype) {
+                        return true;
+                    }
+                    proto = Object.getPrototypeOf(proto);
+                }
+            }
         </script>
     </body>
 </html>
