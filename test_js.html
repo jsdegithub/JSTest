@@ -334,7 +334,7 @@
             }; */
 
             // instanceof源码
-            function _instanceof(obj, fn) {
+            /* function _instanceof(obj, fn) {
                 var prototype = fn.prototype;
                 var proto = Object.getPrototypeOf(obj);
                 while (true) {
@@ -346,7 +346,26 @@
                     }
                     proto = Object.getPrototypeOf(proto);
                 }
+            } */
+
+            function fn() {
+                console.log(1);
+                return Promise.reject("error");
             }
+            (async function () {
+                setTimeout(() => {
+                    console.log(3);
+                });
+                try {
+                    Promise.resolve("promise").then((res) => console.log(res));
+                    let value = await fn();
+                    console.log("被await阻塞的代码执行了");
+                    console.log(value);
+                } catch {
+                    console.log("fn失败");
+                }
+            })();
+            console.log(4);
         </script>
     </body>
 </html>
