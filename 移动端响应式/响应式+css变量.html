@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            :root {
+                --columns: 4;
+            }
+            .wrap {
+                overflow: hidden;
+            }
+            .item {
+                float: left;
+                width: calc(100% / var(--columns));
+                height: 300px;
+                margin-bottom: 10px;
+            }
+            .item:nth-of-type(2n + 1) {
+                background-color: lightblue;
+            }
+            .item:nth-of-type(2n) {
+                background-color: rgb(139, 238, 175);
+            }
+            @media screen and (max-width: 1080px) {
+                :root {
+                    --columns: 2;
+                }
+            }
+            @media screen and (max-width: 640px) {
+                :root {
+                    --columns: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </body>
+</html>

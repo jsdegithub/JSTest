@@ -1,0 +1,22 @@
+.border-radius(@br:10px) {
+    border-radius: @br;
+}
+.bgc {
+    background-color: #000;
+}
+
+.box1 {
+    .border-radius();
+    background-color: #fff;
+}
+.box2 {
+    .border-radius(5px);
+    background-color: #fff;
+}
+
+.box3:extend(.bgc) {
+    font-size: 20px;
+}
+.box4:extend(.bgc) {
+    font-size: 30px;
+}
