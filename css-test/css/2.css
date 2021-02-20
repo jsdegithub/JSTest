@@ -1,0 +1,8 @@
+.wrap {
+  color: aquamarine;
+}
+.wrap + .inner {
+  color: lightblue;
+}
+
+/*# sourceMappingURL=2.css.map */

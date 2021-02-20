@@ -96,11 +96,13 @@
     line-height: 0.48rem;
     font-weight: normal;
     color: #1a1a1a;
+    
     /* 文字溢出用省略号代替的四行代码 */
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 2;
+
     margin-bottom: 0.2rem;
 }
 .item a .pic {

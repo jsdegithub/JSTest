@@ -1,0 +1,6 @@
+.wrap {
+    color: aquamarine;
+    + .inner {
+        color: lightblue;
+    }
+}

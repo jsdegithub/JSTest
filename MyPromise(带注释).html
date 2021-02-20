@@ -138,12 +138,18 @@
 
     <script>
 
-        new MyPromise((resolve, reject) => {
+        /* new MyPromise((resolve, reject) => {
             reject(1);
         }).then(result => {
             console.log(result);
         }).catch(reason => {
             console.log(reason);
+        }) */
+
+        MyPromise.reject('reject---').then(result=>{
+            console.log(`成功${result}`);
+        }, reason=>{
+            console.log(`失败${reason}`);
         })
 
     </script>
