@@ -1,0 +1,12 @@
+@import "../../reset.css";
+
+
+.box {
+    background-color: lightblue;
+    width: 200px;
+    height: 150px;
+    border: 2px solid lavender;
+}
+::placeholder {
+    color: aquamarine;
+}

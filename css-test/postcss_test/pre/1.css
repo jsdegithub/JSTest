@@ -1,0 +1,21 @@
+@import "../../reset.css";
+
+.box {
+    display: flex;
+}
+
+:root {
+    --bgc: lightblue;
+}
+.box {
+    background-color: var(--bgc);
+}
+::placeholder {
+    color: aquamarine;
+}
+
+.precss{
+    .child{
+        background-color: lightcoral;
+    }
+}
