@@ -7,18 +7,26 @@
         <title>css-test</title>
         <link rel="stylesheet" href="./reset.css" />
         <style>
-            p{
-                height: 50px;
-                width: 300px;
-                background-color: lavender;
-                text-align: center;
-                line-height: 50px;
+            .box{
+                width: 100px;
+                height: 30px;
+                background-color: lightcoral;
             }
+            .box ~ div{
+                width: 100px;
+                height: 30px;
+                background-color: lightskyblue;
+                margin-bottom: 10px;
+            }
+
         </style>
     </head>
     <body>
-        <p>hhahahahhahahhahhahahah
-            <br>
-            hahahhahahahah</p>
+        <div></div>
+        <div></div>
+        <div class="box"></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </body>
 </html>
