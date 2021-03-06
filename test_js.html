@@ -348,7 +348,7 @@
                 }
             } */
 
-            function fn() {
+            /* function fn() {
                 console.log(1);
                 return Promise.reject("error");
             }
@@ -365,7 +365,7 @@
                     console.log("fn失败");
                 }
             })();
-            console.log(4);
+            console.log(4); */
 
             /* function fun(n, k) {
                 console.log(k);
@@ -383,6 +383,59 @@
             var c = fun(0).fun(1);
             c.fun(2);
             c.fun(3); */
+
+            /* function Fn(){
+                return function(){
+                    console.log(1);
+                }
+            }
+            var obj=new Fn();
+            console.log(obj); */
+
+            // bind源码
+            /* Function.prototype.bind = function (obj) {
+                var _this = this;
+                return function (...params) {
+                    _this.call(obj, ...params);
+                };
+            };
+            var fn = function (x, y) {
+                this.x = x;
+                this.y = y;
+            };
+            var obj = {};
+            fn.bind(obj)(1, 2);
+            console.log(obj); */
+
+            // 深克隆
+            /* function deepCopy(obj) {
+                var type = typeof obj;
+                var constructor = obj.constructor;
+                if (obj === null) return null;
+                if (type !== "object") return obj;
+                if (/^(RegExp|Date)?/i.test(constructor.name)) {
+                    return new constructor(obj);
+                }
+                var new_obj = new constructor();
+                for (var key in obj) {
+                    if (!obj.hasOwnProperty(key)) break;
+                    new_obj[key] = deepCopy(obj[key]);
+                }
+                return new_obj;
+            }
+            var obj = [1, [2, 3]];
+            var new_obj = deepCopy(obj); */
+
+            function debounce(fn, interval = 1000) {
+                var timer = null;
+                return function (...args) {
+                    clearTimeout(timer); //clearTimeout(timer)并不会让 timer置为 null
+                    timer = setTimeout(function () {
+                        timer = null;
+                        fn.call(this, ...args);
+                    }, interval);
+                };
+            }
         </script>
     </body>
 </html>
