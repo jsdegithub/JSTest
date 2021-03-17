@@ -8,279 +8,671 @@
     <body>
         <script>
             /* function fun(n, k) {
-                console.log(k);
-                return {
-                    fun: function (m) {
-                        return fun(m, n);
-                    },
-                };
-            }
-            var a = fun(0);
-            a.fun(1);
-            a.fun(2);
-            a.fun(3);
-            var b = fun(0).fun(1).fun(2).fun(3);
-            var c = fun(0).fun(1);
-            c.fun(2);
-            c.fun(3); */
+                            console.log(k);
+                            return {
+                                fun: function (m) {
+                                    return fun(m, n);
+                                },
+                            };
+                        }
+                        var a = fun(0);
+                        a.fun(1);
+                        a.fun(2);
+                        a.fun(3);
+                        var b = fun(0).fun(1).fun(2).fun(3);
+                        var c = fun(0).fun(1);
+                        c.fun(2);
+                        c.fun(3); */
 
             /* var o={};
-            o[0]=1;
-            o['0']=2;
-            console.log(o['0']);
-            console.log(o[0]); */
+                        o[0]=1;
+                        o['0']=2;
+                        console.log(o['0']);
+                        console.log(o[0]); */
 
             /* var b;
-            var a=b={};
-            b[0]=2;
-            // b=null;
-            console.log(a[0]); */
+                        var a=b={};
+                        b[0]=2;
+                        // b=null;
+                        console.log(a[0]); */
 
             /* var obj = {
-                valueOf() {
-                    return 1;
-                },
-                toString() {
-                    return 2;
-                },
-            };
+                            valueOf() {
+                                return 1;
+                            },
+                            toString() {
+                                return 2;
+                            },
+                        };
 
-            var obj2 = {
-                valueOf() {
-                    return '1';
-                },
-                toString() {
-                    return 2;
-                },
-            }; */
+                        var obj2 = {
+                            valueOf() {
+                                return '1';
+                            },
+                            toString() {
+                                return 2;
+                            },
+                        }; */
 
             /* let x = 5;
-            function fn(x) {
-                return function (y) {
-                    console.log(y + ++x);
-                };
-            }
-            let f = fn(6);
-            f(7);
-            fn(8)(9);
-            f(10);
-            console.log(x); */
+                        function fn(x) {
+                            return function (y) {
+                                console.log(y + ++x);
+                            };
+                        }
+                        let f = fn(6);
+                        f(7);
+                        fn(8)(9);
+                        f(10);
+                        console.log(x); */
 
             /* {
-                let x=1;
-                console.log(x);
-            }
-            console.log(x); */
+                            let x=1;
+                            console.log(x);
+                        }
+                        console.log(x); */
 
             /* function x() {
-                console.log(1);
-            }
-            console.log(x); */
+                            console.log(1);
+                        }
+                        console.log(x); */
 
             /* console.log(fn);
-            {
-                function fn() {
-                    console.log(1);
-                }
-            } */
+                        {
+                            function fn() {
+                                console.log(1);
+                            }
+                        } */
 
             /* {
-                console.log(x); //f x(){console.log(2);}
-                console.log(window.x); //undefined
-                x = 0;
-                x++;
-                console.log(x); //1
-                console.log(window.x); //undefined
-                function x() {
-                    console.log(1);
-                }
-                console.log(x); //1
-                console.log(window.x); //1
-                x++;
-                console.log(x); //2
-                console.log(window.x); //1
-                function x() {
-                    console.log(2);
-                }
-                console.log(x); //2
-                console.log(window.x); //2
-                x = 6;
-                console.log(x); //6
-                console.log(window.x); //2
-            }
-            console.log(x); //2 */
+                            console.log(x); //f x(){console.log(2);}
+                            console.log(window.x); //undefined
+                            x = 0;
+                            x++;
+                            console.log(x); //1
+                            console.log(window.x); //undefined
+                            function x() {
+                                console.log(1);
+                            }
+                            console.log(x); //1
+                            console.log(window.x); //1
+                            x++;
+                            console.log(x); //2
+                            console.log(window.x); //1
+                            function x() {
+                                console.log(2);
+                            }
+                            console.log(x); //2
+                            console.log(window.x); //2
+                            x = 6;
+                            console.log(x); //6
+                            console.log(window.x); //2
+                        }
+                        console.log(x); //2 */
 
             /* var x = 2;
-            var f = function () {
-                x++;
-            };
-            var g = function (a) {
-                var x = 1;
-                a(x);
-                console.log(x);  //1
-            };
-            g(f);
-            console.log(x);  //3 */
+                        var f = function () {
+                            x++;
+                        };
+                        var g = function (a) {
+                            var x = 1;
+                            a(x);
+                            console.log(x);  //1
+                        };
+                        g(f);
+                        console.log(x);  //3 */
 
             /* function f(
-                x = function () {
-                    y++;
-                    console.log(y); //2
-                },
-                y = 1
-            ) {
-                var x;
-                var y = 3;
-                x();
-                console.log(y); //3
-            }
-            f(); */
+                            x = function () {
+                                y++;
+                                console.log(y); //2
+                            },
+                            y = 1
+                        ) {
+                            var x;
+                            var y = 3;
+                            x();
+                            console.log(y); //3
+                        }
+                        f(); */
 
             /* var x = 1;
-            function fn(
-                x,
-                y = function () {
-                    x = 2;
-                }
-            ) {
-                var x;
-                y();
-                console.log(x); //5
-            }
-            fn(5);
-            console.log(x); //1 */
+                        function fn(
+                            x,
+                            y = function () {
+                                x = 2;
+                            }
+                        ) {
+                            var x;
+                            y();
+                            console.log(x); //5
+                        }
+                        fn(5);
+                        console.log(x); //1 */
 
             /* var x = 1;
-            function f(
-                x = 2,
-                y = function () {
-                    x++;
-                    console.log(x);
-                }
-            ) {
-                console.log(x); //f x(){}
-                function x() {}
-                y(); //3
-                console.log(x); //f x(){}
-            }
-            f();
-            console.log(x); //1 */
+                        function f(
+                            x = 2,
+                            y = function () {
+                                x++;
+                                console.log(x);
+                            }
+                        ) {
+                            console.log(x); //f x(){}
+                            function x() {}
+                            y(); //3
+                            console.log(x); //f x(){}
+                        }
+                        f();
+                        console.log(x); //1 */
 
             /* function f(y) {
-                console.log(arguments[0]);  //1
-                var x = arguments[0] = 2;
-                console.log(y);  //2
-                y = 3;
-                console.log(arguments[0]);  //3
-                console.log(x);  //2
-            }
-            f(1); */
+                            console.log(arguments[0]);  //1
+                            var x = arguments[0] = 2;
+                            console.log(y);  //2
+                            y = 3;
+                            console.log(arguments[0]);  //3
+                            console.log(x);  //2
+                        }
+                        f(1); */
 
             /* var a = 9;
-            function fn() {
-                a = 0;
-                return function (b) {
-                    return b + a++;
-                };
-            }
-            var f = fn();
-            console.log(f(5));
-            console.log(fn()(5));
-            console.log(f(5));
-            console.log(a); */
+                        function fn() {
+                            a = 0;
+                            return function (b) {
+                                return b + a++;
+                            };
+                        }
+                        var f = fn();
+                        console.log(f(5));
+                        console.log(fn()(5));
+                        console.log(f(5));
+                        console.log(a); */
 
             /* var a = 1;
-            (function a() {
-                a = 2;
-                console.log(a);
-            })();
-            console.log(a); */
+                        (function a() {
+                            a = 2;
+                            console.log(a);
+                        })();
+                        console.log(a); */
 
             /* function f() {
-                console.log(f);
-            }
-            f(); //ƒ f() {console.log(f);} */
+                            console.log(f);
+                        }
+                        f(); //ƒ f() {console.log(f);} */
 
             /* function f(...args) {
-                console.log(args);
-            }
-            f(1); */
+                            console.log(args);
+                        }
+                        f(1); */
 
             /* function fun(n, o) {
-                console.log(o);
-                return {
-                    fun: function (m) {
-                        return fun(m, n);
-                    },
-                };
-            }
-            var c = fun(0).fun(1);
-            c.fun(2);
-            c.fun(3); */
+                            console.log(o);
+                            return {
+                                fun: function (m) {
+                                    return fun(m, n);
+                                },
+                            };
+                        }
+                        var c = fun(0).fun(1);
+                        c.fun(2);
+                        c.fun(3); */
 
             /* function A() {
-                this.x = 1;
-            }
-            var a = new A();
-            console.log(A.prototype.isPrototypeOf(a)); //true */
+                            this.x = 1;
+                        }
+                        var a = new A();
+                        console.log(A.prototype.isPrototypeOf(a)); //true */
 
             /* var arr = [1, 2, 3];
-            var f = function () {console.log(1);};
-            var arr2=['a'];
-            var obj={'name':'js'} */
+                        var f = function () {console.log(1);};
+                        var arr2=['a'];
+                        var obj={'name':'js'} */
             // ---------------------------------------------------------------------------
             // ---------------------------------------------------------------------------
 
             // new源码
             /* function _new(Fn) {
-                return function (...args) {
-                    var obj = {};
-                    obj.__proto__ = Fn.prototype;
-                    var res = Fn.call(obj, ...args);
-                    if (res !== null && /^(function|object)$/.test(typeof res)) {
-                        return res;
-                    } else {
-                        return obj;
-                    }
-                };
-            }
-            function Fn(x, y) {
-                this.x = x;
-                this.y = y;
-                // return {};
-            }
-            var fn = _new(Fn)(1, 2);
-            console.log(fn); */
+                            return function (...args) {
+                                var obj = {};
+                                obj.__proto__ = Fn.prototype;
+                                var res = Fn.call(obj, ...args);
+                                if (res !== null && /^(function|object)$/.test(typeof res)) {
+                                    return res;
+                                } else {
+                                    return obj;
+                                }
+                            };
+                        }
+                        function Fn(x, y) {
+                            this.x = x;
+                            this.y = y;
+                            // return {};
+                        }
+                        var fn = _new(Fn)(1, 2);
+                        console.log(fn); */
 
             /* function Fn() {
-                this.x = 1;
-            }
-            var fn = new Fn();
-            console.log(fn.__proto__); */
+                            this.x = 1;
+                        }
+                        var fn = new Fn();
+                        console.log(fn.__proto__); */
 
             /* function f() {}
-            console.log(f.prototype); */
+                        console.log(f.prototype); */
 
             // Object.create源码
             /* Object.create = function (prototype) {
-                var Fn = function () {};
-                Fn.prototype = prototype;
-                return new Fn();
-            }; */
+                            var Fn = function () {};
+                            Fn.prototype = prototype;
+                            return new Fn();
+                        }; */
 
             // 解决原型重定向后原来的原型上属性和方法丢失问题
             /* function Fn() {}
-            Fn.prototype.a = 1;
-            Fn.prototype.b = 2;
-            var proto = Object.create(Fn.prototype);
-            var newProto = {
-                x: 1,
-                f: function () {
-                    console.log(1);
-                },
-            };
-            proto = Object.assign(proto, newProto);
-            Fn.prototype = proto; */
+                        Fn.prototype.a = 1;
+                        Fn.prototype.b = 2;
+                        var proto = Object.create(Fn.prototype);
+                        var newProto = {
+                            x: 1,
+                            f: function () {
+                                console.log(1);
+                            },
+                        };
+                        proto = Object.assign(proto, newProto);
+                        Fn.prototype = proto; */
+
+            // 深拷贝
+            /* function deepCopy(obj) {
+                            var constructor = obj.constructor;
+                            if (obj === null) return null;
+                            if (typeof constructor !== "object") return obj;
+                            if (/^(RegExp|Date)$/i.test(constructor.name)) return new constructor(obj);
+                            var new_obj = new constructor();
+                            for (var key in obj) {
+                                if (!obj.hasOwnProperty(key)) break;
+                                new_obj[key] = deepCopy(obj[key]);
+                            }
+                            return new_obj;
+                        } */
+
+            // 数据类型检测
+            /* function checkType(obj) {
+                            var type = Object.prototype.toString.call(obj);
+                            return /^\[object ([a-zA-Z]+)\]$/.exec(type)[1].toLowerCase();
+                        } */
+
+            // call源码
+            /* Function.prototype._call = function (obj, ...args) {
+                            obj.fn = this;
+                            var res = obj.fn(...args);
+                            delete obj.fn;
+                            return res;
+                        }; */
+
+            /* Function.prototype.call = function (obj, ...args) {
+                            if (obj == null) {
+                                obj = window;
+                            }
+                            var objType = typeof obj;
+                            if (!/^(function|object)$/.test(objType)) {
+                                obj = Object(obj);
+                            }
+                            var key = Symbol("key");
+                            obj[key] = this;
+                            var res = obj[key](...args);
+                            delete obj[key];
+                            return res;
+                        }; */
+
+            // bind源码
+            /* Function.prototype.bind = function (obj, ...args1) {
+                            var _this = this;
+                            return function (...args2) {
+                                _this.call(obj, ...args1.concat(args2));
+                            };
+                        }; */
+
+            // instanceof源码
+            /* function _instanceof(obj, fn) {
+                            var prototype = fn.prototype;
+                            var proto = Object.getPrototypeOf(obj);
+                            while (true) {
+                                if (proto === null) {
+                                    return false;
+                                }
+                                if (proto === prototype) {
+                                    return true;
+                                }
+                                proto = Object.getPrototypeOf(proto);
+                            }
+                        } */
+
+            /* function fn() {
+                            console.log(1);
+                            return Promise.reject("error");
+                        }
+                        (async function () {
+                            setTimeout(() => {
+                                console.log(3);
+                            });
+                            try {
+                                Promise.resolve("promise").then((res) => console.log(res));
+                                let value = await fn();
+                                console.log("被await阻塞的代码执行了");
+                                console.log(value);
+                            } catch {
+                                console.log("fn失败");
+                            }
+                        })();
+                        console.log(4); */
+
+            /* function fun(n, k) {
+                            console.log(k);
+                            return {
+                                fun: function (m) {
+                                    return fun(m, n);
+                                },
+                            };
+                        }
+                        var a = fun(0);
+                        a.fun(1);
+                        a.fun(2);
+                        a.fun(3);
+                        var b = fun(0).fun(1).fun(2).fun(3);
+                        var c = fun(0).fun(1);
+                        c.fun(2);
+                        c.fun(3); */
+
+            /* function Fn(){
+                            return function(){
+                                console.log(1);
+                            }
+                        }
+                        var obj=new Fn();
+                        console.log(obj); */
+
+            // bind源码
+            /* Function.prototype.bind = function (obj) {
+                            var _this = this;
+                            return function (...params) {
+                                _this.call(obj, ...params);
+                            };
+                        };
+                        var fn = function (x, y) {
+                            this.x = x;
+                            this.y = y;
+                        };
+                        var obj = {};
+                        fn.bind(obj)(1, 2);
+                        console.log(obj); */
+
+            // 深克隆
+            /* function deepCopy(obj) {
+                            var type = typeof obj;
+                            var constructor = obj.constructor;
+                            if (obj === null) return null;
+                            if (type !== "object") return obj;
+                            if (/^(RegExp|Date)?/i.test(constructor.name)) {
+                                return new constructor(obj);
+                            }
+                            var new_obj = new constructor();
+                            for (var key in obj) {
+                                if (!obj.hasOwnProperty(key)) break;
+                                new_obj[key] = deepCopy(obj[key]);
+                            }
+                            return new_obj;
+                        }
+                        var obj = [1, [2, 3]];
+                        var new_obj = deepCopy(obj); */
+
+            /* function debounce(fn, interval = 1000) {
+                            var timer = null;
+                            return function (...args) {
+                                clearTimeout(timer); //clearTimeout(timer)并不会让 timer置为 null
+                                timer = setTimeout(function () {
+                                    timer = null;
+                                    fn.call(this, ...args);
+                                }, interval);
+                            };
+                        } */
+
+            /* function jumpSteps(n) {
+                            if (n === 1) return 1;
+                            if (n === 2) return 2;
+                            return jumpSteps(n - 1) + jumpSteps(n - 2);
+                        } */
+            // ------------------------------------------------------------------------------
+            // ------------------------------------------------------------------------------
+            // ------------------------------------------------------------------------------
+            // ------------------------------------------------------------------------------
+            // ------------------------------------------------------------------------------
+            // ------------------------------------------------------------------------------
+            // ------------------------------------------------------------------------------
+            // ------------------------------------------------------------------------------
+            // 面试准备
+            // 快速排序
+            /* function quickSort(list) {
+                            if (list.length === 0) {
+                                return [];
+                            }
+                            var pivot = list[0];
+                            var lessList = [];
+                            var moreList = [];
+                            for (var i = 1; i < list.length; i++) {
+                                if (list[i] <= pivot) {
+                                    lessList.push(list[i]);
+                                }
+                                if (list[i] > pivot) {
+                                    moreList.push(list[i]);
+                                }
+                            }
+                            return quickSort(lessList).concat(pivot, quickSort(moreList));
+                        } */
+
+            // 冒泡排序
+            /* function bubbleSort(list) {
+                            for (var i = 0; i < list.length - 1; i++) {
+                                for (j = 0; j < list.length - 1 - i; j++) {
+                                    if (list[j] > list[j+1]) {
+                                        var temp = list[j];
+                                        list[j] = list[j+1];
+                                        list[j+1] = temp;
+                                    }
+                                }
+                            }
+                            return list;
+                        } */
+
+            /* function fun(n, k) {
+                            console.log(k);
+                            return {
+                                fun: function (m) {
+                                    return fun(m, n);
+                                },
+                            };
+                        }
+                        var a = fun(0);  //undefined
+                        a.fun(1);  //0
+                        a.fun(2);  //0
+                        a.fun(3);  //0
+                        var b = fun(0).fun(1).fun(2).fun(3);  //undefined  0  1  2
+                        var c = fun(0).fun(1);
+                        c.fun(2);
+                        c.fun(3); */
+
+            /* function fun(){
+                            return {
+                                fun: function(){
+                                    console.log(fun);  //这个fun是全局的fun
+                                }
+                            }
+                        }
+                        fun().fun(); */
+
+            /* function fn() {
+                            console.log(fn);
+                        }
+                        fn(); */
+
+            // 数组去重
+            // 1
+            /* function uniqueArr(arr) {
+                for (var i = 0; i < arr.length; i++) {
+                    for (var j = i + 1; j < arr.length; j++) {
+                        if (arr[i] === arr[j]) {
+                            arr.splice(j, 1);
+                            j--;
+                        }
+                    }
+                }
+                return arr;
+            } */
+
+            // 2
+            /* function uniqueArr(arr) {
+                return [...new Set(arr)];
+            } */
+
+            // 3
+            /* function uniqueArr(arr) {
+                var temp = [];
+                for (var i = 0; i < arr.length; i++) {
+                    if (temp.indexOf(arr[i]) === -1) {
+                        temp.push(arr[i]);
+                    }
+                }
+                return temp;
+            } */
+
+            // 4
+            /* function unique(arr) {
+                var temp = [];
+                for (var i = 0; i < arr.length; i++) {
+                    if (!temp.includes(arr[i])) {
+                        temp.push(arr[i]);
+                    }
+                }
+                return temp;
+            } */
+
+            // 判断是否是回文
+            /* function fn(str) {
+                var len = str.length;
+                for (var i = 0; i < len / 2; i++) {
+                    if (str[i] !== str[len - 1 - i]) {
+                        return false;
+                    }
+                }
+                return true;
+            } */
+
+            // 统计一个字符串出现次数最多的字母
+            /* function maxCount(str) {
+                var obj = {};
+                var len = str.length;
+                for (var i = 0; i < len; i++) {
+                    if (!obj[str[i]]) {
+                        obj[str[i]] = 1;
+                    } else {
+                        obj[str[i]]++;
+                    }
+                }
+                var max = 0;
+                var maxkey = "";
+                for (var key in obj) {
+                    if (obj[key] > max) {
+                        max = obj[key];
+                        maxkey = key;
+                    }
+                }
+                return maxkey;
+            } */
+
+            // 走楼梯（不能直接递归）
+            /* function getFibonacci(n) {
+                var arr = [];
+                for (var i = 1; i <= n; i++) {
+                    if (i === 1) {
+                        arr.push(1);
+                    } else if (i === 2) {
+                        arr.push(2);
+                    } else {
+                        arr.push(arr[i - 2] + arr[i - 3]);
+                    }
+                }
+                return arr[n - 1];
+            } */
+
+            // 大数相加
+            /* function bigNumberAdd(n1, n2) {
+                var res = "";
+                var temp = 0;
+                n1 = String(n1).split("").reverse();
+                n2 = String(n2).split("").reverse();
+                var len1 = n1.length;
+                var len2 = n2.length;
+                var maxLen = len1 > len2 ? len1 : len2;
+                for (var i = 0; i < maxLen; i++) {
+                    var x = Number(n1[i] || 0);
+                    var y = Number(n2[i] || 0);
+                    temp = temp + x + y;
+                    res = (temp % 10) + res;
+                    temp = temp > 9;
+                }
+                if (temp) {
+                    res = "1" + res;
+                }
+                return Number(res);
+            } */
+
+            // 小数相加，参考=>
+            //自定义加法运算
+            /* function smallNumberAdd(num1, num2) {
+                var len1, len2, m;
+                len1 = String(num1).split(".")[1].length;
+                len2 = String(num2).split(".")[1].length;
+                m = Math.pow(10, Math.max(len1, len2));
+                return bigNumberAdd(num1 * m, num2 * m) / m;
+            } */
+
+            // 大数相加
+            /* function bigNumberAdd(n1, n2) {
+                n1 = String(n1).split("").reverse();
+                n2 = String(n2).split("").reverse();
+                var len1 = n1.length,
+                    len2 = n2.length;
+
+                var s = "",
+                    temp = 0;
+                var maxLen = len1 > len2 ? len1 : len2;
+                for (var i = 0; i < maxLen; i++) {
+                    var x = Number(n1[i] || 0);
+                    var y = Number(n2[i] || 0);
+                    temp = n1[i] + n2[i] + temp;
+                    s = (temp % 10) + s;
+                    temp = temp > 9;
+                }
+                if (temp === 1) {
+                    s = 1 + s;
+                }
+                return Number(s);
+            } */
+
+            // 将12345678952转化为123，456，789，52的形式
+            /* function RMB(str) {
+                let arr = str.split("").reverse();
+                let res = [];
+                for (let i = 0; i < arr.length; i++) {
+                    res.push(arr[i]);
+                    if ((i + 1) % 3 === 0) {
+                        res.push(",");
+                    }
+                }
+                return res.reverse().join("");
+            } */
+
+            // 猴子分香蕉问题
 
             // 深拷贝
             /* function deepCopy(obj) {
@@ -296,146 +688,107 @@
                 return new_obj;
             } */
 
-            // 数据类型检测
-            /* function checkType(obj) {
-                var type = Object.prototype.toString.call(obj);
-                return /^\[object ([a-zA-Z]+)\]$/.exec(type)[1].toLowerCase();
+            // 深拷贝
+            /* function deepCopy(obj) {
+                if (obj == null) return null;
+                var constructor = obj.constructor;
+                if (typeof obj !== "object") return object;
+                if (/^(Date|RegExp)$/i.test(constructor.name)) return new constructor(obj);
+                var newObj = new constructor();
+                for (var key in obj) {
+                    if (!obj.hasOwnProperty(key)) break;
+                    newObj = deepCopy(obj[key]);
+                }
+                return newObj;
+            } */
+
+            // new 源码
+            /* function _new(Fn) {
+                return function (...args) {
+                    var obj = Object.create(Fn.prototype);
+                    var res = Fn.call(obj, ...args);
+                    if (res !== null && /^(object|function)$/i.test(typeof res)) {
+                        return res;
+                    }
+                    return obj;
+                };
             } */
 
             // call源码
-            /* Function.prototype._call = function (obj, ...args) {
+            /* Function.prototype.call = function (obj = {}, ...args) {
                 obj.fn = this;
                 var res = obj.fn(...args);
                 delete obj.fn;
                 return res;
             }; */
-
-            /* Function.prototype.call = function (obj, ...args) {
-                if (obj == null) {
-                    obj = window;
+            // call源码
+            /* Function.prototype.call = function (context, ...params) {
+                context == null ? (context = window) : null;
+                if (!/^(object|function)$/i.test(typeof context)) {
+                    context = Object(context);
                 }
-                var objType = typeof obj;
-                if (!/^(function|object)$/.test(objType)) {
-                    obj = Object(obj);
-                }
-                var key = Symbol("key");
-                obj[key] = this;
-                var res = obj[key](...args);
-                delete obj[key];
+                var key = Symbol("key"),
+                    res;
+                context[key] = this;
+                res = context[key](...params);
+                delete context[key];
                 return res;
             }; */
 
             // bind源码
-            /* Function.prototype.bind = function (obj, ...args1) {
+            /* Function.prototype.bind = function (obj, ...args) {
                 var _this = this;
-                return function (...args2) {
-                    _this.call(obj, ...args1.concat(args2));
+                return function (...params) {
+                    _this.call(obj, ...args.concat(params));
                 };
             }; */
 
             // instanceof源码
-            /* function _instanceof(obj, fn) {
-                var prototype = fn.prototype;
-                var proto = Object.getPrototypeOf(obj);
-                while (true) {
-                    if (proto === null) {
-                        return false;
-                    }
-                    if (proto === prototype) {
-                        return true;
-                    }
-                    proto = Object.getPrototypeOf(proto);
+            /* function _instanceof(obj, Fn) {
+                var proto = obj.__proto__;
+                var prototype = Fn.prototype;
+                while (1) {
+                    if (proto === null) return false;
+                    if (proto === prototype) return true;
+                    proto = proto.__proto__;
                 }
             } */
 
-            /* function fn() {
-                console.log(1);
-                return Promise.reject("error");
-            }
-            (async function () {
-                setTimeout(() => {
-                    console.log(3);
-                });
-                try {
-                    Promise.resolve("promise").then((res) => console.log(res));
-                    let value = await fn();
-                    console.log("被await阻塞的代码执行了");
-                    console.log(value);
-                } catch {
-                    console.log("fn失败");
-                }
-            })();
-            console.log(4); */
 
-            /* function fun(n, k) {
-                console.log(k);
-                return {
-                    fun: function (m) {
-                        return fun(m, n);
-                    },
-                };
-            }
-            var a = fun(0);
-            a.fun(1);
-            a.fun(2);
-            a.fun(3);
-            var b = fun(0).fun(1).fun(2).fun(3);
-            var c = fun(0).fun(1);
-            c.fun(2);
-            c.fun(3); */
 
-            /* function Fn(){
-                return function(){
-                    console.log(1);
-                }
-            }
-            var obj=new Fn();
-            console.log(obj); */
 
-            // bind源码
-            /* Function.prototype.bind = function (obj) {
-                var _this = this;
-                return function (...params) {
-                    _this.call(obj, ...params);
-                };
-            };
-            var fn = function (x, y) {
-                this.x = x;
-                this.y = y;
-            };
-            var obj = {};
-            fn.bind(obj)(1, 2);
-            console.log(obj); */
 
-            // 深克隆
-            /* function deepCopy(obj) {
-                var type = typeof obj;
-                var constructor = obj.constructor;
-                if (obj === null) return null;
-                if (type !== "object") return obj;
-                if (/^(RegExp|Date)?/i.test(constructor.name)) {
-                    return new constructor(obj);
-                }
-                var new_obj = new constructor();
-                for (var key in obj) {
-                    if (!obj.hasOwnProperty(key)) break;
-                    new_obj[key] = deepCopy(obj[key]);
-                }
-                return new_obj;
-            }
-            var obj = [1, [2, 3]];
-            var new_obj = deepCopy(obj); */
 
-            function debounce(fn, interval = 1000) {
-                var timer = null;
-                return function (...args) {
-                    clearTimeout(timer); //clearTimeout(timer)并不会让 timer置为 null
-                    timer = setTimeout(function () {
-                        timer = null;
-                        fn.call(this, ...args);
-                    }, interval);
-                };
-            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
         </script>
     </body>
 </html>

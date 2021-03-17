@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="点击获取浏览器信息" id="btn">
+    <script>
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            function getBrowser(){
+                //获取userAgent属性
+                var explorer=navigator.userAgent.toLowerCase(),brow;
+                if (explorer.indexOf("chrome") > -1) {
+                brow = "谷歌浏览器";
+            } else if (explorer.indexOf("msie") > -1) {
+                brow = "IE";
+            }
+            else if (explorer.indexOf("opera") > -1) {
+                brow = "opera浏览器";
+            }
+            else if (explorer.indexOf("safari") > -1) {
+                brow = "safari浏览器";
+            }
+            else if (explorer.indexOf("firefox") > -1) {
+                brow = "火狐浏览器"
+            }
+            return brow;
+            }
+            var brow= getBrowser();
+            document.write("你使用的浏览器是：" + brow);
+        }
+    </script>
+</body>
+</html>
