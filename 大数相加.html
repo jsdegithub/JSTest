@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function bigNumberAdd(num1, num2) {
+                num1 = num1.split("").reverse();
+                num2 = num2.split("").reverse();
+                var maxLen = num1.length > num2.length ? num1.length : num2.length;
+                var res = "",
+                    temp = 0;
+                for (var i = 0; i < maxLen; i++) {
+                    temp = Number(num1[i] || 0) + Number(num2[i] || 0) + temp;
+                    res = (temp % 10) + res;
+                    temp = temp > 9;
+                }
+                if (temp) {
+                    res = "1" + res;
+                }
+                return res;
+            }
+
+            function smallNumAdd(num1, num2) {
+                var n1 = num1.split(".")[1];
+                var n2 = num2.split(".")[1];
+                var len1 = n1.length;
+                var len2 = n2.length;
+                var maxLen = len1 > len2 ? len1 : len2;
+                len1 > len2 ? (n2 = n2.padEnd(len1, 0)) : (n1 = n1.padEnd(len2, 0));
+                var smallPartRes = bigNumberAdd(n1, n2);
+                if (smallPartRes.length > maxLen) {
+                    return "1.".concat(smallPartRes);
+                } else {
+                    return "0.".concat(smallPartRes);
+                }
+            }
+
+            function bigAndSmallAdd(num1, num2) {
+                var num1BigPart = num1.split(".")[0];
+                var num2BigPart = num2.split(".")[0];
+                var num1SmallPart = "0.".concat(num1.split(".")[1] || "0");
+                var num2SmallPart = "0.".concat(num2.split(".")[1] || "0");
+                var bigRes = bigNumberAdd(num1BigPart, num2BigPart);
+                var smallRes = smallNumAdd(num1SmallPart, num2SmallPart);
+                if (Number(smallRes.split(".")[0])) {
+                    return bigNumberAdd(bigRes, 1).concat(".", smallRes.split(".")[1]);
+                } else {
+                    return bigRes.concat(".", smallRes.split(".")[1]);
+                }
+            }
+        </script>
+    </body>
+</html>
